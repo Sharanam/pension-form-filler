@@ -1,0 +1,501 @@
+<script>
+    // @ts-nocheck
+
+    export let file, index;
+</script>
+
+<div class="page border">
+    <div class="center no-spacing">
+        <h2>પેન્શન કેસ</h2>
+        <p>ગુજરાત સરકાર, નાણા વિભાગ, ઠરાવ ક્રમાંક : ડીપીપી/૨૦૦૬/ડી-૨૦૧/પી,</p>
+        <p>સચિવાલય, ગાંધીનગર, તા.૦૩-૦૩-૨૦૦૭</p>
+    </div>
+
+    <table style="width:100%;">
+        <tr>
+            <td>
+                <div class="border p-1" style="width:fit-content;">
+                    <div>સાતમા પગાર પંચ મુજબના છેલ્લા સુધારા સાથે</div>
+                </div>
+            </td>
+            <td>
+                <div style="width:fit-content; margin-left:auto;">
+                    <p>ડીપીપીએફની કચેરીએ ભરવાનું</p>
+                    <table class="border">
+                        <thead>
+                            <tr>
+                                <th class="p-1">માસ્ટર ક્રમાંક</th>
+                                <th class="p-1">શાખા</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="center no-spacing">
+        <p>
+            સરકારી રાજ્ય પત્રિત, સરકારી બિન રાજ્ય પત્રિત, વર્ક ચાર્જ કર્મચારી,
+            જીલ્લા પંચાયત કર્મચારી,
+        </p>
+        <p>રોજમદાર કર્મચારી, પેન્શન પાત્ર ગ્રાન્ટ ઇન સંસ્થાના કર્મચારી</p>
+    </div>
+    <table>
+        <tr>
+            <td class="field-head"> ૧ કર્મચારીનું નામ </td>
+            <td class="border">
+                <p class="field">
+                    <b>{file[index].karmchariNaam || " "}</b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="field-head">૨ કર્મચારીનો હોદ્દો</td>
+            <td class="border">
+                <p class="field">
+                    <b>{file[index].karmchariHoddo || " "}</b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="field-head">૩ કચેરીનું નામ</td>
+            <td class="border">
+                <p class="field" style="min-height:60px;">
+                    <b>{file[index].kacheriNaam || " "}</b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="field-head">૪ ખાતું</td>
+            <td class="border">
+                <p class="field">
+                    <b>{file[index].khaatu || " "}</b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="field-head">૫ વિભાગ</td>
+            <td class="border">
+                <p class="field">
+                    <b>{file[index].vibhaag || " "}</b>
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="field-head">૬ જન્મ તારીખ : આંકડામાં</td>
+            <td>
+                <p class="field">
+                    <span class="border field-padding">
+                        <b>{file[index].janmTarikh[0] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].janmTarikh[1] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].janmTarikh[2] || "."}</b>
+                    </span>
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="field-head">૭ નોકરીમા દાખલ તારીખ</td>
+
+            <td>
+                <p class="field">
+                    <span class="border field-padding">
+                        <b>{file[index].nokriDakhalTarikh[0] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].nokriDakhalTarikh[1] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].nokriDakhalTarikh[2] || "."}</b>
+                    </span>
+                </p>
+            </td></tr
+        >
+
+        <tr>
+            <td class="field-head">૮ નિવૃત્તિનો પ્રકાર</td>
+            <td class="border">
+                <p class="field">
+                    <b>{file[index].nivrutiPrakar || " "}</b>
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="field-head">૯ નિવૃત્તિની તારીખ</td>
+
+            <td>
+                <p class="field">
+                    <span class="border field-padding">
+                        <b>{file[index].nivrutiTarikh[0] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].nivrutiTarikh[1] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].nivrutiTarikh[2] || "."}</b>
+                    </span>
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="field-head">
+                <p style="margin:auto; margin-left:2em;">સંત્રાત</p>
+            </td>
+            <td>
+                <p class="field">
+                    <span class="border field-padding">
+                        <b>{file[index].santrat[0] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].santrat[1] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].santrat[2] || "."}</b>
+                    </span>
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td> ૧૦ અવસાન પામેલા કર્મચારીના કિસ્સામા અવસાન તારીખ </td>
+            <td>
+                <p class="field">
+                    <span class="border field-padding">
+                        <b>{file[index].avsaanTarik[0] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].avsaanTarik[1] || "."}</b>
+                    </span>
+                    <span class="border field-padding">
+                        <b>{file[index].avsaanTarik[2] || "."}</b>
+                    </span>
+                </p>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <p>
+            ભાગ - ૧ નિવૃત્ત થતાં કર્મચારીએ નિવૃત્તિના ૨૪ માસ પહેલાં આપવાની વિગતો
+        </p>
+        <p>ભાગ-૨ કચેરી / ખાતાના વડે આપવાની વિગતો</p>
+        <p>ભાગ-૩ અવસાન પામેલ કર્મચારીઓના કિસ્સામાં કુટુંબ પેન્શન માટેની અરજી</p>
+        <p>ભાગ-૪ કચેરીના વડા દ્વારા કુટુંબ પેન્શન મંજૂરી</p>
+
+        <div class="center no-spacing">
+            <p>ભાગ-૫ પેન્શનપાત્ર બિન સરકારી કર્મચારીઓ માટેનું ફોર્મ</p>
+            <p>
+                નાણાં વિભાગના તા.૩-૩-૨૦૦૭ના ઠરાવ ક્રમાંક ડીપીપી/૨૦૦૬/ડી-૨૦૧/પી
+                નં પરિશિષ્ટ
+            </p>
+        </div>
+        <div class="bhaag-5-pachhi">
+            <div>
+                <p>રજી.પી.એ.ડી</p>
+                <p>રુબરુ</p>
+                <p>પત્ર નં :</p>
+                <p>મોકલનાર કચેરીનું નામ :</p>
+            </div>
+            <div>
+                <p>ડીપીપીએફ કચેરીના ઉપયોગ માટે માસ્ટર કોડ નં</p>
+                <p class="border">.</p>
+                <p>ઉચ્ચ શિક્ષણ કમિશનરશ્રી,</p>
+                <p>જુના સચિવાલય</p>
+                <p>ગાંધીનગર.</p>
+            </div>
+        </div>
+        <div class="no-spacing">
+            <p>પ્રતિ,</p>
+            <p>પેન્શન અને પ્રોવિડન્ડ ફંડ નિયામકશ્રીની કચેરી</p>
+            <p>વિમાં અને લેખા ભવન, બ્લોક ન,૧૮, જીવરાજ મહેતા ભવન,</p>
+            <p>ગાંધીનગર ૩૮૨૦૧૦</p>
+        </div>
+        <div class="center">
+            <p>
+                વિષય : તારીખ
+                <b>
+                    {file[index].nivrutiTarikh
+                        .filter((v) => v.trim())
+                        .join("/") || "................."}
+                </b>
+                ના રોજ નિવૃત્ત થનાર/ થયેલ/અવસાન પામેલ શ્રી/શ્રીમતિ/સ્વ.
+                <b>
+                    {file[index].karmchariNaam ||
+                        "..............................................."}
+                </b>
+                ને મળવાપાત્ર પેન્શનની અધિકૃતિ કરવા બાબત
+            </p>
+        </div>
+        <p>મહાશય,</p>
+        <p class="indent">
+            ઉપરોક્ત વિષયે આ સાથે શ્રી/શ્રીમતિ/સ્વ.
+            {file[index].karmchariNaam ||
+                "..............................................."}
+            કે જેઓ તારીખ {file[index].nivrutiTarikh
+                ?.filter((v) => v.trim())
+                .join("/") ||
+                file[index].avsaanTarik?.filter((v) => v.trim())?.join("/") ||
+                "..........................................."}
+            ના રોજ નિવૃત્ત થનાર/ થયેલ/ અવસાન પામેલ છે. તેમની નિયમાનુસારની માહિતી
+            મેળવી પૈનાન પેપર્સ ભાગ-૧ કર્મચારીની વિગતો, ભાગ-૨ કચેરી સ્તરની વિગતો,
+            ભાગ ૩ અવસાનના કેસ માટે ભાગ ૪ અવસાન કેસ માટે કચેરી સ્તરની વિગત ભાગ ૫ ગ્રાન્ટ
+            ઇન એઇડ સંસ્થાના કર્મચારી માટે તૈયાર કરી (લાગુ ના પડતું છેંકી નાખવું)
+            ગુ.મ.સેવા (પેન્શન)ના નિયમો-૨૦૦૯ ના નિયમ - (50) અનુસાર પેન્શન મંજૂર કરી
+            સેવાપોથી સાથે મોકલેલ છે. તેઓને મળવાપાત્ર પેન્શન/કુટુંબ પેન્શન ગ્રેજ્યુઈટી,
+            પેન્શનનું મૂડીકૃત રૂપાતર વગેરે રકમો અંગે ગુ.મુ,સેવા (પેન્શન) નિયમો-૨૦૦૨ના
+            નિયમો ૧૨૮(૩) અન્વયે તિજોરી અધિકારીશ્રીને આપવાપાત્ર થતી અધિકૃતિઓ આપવા
+            વિનંતી છે.
+        </p>
+    </div>
+    <div class="tick">
+        <p>નિવૃત્ત થનાર કર્મચારીનો દરજ્જો ( લાગુ પડતું ટીક કરવુ)</p>
+        <table class="tick">
+            <tr>
+                <td>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="no-print"
+                            checked={file[index].isSarkariRajyaPatrit}
+                            on:change={(e) => {
+                                file[index].isSarkariRajyaPatrit =
+                                    e.target.checked;
+                            }}
+                            name="isSarkariRajyaPatrit"
+                        />
+                        <label for="isSarkariRajyaPatrit">
+                            (૧) સરકારી રાજ્ય પત્રિત
+                        </label>
+                        <span class="tick">
+                            {#if file[index].isSarkariRajyaPatrit}
+                                ✓
+                            {/if}
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="no-print"
+                            checked={file[index].isJillaPanchayatKar}
+                            on:change={(e) => {
+                                file[index].isJillaPanchayatKar =
+                                    e.target.checked;
+                            }}
+                            name="isJillaPanchayatKar"
+                        />
+                        <label for="isJillaPanchayatKar">
+                            (૪) જીલ્લા પંચાયત કર્મચારી
+                        </label>
+                        <span class="tick">
+                            {#if file[index].isJillaPanchayatKar}
+                                ✓
+                            {/if}
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="no-print"
+                            checked={file[index].isSarkariBinaRajyaPatrit}
+                            on:change={(e) => {
+                                file[index].isSarkariBinaRajyaPatrit =
+                                    e.target.checked;
+                            }}
+                            name="isSarkariBinaRajyaPatrit"
+                        />
+                        <label for="isSarkariBinaRajyaPatrit">
+                            (૨) સરકારી બિન રાજ્ય પત્રિત
+                        </label>
+                        <span class="tick">
+                            {#if file[index].isSarkariBinaRajyaPatrit}
+                                ✓
+                            {/if}
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="no-print"
+                            checked={file[index].isRojamadarKar}
+                            on:change={(e) => {
+                                file[index].isRojamadarKar = e.target.checked;
+                            }}
+                            name="isRojamadarKar"
+                        />
+                        <label for="isRojamadarKar">
+                            (૫) રોજમદાર કર્મચારી
+                        </label>
+                        <span class="tick">
+                            {#if file[index].isRojamadarKar}
+                                ✓
+                            {/if}
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="no-print"
+                            checked={file[index].isWorkChargeKar}
+                            on:change={(e) => {
+                                file[index].isWorkChargeKar = e.target.checked;
+                            }}
+                            name="isWorkChargeKar"
+                        />
+                        <label for="isWorkChargeKar">
+                            (૩) વર્ક ચાર્જ કર્મચારી
+                        </label>
+                        <span class="tick">
+                            {#if file[index].isWorkChargeKar}
+                                ✓
+                            {/if}
+                        </span>
+                    </div>
+                </td>
+
+                <td>
+                    <div>
+                        <input
+                            type="checkbox"
+                            class="no-print"
+                            checked={file[index].isPensionPatrGrantInAid}
+                            on:change={(e) => {
+                                file[index].isPensionPatrGrantInAid =
+                                    e.target.checked;
+                            }}
+                            name="isPensionPatrGrantInAid"
+                        />
+                        <label for="isPensionPatrGrantInAid">
+                            (૬) પેન્શન પાત્ર ગ્રાન્ટ ઇન એઇડ સંસ્થાના કર્મચારી
+                        </label>
+                        <span class="tick">
+                            {#if file[index].isPensionPatrGrantInAid}
+                                ✓
+                            {/if}
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-left:auto; width:fit-content;">
+        <p style="margin: auto; width:fit-content">સહી</p>
+        <p style="margin-top: 3em;">પેન્શન મંજુર કરનાર અધિકારી</p>
+    </div>
+    <div>
+        <p>સ્થળ : .......................</p>
+        <p>
+            તારીખ :
+            <span
+                on:click={(e) => {
+                    e.target.contentEditable = true;
+                    e.target.focus();
+                }}
+                on:blur={(e) => {
+                    e.target.contentEditable = false;
+                }}
+                on:keydown={(e) => {
+                    if (e.key === "Enter") {
+                        e.target.contentEditable = false;
+                        e.target.blur();
+                    }
+                }}
+            >
+                {new Date().toLocaleDateString()}
+            </span>
+        </p>
+    </div>
+    <div>
+        <p>
+            નોંધ : પ્રતિનિયુક્ત ઉપરના કર્મચારીનો કેસ તેના મુળ ખાતે/કચેરી
+            મોકલવાનો રહે છે.
+        </p>
+        <p>
+            રાજ્ય સરકાર ગ્રાન્ટ ઇન એઇડ શાળા કોલેજના કમચારીઓના કેસ ડીપીપીએફને
+            મોકલવાના રહેશે. અને જીલ્લા પંચાયત કર્મચારીઓ સંવર્ઘના કેસ જીલ્લા
+            સહાયક નિરિક્ષકશ્રીને મોકલવાના રહેશે.
+        </p>
+    </div>
+</div>
+
+<style>
+    .field {
+        display: block;
+        margin: 0.2em;
+        width: 100%;
+    }
+    .field-padding {
+        padding: 0.2em;
+        display: inline-block;
+        min-width: 15em;
+        min-height: 100%;
+    }
+    .field-head {
+        width: 20%;
+    }
+    table {
+        width: 100%;
+        table-layout: fixed;
+    }
+    .bhaag-5-pachhi > * {
+        display: inline-block;
+        width: 50%;
+    }
+    .bhaag-5-pachhi {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+    }
+    p.indent {
+        text-indent: 2em;
+    }
+    table.tick tr td div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: space-between;
+        gap: 0.5em;
+    }
+    table.tick tr td div label {
+        flex-grow: 1;
+    }
+    table.tick tr td div span.tick {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-right: max(1em, 20%);
+    }
+    @media screen {
+        table.tick tr td div span.tick {
+            display: none;
+        }
+    }
+</style>
