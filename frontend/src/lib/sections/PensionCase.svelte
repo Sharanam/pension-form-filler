@@ -1,7 +1,8 @@
 <script>
     // @ts-nocheck
-
+    import { toString } from "../tools/toString";
     export let file, index;
+    $: kNaam = toString(file[index].karmchariNaam, " ");
 </script>
 
 <div class="page border">
@@ -11,7 +12,7 @@
         <p>સચિવાલય, ગાંધીનગર, તા.૦૩-૦૩-૨૦૦૭</p>
     </div>
 
-    <table style="width:100%;">
+    <table class="layed-out" style="width:100%;">
         <tr>
             <td>
                 <div class="border p-1" style="width:fit-content;">
@@ -21,7 +22,7 @@
             <td>
                 <div style="width:fit-content; margin-left:auto;">
                     <p>ડીપીપીએફની કચેરીએ ભરવાનું</p>
-                    <table class="border">
+                    <table class="layed-out border">
                         <thead>
                             <tr>
                                 <th class="p-1">માસ્ટર ક્રમાંક</th>
@@ -47,12 +48,12 @@
         </p>
         <p>રોજમદાર કર્મચારી, પેન્શન પાત્ર ગ્રાન્ટ ઇન સંસ્થાના કર્મચારી</p>
     </div>
-    <table>
+    <table class="layed-out">
         <tr>
             <td class="field-head"> ૧ કર્મચારીનું નામ </td>
             <td class="border">
                 <p class="field">
-                    <b>{file[index].karmchariNaam || " "}</b>
+                    <b>{kNaam || " "}</b>
                 </p>
             </td>
         </tr>
@@ -229,12 +230,11 @@
                 <b>
                     {file[index].nivrutiTarikh
                         .filter((v) => v.trim())
-                        .join("/") || "................."}
+                        .join("/") || ".".repeat(16)}
                 </b>
                 ના રોજ નિવૃત્ત થનાર/ થયેલ/અવસાન પામેલ શ્રી/શ્રીમતિ/સ્વ.
                 <b>
-                    {file[index].karmchariNaam ||
-                        "..............................................."}
+                    {kNaam || ".".repeat(45)}
                 </b>
                 ને મળવાપાત્ર પેન્શનની અધિકૃતિ કરવા બાબત
             </p>
@@ -242,13 +242,12 @@
         <p>મહાશય,</p>
         <p class="indent">
             ઉપરોક્ત વિષયે આ સાથે શ્રી/શ્રીમતિ/સ્વ.
-            {file[index].karmchariNaam ||
-                "..............................................."}
+            {kNaam || ".".repeat(45)}
             કે જેઓ તારીખ {file[index].nivrutiTarikh
                 ?.filter((v) => v.trim())
                 .join("/") ||
                 file[index].avsaanTarik?.filter((v) => v.trim())?.join("/") ||
-                "..........................................."}
+                "".repeat(45)}
             ના રોજ નિવૃત્ત થનાર/ થયેલ/ અવસાન પામેલ છે. તેમની નિયમાનુસારની માહિતી
             મેળવી પૈનાન પેપર્સ ભાગ-૧ કર્મચારીની વિગતો, ભાગ-૨ કચેરી સ્તરની વિગતો,
             ભાગ ૩ અવસાનના કેસ માટે ભાગ ૪ અવસાન કેસ માટે કચેરી સ્તરની વિગત ભાગ ૫ ગ્રાન્ટ
@@ -262,7 +261,7 @@
     </div>
     <div class="tick">
         <p>નિવૃત્ત થનાર કર્મચારીનો દરજ્જો ( લાગુ પડતું ટીક કરવુ)</p>
-        <table class="tick">
+        <table class="tick layed-out">
             <tr>
                 <td>
                     <div>
@@ -408,7 +407,7 @@
         <p style="margin-top: 3em;">પેન્શન મંજુર કરનાર અધિકારી</p>
     </div>
     <div>
-        <p>સ્થળ : .......................</p>
+        <p>સ્થળ : {".".repeat(23)}</p>
         <p>
             તારીખ :
             <span
@@ -458,10 +457,7 @@
     .field-head {
         width: 20%;
     }
-    table {
-        width: 100%;
-        table-layout: fixed;
-    }
+
     .bhaag-5-pachhi > * {
         display: inline-block;
         width: 50%;
@@ -471,9 +467,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         flex: 1 1 100%;
-    }
-    p.indent {
-        text-indent: 2em;
     }
     table.tick tr td div {
         display: flex;

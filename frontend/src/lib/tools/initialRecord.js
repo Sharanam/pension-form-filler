@@ -4,7 +4,7 @@ export function initialRecord() {
         /*
          * Pension case data
          */
-        karmchariNaam: "",
+        karmchariNaam: ["", "", ""],
         karmchariHoddo: "",
         kacheriNaam: "",
         khaatu: "",
@@ -24,5 +24,9 @@ export function initialRecord() {
         isRojamadarKar: false,
         isWorkChargeKar: false,
         isPensionPatrGrantInAid: false,
+        /*
+         * Pension case -1
+         */
+        address: "",
     }
 }

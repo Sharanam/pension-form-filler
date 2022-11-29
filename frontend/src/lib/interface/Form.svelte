@@ -9,7 +9,23 @@
     <h1>અહીં વિગતો દાખલ કરો.</h1>
     <div>
         ૧ કર્મચારીનું નામ:
-        <input type="text" bind:value={file[index].karmchariNaam} />
+        <div>
+            <input
+                type="text"
+                placeholder=" અટક "
+                bind:value={file[index].karmchariNaam[0]}
+            />
+            <input
+                type="text"
+                placeholder=" નામ "
+                bind:value={file[index].karmchariNaam[1]}
+            />
+            <input
+                type="text"
+                placeholder=" પિતા/ પતિનું નામ "
+                bind:value={file[index].karmchariNaam[2]}
+            />
+        </div>
     </div>
     <div>
         ૨ કર્મચારીનો હોદ્દો:
@@ -106,6 +122,13 @@
             }}
         />
     </div>
+    <div>
+        <div class="no-space">
+            <p>પત્રવ્યવહારનું સરનામું</p>
+            <p>(પીનકોડ ટેલીફોન નંબર સાથે )</p>
+        </div>
+        <textarea bind:value={file[index].address} rows="3" cols="50" />
+    </div>
 </div>
 
 <style>
@@ -116,9 +139,10 @@
         margin: 1rem 0;
     }
     .dark {
-        background-color: #333;
+        background-color: darkslateblue;
         color: #fff;
         padding: 1rem;
+        margin: 1rem 0;
     }
     h1 {
         text-align: center;
