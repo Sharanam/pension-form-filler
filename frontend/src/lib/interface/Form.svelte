@@ -3,6 +3,7 @@
 
     import { dateString } from "../tools/dateString";
     import FamilyMembers from "./FamilyMembers.svelte";
+    import KarmchariDarjjo from "./KarmchariDarjjo.svelte";
     export let file, index;
 </script>
 
@@ -130,6 +131,7 @@
         </div>
         <textarea bind:value={file[index].address} rows="3" cols="50" />
     </div>
+    <KarmchariDarjjo bind:file bind:index />
     <FamilyMembers bind:file bind:index />
 </div>
 
