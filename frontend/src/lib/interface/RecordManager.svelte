@@ -1,4 +1,5 @@
 <script>
+    import { deleteRecord } from "../tools/deleteRecord";
     import { initialRecord } from "../tools/initialRecord";
 
     export let file = [];
@@ -17,14 +18,11 @@
     </button>
     <button
         on:click={() => {
-            if (confirm("Are you sure you want to delete this record?")) {
-                file = file.filter((_, i) => i !== currentRecord);
-                currentRecord = currentRecord - 1 < 0 ? 0 : currentRecord - 1;
-            }
+            [file, currentRecord] = deleteRecord(file, currentRecord);
         }}
         disabled={file.length === 1}
         class="negative"
     >
-        Delete This Record
+        Delete Current Record
     </button>
 </div>

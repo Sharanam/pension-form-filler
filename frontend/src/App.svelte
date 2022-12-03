@@ -10,6 +10,7 @@
   import SevaPothi from "./lib/sections/SevaPothi.svelte";
   import { initialRecord } from "./lib/tools/initialRecord";
   import PensionCase1 from "./lib/sections/PensionCase1.svelte";
+  import RecordTable from "./lib/interface/RecordTable.svelte";
 
   let index = 0;
 
@@ -23,6 +24,7 @@
   {#if file}
     <RecordNavigator records={file?.length} bind:currentRecord={index} />
     <RecordManager bind:file bind:currentRecord={index} />
+    <RecordTable bind:file bind:index />
   {/if}
   <Form {index} bind:file />
 
@@ -35,6 +37,6 @@
   <!-- page ends -->
 
   <!-- interface starts -->
-  <Output />
+  <Output {file} />
   <!-- interface ends -->
 </main>

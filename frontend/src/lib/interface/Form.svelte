@@ -2,6 +2,7 @@
     // @ts-nocheck
 
     import { dateString } from "../tools/dateString";
+    import FamilyMembers from "./FamilyMembers.svelte";
     export let file, index;
 </script>
 
@@ -129,6 +130,7 @@
         </div>
         <textarea bind:value={file[index].address} rows="3" cols="50" />
     </div>
+    <FamilyMembers bind:file bind:index />
 </div>
 
 <style>

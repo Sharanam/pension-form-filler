@@ -228,9 +228,7 @@
             <p>
                 વિષય : તારીખ
                 <b>
-                    {file[index].nivrutiTarikh
-                        .filter((v) => v.trim())
-                        .join("/") || ".".repeat(16)}
+                    {toString(file[index].nivrutiTarikh, "/") || ".".repeat(16)}
                 </b>
                 ના રોજ નિવૃત્ત થનાર/ થયેલ/અવસાન પામેલ શ્રી/શ્રીમતિ/સ્વ.
                 <b>
@@ -243,10 +241,8 @@
         <p class="indent">
             ઉપરોક્ત વિષયે આ સાથે શ્રી/શ્રીમતિ/સ્વ.
             {kNaam || ".".repeat(45)}
-            કે જેઓ તારીખ {file[index].nivrutiTarikh
-                ?.filter((v) => v.trim())
-                .join("/") ||
-                file[index].avsaanTarik?.filter((v) => v.trim())?.join("/") ||
+            કે જેઓ તારીખ {toString(file[index].nivrutiTarikh, "/") ||
+                toString(file[index].avsaanTarik, "/") ||
                 "".repeat(45)}
             ના રોજ નિવૃત્ત થનાર/ થયેલ/ અવસાન પામેલ છે. તેમની નિયમાનુસારની માહિતી
             મેળવી પૈનાન પેપર્સ ભાગ-૧ કર્મચારીની વિગતો, ભાગ-૨ કચેરી સ્તરની વિગતો,
@@ -271,14 +267,14 @@
                             checked={file[index].isSarkariRajyaPatrit}
                             on:change={(e) => {
                                 file[index].isSarkariRajyaPatrit =
-                                    e.target.checked;
+                                    e.target.checked || undefined;
                             }}
                             name="isSarkariRajyaPatrit"
                         />
                         <label for="isSarkariRajyaPatrit">
                             (૧) સરકારી રાજ્ય પત્રિત
                         </label>
-                        <span class="tick">
+                        <span class="tick no-screen">
                             {#if file[index].isSarkariRajyaPatrit}
                                 ✓
                             {/if}
@@ -293,14 +289,14 @@
                             checked={file[index].isJillaPanchayatKar}
                             on:change={(e) => {
                                 file[index].isJillaPanchayatKar =
-                                    e.target.checked;
+                                    e.target.checked || undefined;
                             }}
                             name="isJillaPanchayatKar"
                         />
                         <label for="isJillaPanchayatKar">
                             (૪) જીલ્લા પંચાયત કર્મચારી
                         </label>
-                        <span class="tick">
+                        <span class="tick no-screen">
                             {#if file[index].isJillaPanchayatKar}
                                 ✓
                             {/if}
@@ -317,14 +313,14 @@
                             checked={file[index].isSarkariBinaRajyaPatrit}
                             on:change={(e) => {
                                 file[index].isSarkariBinaRajyaPatrit =
-                                    e.target.checked;
+                                    e.target.checked || undefined;
                             }}
                             name="isSarkariBinaRajyaPatrit"
                         />
                         <label for="isSarkariBinaRajyaPatrit">
                             (૨) સરકારી બિન રાજ્ય પત્રિત
                         </label>
-                        <span class="tick">
+                        <span class="tick no-screen">
                             {#if file[index].isSarkariBinaRajyaPatrit}
                                 ✓
                             {/if}
@@ -338,14 +334,15 @@
                             class="no-print"
                             checked={file[index].isRojamadarKar}
                             on:change={(e) => {
-                                file[index].isRojamadarKar = e.target.checked;
+                                file[index].isRojamadarKar =
+                                    e.target.checked || undefined;
                             }}
                             name="isRojamadarKar"
                         />
                         <label for="isRojamadarKar">
                             (૫) રોજમદાર કર્મચારી
                         </label>
-                        <span class="tick">
+                        <span class="tick no-screen">
                             {#if file[index].isRojamadarKar}
                                 ✓
                             {/if}
@@ -361,14 +358,15 @@
                             class="no-print"
                             checked={file[index].isWorkChargeKar}
                             on:change={(e) => {
-                                file[index].isWorkChargeKar = e.target.checked;
+                                file[index].isWorkChargeKar =
+                                    e.target.checked || undefined;
                             }}
                             name="isWorkChargeKar"
                         />
                         <label for="isWorkChargeKar">
                             (૩) વર્ક ચાર્જ કર્મચારી
                         </label>
-                        <span class="tick">
+                        <span class="tick no-screen">
                             {#if file[index].isWorkChargeKar}
                                 ✓
                             {/if}
@@ -384,14 +382,14 @@
                             checked={file[index].isPensionPatrGrantInAid}
                             on:change={(e) => {
                                 file[index].isPensionPatrGrantInAid =
-                                    e.target.checked;
+                                    e.target.checked || undefined;
                             }}
                             name="isPensionPatrGrantInAid"
                         />
                         <label for="isPensionPatrGrantInAid">
                             (૬) પેન્શન પાત્ર ગ્રાન્ટ ઇન એઇડ સંસ્થાના કર્મચારી
                         </label>
-                        <span class="tick">
+                        <span class="tick no-screen">
                             {#if file[index].isPensionPatrGrantInAid}
                                 ✓
                             {/if}
@@ -468,27 +466,22 @@
         flex-wrap: wrap;
         flex: 1 1 100%;
     }
-    table.tick tr td div {
+    table.tick > tr > td > div {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: space-between;
         gap: 0.5em;
     }
-    table.tick tr td div label {
+    table.tick > tr > td > div > label {
         flex-grow: 1;
     }
-    table.tick tr td div span.tick {
+    table.tick > tr > td > div > span.tick {
         flex-grow: 0;
         flex-shrink: 0;
         flex-basis: auto;
         font-size: 1.5em;
         font-weight: bold;
         margin-right: max(1em, 20%);
-    }
-    @media screen {
-        table.tick tr td div span.tick {
-            display: none;
-        }
     }
 </style>

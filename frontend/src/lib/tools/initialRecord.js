@@ -1,6 +1,6 @@
 export function initialRecord() {
     return {
-        pages: [1, 5, 6, 7, 8, 10], // seva pothi pages
+        pages: [], // seva pothi pages
         /*
          * Pension case data
          */
@@ -18,15 +18,23 @@ export function initialRecord() {
         /*
          * Bhaag-5 data
          */
-        isSarkariRajyaPatrit: false,
-        isJillaPanchayatKar: false,
-        isSarkariBinaRajyaPatrit: false,
-        isRojamadarKar: false,
-        isWorkChargeKar: false,
-        isPensionPatrGrantInAid: false,
+        isSarkariRajyaPatrit: undefined,
+        isJillaPanchayatKar: undefined,
+        isSarkariBinaRajyaPatrit: undefined,
+        isRojamadarKar: undefined,
+        isWorkChargeKar: undefined,
+        isPensionPatrGrantInAid: undefined,
         /*
          * Pension case -1
          */
         address: "",
+        // કુટુંબના સભ્યોના નામ	
+        // જન્મ તારીખ	
+        // કર્મચારી/ અધિકારી સાથે સંબંધ
+        // નોંધ         
+        members: [
+            ["", ["", "", ""], "", ""],
+            ["", ["", "", ""], "", ""],
+        ]
     }
 }

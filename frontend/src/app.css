@@ -30,7 +30,7 @@ div.page {
     min-height: 80vh;
 }
 
-div.center {
+.center {
     text-align: center;
 }
 
@@ -118,11 +118,30 @@ table.border th {
     border-collapse: collapse;
 }
 
+.usually-hidden>* {
+    opacity: 0;
+}
+
+.usually-hidden:hover>* {
+    opacity: 1;
+}
+
 @media print {
     .no-print {
         display: none;
     }
     div.page {
         margin: 0;
+    }
+}
+
+@media screen {
+    .no-screen {
+        display: none;
+    }
+    body {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
     }
 }
