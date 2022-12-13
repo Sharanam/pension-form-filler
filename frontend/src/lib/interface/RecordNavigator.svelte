@@ -10,7 +10,7 @@
         }}
         disabled={currentRecord === 0}
     >
-        First
+        &lt;&lt; First
     </button>
     <button
         on:click={() => {
@@ -20,7 +20,7 @@
         }}
         disabled={currentRecord === 0}
     >
-        Previous
+        &lt; Previous
     </button>
     <button
         on:click={() => {
@@ -30,7 +30,7 @@
         }}
         disabled={currentRecord === records - 1}
     >
-        Next
+        Next &gt;
     </button>
     <button
         on:click={() => {
@@ -38,7 +38,7 @@
         }}
         disabled={currentRecord === records - 1}
     >
-        Last
+        Last &gt;&gt;
     </button>
     <div>
         Current Record: {currentRecord + 1} of {records}

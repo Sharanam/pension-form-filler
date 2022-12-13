@@ -2,41 +2,53 @@
   // @ts-nocheck
 
   import FileInput from "./lib/interface/FileInput.svelte";
-  import Form from "./lib/interface/Form.svelte";
+  import InputInterface from "./lib/interface/InputInterface.svelte";
   import RecordManager from "./lib/interface/RecordManager.svelte";
   import Output from "./lib/interface/Output.svelte";
   import RecordNavigator from "./lib/interface/RecordNavigator.svelte";
-  import PensionCase from "./lib/sections/PensionCase.svelte";
-  import SevaPothi from "./lib/sections/SevaPothi.svelte";
+
   import { initialRecord } from "./lib/tools/initialRecord";
-  import PensionCase1 from "./lib/sections/PensionCase1.svelte";
   import RecordTable from "./lib/interface/RecordTable.svelte";
+  import PrintableUnit from "./lib/interface/PrintableUnit.svelte";
 
   let index = 0;
 
   let file = [initialRecord()];
-  $: data = file[index];
+  let showAll = false;
 </script>
 
 <main>
   <!-- interface starts -->
   <FileInput bind:data={file} bind:index />
+  <Output {file} bind:showAll />
+  <hr />
   {#if file}
     <RecordNavigator records={file?.length} bind:currentRecord={index} />
     <RecordManager bind:file bind:currentRecord={index} />
     <RecordTable bind:file bind:index />
   {/if}
-  <Form {index} bind:file />
+  <InputInterface {index} bind:file />
 
   <!-- interface ends -->
 
-  <!-- page starts -->
-  <SevaPothi page={data?.pages} />
-  <PensionCase bind:file {index} />
-  <PensionCase1 bind:file {index} />
-  <!-- page ends -->
-
-  <!-- interface starts -->
-  <Output {file} />
-  <!-- interface ends -->
+  {#if showAll}
+    {#each file as _, i}
+      <div class={`page-${i % 2 ? "odd" : "even"}`}>
+        <PrintableUnit bind:file index={i} />
+      </div>
+    {/each}
+  {:else}
+    <PrintableUnit bind:file bind:index />
+  {/if}
 </main>
+
+<style>
+  @media screen {
+    .page-even {
+      background-color: lightpink;
+    }
+    .page-odd {
+      background-color: lightblue;
+    }
+  }
+</style>

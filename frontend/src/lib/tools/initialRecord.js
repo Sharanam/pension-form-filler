@@ -34,7 +34,26 @@ export function initialRecord() {
         // નોંધ         
         members: [
             ["", ["", "", ""], "", ""],
-            ["", ["", "", ""], "", ""],
-        ]
+        ],
+
+        /*
+        ૯ જીલ્લા/ પેટા તિજોરીએથી 
+        */
+        petaTijori: "",
+        jillo: "",
+        taluko: "",
+
+        mudikrut: "",
+        mudikrutTarikh: new Date().toLocaleDateString("en-GB").split("/"),
+        // 13: 
+        apangSabhya: "",
+        vali: "",
+        // 15 (2):
+        sagir: false,
+        nayuktSagir: ["", "", ""],
+        sadarhu: "",
+        sagirAddress: "",
+        pentionerSatheSambandh: "",
+
     }
 }

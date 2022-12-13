@@ -1,14 +1,31 @@
 <script>
-    export let file;
+    export let file, showAll;
 </script>
 
-<div class="no-print">
+<div class="no-print output">
+    <div
+        style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    "
+    >
+        <input
+            type="checkbox"
+            bind:checked={showAll}
+            id="showAll"
+            name="showAll"
+            value="showAll"
+        />
+        <label for="showAll">Show all records</label>
+    </div>
+
     <button
         on:click={() => {
             window.print();
         }}
     >
-        Print This Record
+        {showAll ? "Print all records" : "Print current record"}
     </button>
 
     <button
@@ -37,5 +54,12 @@
     div {
         width: fit-content;
         margin: auto;
+    }
+    div.output {
+        background-color: lightpink;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        margin: 1rem 0;
     }
 </style>

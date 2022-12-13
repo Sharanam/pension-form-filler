@@ -1,6 +1,7 @@
 <script>
     // @ts-nocheck
     import KarmchariDarjjo from "../interface/KarmchariDarjjo.svelte";
+    import { toGujarati } from "../tools/toGujarati";
     import { toString } from "../tools/toString";
     export let file, index;
     $: kNaam = toString(file[index].karmchariNaam, " ");
@@ -281,7 +282,10 @@
                     }
                 }}
             >
-                {new Date().toLocaleDateString()}
+                {toGujarati(new Date().toLocaleDateString("en-CA") || "")
+                    .split("-")
+                    .reverse()
+                    .join("-")}
             </span>
         </p>
     </div>
