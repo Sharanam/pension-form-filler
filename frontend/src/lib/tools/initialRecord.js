@@ -2,7 +2,6 @@ import { mudikrutRakam } from "./constantValues";
 
 export function initialRecord() {
     return {
-        pages: [], // seva pothi pages
         /*
          * Pension case data
          */
