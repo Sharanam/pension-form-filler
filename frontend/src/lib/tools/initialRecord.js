@@ -1,3 +1,5 @@
+import { mudikrutRakam } from "./constantValues";
+
 export function initialRecord() {
     return {
         pages: [], // seva pothi pages
@@ -43,7 +45,7 @@ export function initialRecord() {
         jillo: "",
         taluko: "",
 
-        mudikrut: "",
+        mudikrut: "40%",
         mudikrutTarikh: new Date().toLocaleDateString("en-GB").split("/"),
         // 13: 
         apangSabhya: "",
@@ -54,6 +56,31 @@ export function initialRecord() {
         sadarhu: "",
         sagirAddress: "",
         pentionerSatheSambandh: "",
+        // 22:
+        monthWiseRecord: [
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+            ["", "", "", "", "", ],
+        ],
+        // 27
+        // મુડીકૃત રકમ nu table
+        mudikrutRakam: mudikrutRakam,
+        // 28(2)
 
+        leniRakamNiVigato: [
+            ["મકાન પેશગી ", "", "", "", "", "", ],
+            ["વાહન પેશગી ", "", "", "", "", "", ],
+            ["પગાર ભથ્થાની વસુલાત ", "", "", "", "", "", ],
+            ["અન્ય વસુલાત ", "", "", "", "", "", , ],
+            ["", "", "", "", "", ],
+
+        ]
     }
 }

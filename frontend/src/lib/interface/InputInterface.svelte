@@ -163,6 +163,7 @@
                 placeholder="% મૂડીકૃત રૂપાંતર"
             />
 
+            <label for="dateOfSubmission"> રૂપાંતરની તારીખ (આજ રોજ): </label>
             <input
                 type="date"
                 value={dateString(
@@ -179,7 +180,6 @@
         </div>
     </div>
     <div>
-        <!-- disabled family member and their taking care person -->
         <p>અપંગ સભ્ય અને તેના સંબંધીનું માહિતી:</p>
         <div>
             <input
@@ -234,12 +234,14 @@
                     placeholder="સરનામું પીનકોડ સહિત"
                 />
                 <div>
-                    <label for="pentionerSatheSambandh"
-                        >પેન્શનર સાથે સંબંધ</label
-                    >
+                    <label for="pentionerSatheSambandh">
+                        પેન્શનર સાથે સંબંધ
+                    </label>
+
                     <input
                         type="text"
                         bind:value={file[index].pentionerSatheSambandh}
+                        placeholder="પુત્રી"
                     />
                 </div>
             {/if}
