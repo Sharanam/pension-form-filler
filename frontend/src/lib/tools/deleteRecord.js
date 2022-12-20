@@ -1,5 +1,6 @@
-export function deleteRecord(file, id) {
+export function deleteRecord(data, index) {
     if (confirm("Are you sure you want to delete this record?")) {
-        return [file.filter((_, i) => i !== id), id - 1 < 0 ? 0 : id - 1];
+        return [data.filter((_, i) => i !== index), index - 1 < 0 ? 0 : index - 1];
     }
+    return [data, index];
 }

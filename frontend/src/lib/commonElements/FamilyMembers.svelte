@@ -1,14 +1,16 @@
 <script>
     // @ts-nocheck
 
-    import { dateString } from "../tools/dateString";
     import { toGujarati } from "../tools/toGujarati";
     import { toString } from "../tools/toString";
+    import { data } from "../globalState/data";
 
-    export let file, index;
-
+    export let i = 0;
     function updateFamilyMembers(value, member, field) {
-        file[index].members[member][field] = value || "";
+        $data[i].members[member][field] = value || "";
+    }
+    function updateDobOfFamilyMembers(value, member, field, j) {
+        $data[i].members[member][field][j] = value || "";
     }
 </script>
 
@@ -24,7 +26,7 @@
         </tr>
     </thead>
     <tbody>
-        {#each file[index].members as member, i}
+        {#each $data[i].members as member, i}
             <tr class="member-row">
                 <td>
                     {toGujarati(i + 1)}
@@ -45,22 +47,47 @@
                 </td>
                 <td class="initial">
                     <div class="no-print">
-                        <input
-                            type="date"
-                            value={dateString(
-                                member[1][2],
-                                member[1][1],
-                                member[1][0]
-                            )}
-                            on:change={(e) => {
-                                let date = e.target.value.split("-");
-                                updateFamilyMembers(
-                                    [date[2], date[1], date[0]],
-                                    i,
-                                    1
-                                );
-                            }}
-                        />
+                        <div class="dob">
+                            <input
+                                type="text"
+                                placeholder="dd"
+                                value={member[1][0]}
+                                on:change={(e) => {
+                                    updateDobOfFamilyMembers(
+                                        e.target.value,
+                                        i,
+                                        1,
+                                        0
+                                    );
+                                }}
+                            />
+                            <input
+                                type="text"
+                                placeholder="mm"
+                                value={member[1][1]}
+                                on:change={(e) => {
+                                    updateDobOfFamilyMembers(
+                                        e.target.value,
+                                        i,
+                                        1,
+                                        1
+                                    );
+                                }}
+                            />
+                            <input
+                                type="text"
+                                placeholder="yyyy"
+                                value={member[1][2]}
+                                on:change={(e) => {
+                                    updateDobOfFamilyMembers(
+                                        e.target.value,
+                                        i,
+                                        1,
+                                        2
+                                    );
+                                }}
+                            />
+                        </div>
                     </div>
                     <span class="no-screen">
                         {toString(member[1], "/")}
@@ -102,9 +129,9 @@
                                     "Are you sure you want to delete this member?"
                                 )
                             ) {
-                                file[index].members = file[
-                                    index
-                                ].members.filter((_, j) => j !== i);
+                                $data[i].members = $data[i].members.filter(
+                                    (_, j) => j !== i
+                                );
                             }
                         }}
                         class="negative"
@@ -119,8 +146,8 @@
             <td colspan="6">
                 <button
                     on:click={() => {
-                        file[index].members = [
-                            ...file[index].members,
+                        $data[i].members = [
+                            ...$data[i].members,
                             ["", ["", "", ""], "", ""],
                         ];
                     }}
@@ -143,7 +170,8 @@
         box-shadow: 0 0 10px darkgoldenrod;
     }
     .member-row:hover > .initial > div > input,
-    input:focus {
+    input:focus,
+    .member-row:hover > .initial > div > div > input {
         border: 1px solid darkmagenta;
         color: aliceblue;
         background: darkmagenta;
@@ -158,5 +186,14 @@
     }
     .initial {
         padding: 0;
+    }
+    .dob {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .dob > * {
+        width: 30%;
+        font-size: 0.8em;
     }
 </style>

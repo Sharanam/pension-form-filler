@@ -1,4 +1,5 @@
 <script>
+    import RecordManager from "./RecordManager.svelte";
     let y = 0;
 </script>
 
@@ -15,6 +16,7 @@
             Back to top
         </button>
     {/if}
+    <RecordManager />
 </footer>
 
 <svelte:window bind:scrollY={y} />

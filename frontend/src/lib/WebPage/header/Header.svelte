@@ -2,8 +2,8 @@
     import AppendExistingFile from "./AppendExistingFile.svelte";
     import OpenExistingFile from "./OpenExistingFile.svelte";
     import { data, preferences } from "../../globalState/data";
-    let file;
-    data.subscribe((data) => (file = data));
+    import { exportCSV, exportJSON } from "../../tools/exportFiles";
+
     export let showAll = false;
     preferences.subscribe((preferences) => (showAll = preferences.showAll));
 </script>
@@ -25,27 +25,7 @@
                     <li>
                         <button
                             on:click={() => {
-                                let dataStr =
-                                    "data:text/json;charset=utf-8," +
-                                    encodeURIComponent(JSON.stringify(file));
-                                let downloadAnchorNode =
-                                    document.createElement("a");
-                                downloadAnchorNode.setAttribute(
-                                    "href",
-                                    dataStr
-                                );
-                                downloadAnchorNode.setAttribute(
-                                    "download",
-                                    `${new Date()
-                                        .toDateString()
-                                        .replace(
-                                            /[-:, ]/g,
-                                            ""
-                                        )}.pension.records`
-                                );
-                                document.body.appendChild(downloadAnchorNode); // required for firefox
-                                downloadAnchorNode.click();
-                                downloadAnchorNode.remove();
+                                exportJSON($data);
                             }}
                         >
                             Export these records
@@ -60,6 +40,32 @@
                             {showAll
                                 ? "Print all records"
                                 : "Print current record"}
+
+                            ( Ctrl + P)
+                        </button>
+                    </li>
+                    <hr />
+                    <li>
+                        <button
+                            on:click={() => {
+                                if (
+                                    confirm(
+                                        "Are you sure you want to start a new file? All unsaved changes will be lost."
+                                    )
+                                )
+                                    window.location.reload();
+                            }}
+                        >
+                            New file
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            on:click={() => {
+                                exportCSV($data);
+                            }}
+                        >
+                            Export summary in CSV File
                         </button>
                     </li>
                 </ul>
@@ -92,8 +98,11 @@
     }
     nav {
         cursor: pointer;
+
+        font: inherit;
+        font-weight: 700;
+        font-size: 1.2em;
     }
-    /* nav buttons look ugly, I want them to be in vertically centered */
     nav > ul {
         display: flex;
         align-items: center;
@@ -140,9 +149,8 @@
         cursor: pointer;
         margin: 0;
         text-align: inherit;
-        font: inherit;
-        font-weight: bold;
         padding: 0;
+        font: inherit;
     }
     ul.submenu > li > button:focus,
     ul.submenu > li > button:hover {

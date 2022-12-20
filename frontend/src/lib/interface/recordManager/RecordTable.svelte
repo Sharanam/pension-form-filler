@@ -1,8 +1,8 @@
 <script>
-    import { deleteRecord } from "../tools/deleteRecord";
-    import { toString } from "../tools/toString";
+    import { toString } from "../../tools/toString";
 
-    export let file, index;
+    import { data, index } from "../../globalState/data";
+    import { deleteRecord } from "../../tools/deleteRecord";
 </script>
 
 <div
@@ -12,7 +12,7 @@ overflow-y: auto;
 "
     class="no-print"
 >
-    {#if file.length > 1}
+    {#if $data.length > 1}
         <table>
             <thead>
                 <th> ક્રમાંક </th>
@@ -24,10 +24,19 @@ overflow-y: auto;
                 <th> રેકોર્ડ કાઢી નાખો </th>
             </thead>
             <tbody>
-                {#each file as record, i}
-                    <tr class:active={i === index} on:click={() => (index = i)}>
+                {#each $data as record, i}
+                    <tr
+                        class:active={i === $index}
+                        on:click={() => index.set(i)}
+                    >
                         <td class="center">{i + 1}</td>
-                        <td>{toString(record.karmchariNaam, " ") || ""}</td>
+                        <td
+                            >{toString(
+                                record.karmchariNaam[0] ||
+                                    record.karmchariNaam[1],
+                                " "
+                            ) || ""}</td
+                        >
                         <td class="center">{record.karmchariHoddo || ""}</td>
                         <td class="center">{record.kacheriNaam || ""}</td>
                         <td class="center">{record.nivrutiPrakar || ""}</td>
@@ -39,7 +48,7 @@ overflow-y: auto;
                                 class="negative "
                                 style="margin: auto;"
                                 on:click={() => {
-                                    [file, index] = deleteRecord(file, i);
+                                    // deleteRecord(data, index, i);
                                 }}
                             >
                                 Delete

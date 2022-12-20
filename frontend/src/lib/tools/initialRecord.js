@@ -5,7 +5,11 @@ export function initialRecord() {
         /*
          * Pension case data
          */
-        karmchariNaam: ["", "", ""],
+        karmchariNaam: [
+            ["", "", "", ""],
+            ["", "", "", ""]
+        ],
+        mudikrutTarikh: new Date().toLocaleDateString("en-GB").split("/"),
         karmchariHoddo: "",
         kacheriNaam: "",
         khaatu: "",
@@ -21,7 +25,7 @@ export function initialRecord() {
          */
         isSarkariRajyaPatrit: undefined,
         isJillaPanchayatKar: undefined,
-        isSarkariBinaRajyaPatrit: undefined,
+        isSarkariBinaRajyaPatrit: true,
         isRojamadarKar: undefined,
         isWorkChargeKar: undefined,
         isPensionPatrGrantInAid: undefined,
@@ -44,8 +48,7 @@ export function initialRecord() {
         jillo: "",
         taluko: "",
 
-        mudikrut: "40%",
-        mudikrutTarikh: new Date().toLocaleDateString("en-GB").split("/"),
+        mudikrut: "40",
         // 13: 
         apangSabhya: "",
         vali: "",

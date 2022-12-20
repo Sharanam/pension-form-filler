@@ -1,16 +1,18 @@
 <script>
     // @ts-nocheck
-    import FamilyMembers from "../interface/FamilyMembers.svelte";
-    import { dateString } from "../tools/dateString";
-    import { toGujarati } from "../tools/toGujarati";
-    import { toString } from "../tools/toString";
+    import FamilyMembers from "../../commonElements/FamilyMembers.svelte";
+    import { dateString } from "../../tools/dateString";
+    import { toGujarati } from "../../tools/toGujarati";
+    import { toString } from "../../tools/toString";
     import Pramanpatro from "./Pc1Parts/Pramanpatro.svelte";
 
-    export let file, index;
-    $: kNaam = toString(file[index].karmchariNaam, " ");
+    import { data } from "../../globalState/data";
+
+    export let index;
+    $: kNaam = toString($data[index].karmchariNaam[0], " ");
 </script>
 
-<div class="page border">
+<div class="page-break-before border">
     <div class="center no-spacing">
         <h2>પેન્શન કેસ - ૧</h2>
         <h2><u>ભાગ - ૧</u></h2>
@@ -30,12 +32,12 @@
         હું શ્રી/શ્રીમતી
         {kNaam || ".".repeat(60)}
         હોદ્દો
-        {file[index].karmchariHoddo || ".".repeat(44)} તારીખ {file[
+        {$data[index].karmchariHoddo || ".".repeat(44)} તારીખ {$data[
             index
         ].avsaanTarik
             ?.filter((v) => v.trim())
             ?.join("/") ||
-            toString(file[index].nivrutiTarikh, "/") ||
+            toString($data[index].nivrutiTarikh, "/") ||
             ".".repeat(54)}
         ના રોજ વય નિવૃત્ત/સ્વૈચ્છિક નિવૃત્તિના કારણે નિવૃત્ત થાઉં છુ. મારા પેન્શન
         મંજુરી અર્થે નીચે મુજબની માહીતે ગુ.મુ.સેવા (પેન્શન) નિયમોના નિયમો ૧૨૮(૧)
@@ -51,30 +53,28 @@
             </td>
             <td>
                 <span style="display:block"> અટક </span>
-                <b>{file[index].karmchariNaam[0] || ".".repeat(48)}</b>
+                <b>{$data[index].karmchariNaam[0][1] || ".".repeat(48)}</b>
             </td>
             <td>
                 <span style="display:block"> નામ </span>
-                <b>{file[index].karmchariNaam[1] || ".".repeat(48)}</b>
+                <b>{$data[index].karmchariNaam[0][2] || ".".repeat(48)}</b>
             </td>
             <td>
                 <span style="display:block"> પિતા/ પતિનું નામ </span>
-                <b>{file[index].karmchariNaam[2] || ".".repeat(48)}</b>
+                <b>{$data[index].karmchariNaam[0][3] || ".".repeat(48)}</b>
             </td>
         </tr>
         <tr>
             <td>૨ હોદ્દો </td>
             <td colspan="3">
-                {file[index].karmchariHoddo || ".".repeat(44)}
+                {$data[index].karmchariHoddo || ".".repeat(44)}
             </td>
         </tr>
         <tr>
-            <td>
-                ૩ કચેરીનું નામ સરનામું અને ફોન નંબર : (પીન કોડ નંબર સાથે )
-            </td>
+            <td> ૩ કચેરીનું નામ સરનામું અને ફોન નંબર : (પીન કોડ નંબર સાથે) </td>
             <td colspan="3">
                 <b
-                    >{file[index].kacheriNaam ||
+                    >{$data[index].kacheriNaam ||
                         `${".".repeat(100)}\n`.repeat(3)}</b
                 >
             </td>
@@ -84,19 +84,19 @@
             <td>
                 <span> DD </span>
                 <b class="border field">
-                    {file[index].janmTarikh[0] || "."}
+                    {$data[index].janmTarikh[0] || "."}
                 </b>
             </td>
             <td>
                 <span style="display:block"> MM </span>
                 <b class="border field">
-                    {file[index].janmTarikh[1] || "."}
+                    {$data[index].janmTarikh[1] || "."}
                 </b>
             </td>
             <td>
                 <span style="display:block"> YYYY </span>
                 <b class="border field">
-                    {file[index].janmTarikh[2] || "."}
+                    {$data[index].janmTarikh[2] || "."}
                 </b>
             </td>
         </tr>
@@ -105,7 +105,7 @@
 
             <td colspan="3">
                 <b class="border field">
-                    {toString(file[index].nokriDakhalTarikh, "/") || "."}
+                    {toString($data[index].nokriDakhalTarikh, "/") || "."}
                 </b>
             </td>
         </tr>
@@ -113,7 +113,7 @@
             <td> ૬ નિવૃત્તિની તારીખ : </td>
             <td colspan="3">
                 <b class="border field">
-                    {toString(file[index].nivrutiTarikh, "/") || "."}
+                    {toString($data[index].nivrutiTarikh, "/") || "."}
                 </b>
             </td>
         </tr>
@@ -123,7 +123,7 @@
             </td>
             <td colspan="3">
                 <b class="border field">
-                    {toString(file[index].santrat, "/") || "."}
+                    {toString($data[index].santrat, "/") || "."}
                 </b>
             </td>
         </tr>
@@ -151,10 +151,10 @@
             </td>
             <td colspan="3">
                 <b>
-                    <!-- {file[index].address ||
+                    <!-- {$data[index].address ||
                         `${".".repeat(100)}\n`.repeat(3)} -->
-                    {#if file[index].address}
-                        {#each file[index].address.split("\n") as line}
+                    {#if $data[index].address}
+                        {#each $data[index].address.split("\n") as line}
                             <span style="display:block">{line}</span>
                         {/each}
                     {/if}
@@ -174,14 +174,14 @@
                 <p>
                     ૯ જીલ્લા/ પેટા તિજોરીએથી પેન્શન મેળવવા માંગતા હોય તેનું નામ
                     <b>
-                        {file[index].petaTijori ||
-                            file[index].jillo ||
+                        {$data[index].petaTijori ||
+                            $data[index].jillo ||
                             ".".repeat(40)}
                     </b>
                 </p>
                 <p>
-                    જિલ્લો <b>{file[index].jillo || ".".repeat(40)}</b>
-                    તાલુકો <b>{file[index].taluko || ".".repeat(40)}</b>
+                    જિલ્લો <b>{$data[index].jillo || ".".repeat(40)}</b>
+                    તાલુકો <b>{$data[index].taluko || ".".repeat(40)}</b>
                 </p>
             </td>
         </tr>
@@ -192,16 +192,16 @@
                 <p>
                     ૧૦ હું મારા મળવાપાત્ર પેન્શનના
                     <b>
-                        {file[index].mudikrut ||
-                            toGujarati(file[index].mudikrut || "") ||
+                        {$data[index].mudikrut ||
+                            toGujarati($data[index].mudikrut || "") ||
                             ".".repeat(10)} ટકા
                     </b>
                     ભાગનું મૂડીકૃત રૂપાંતર કરી રૂપાંતરની કિંમત આપવા આજ તા.
                     {toGujarati(
                         dateString(
-                            file[index].mudikrutTarikh[2],
-                            file[index].mudikrutTarikh[1],
-                            file[index].mudikrutTarikh[0]
+                            $data[index].mudikrutTarikh[2],
+                            $data[index].mudikrutTarikh[1],
+                            $data[index].mudikrutTarikh[0]
                         ) || ""
                     )
                         .split("-")
@@ -232,9 +232,9 @@
             <td colspan="4">
                 તા. {toGujarati(
                     dateString(
-                        file[index].mudikrutTarikh[2],
-                        file[index].mudikrutTarikh[1],
-                        file[index].mudikrutTarikh[0]
+                        $data[index].mudikrutTarikh[2],
+                        $data[index].mudikrutTarikh[1],
+                        $data[index].mudikrutTarikh[0]
                     ) || ""
                 )
                     .split("-")
@@ -244,7 +244,7 @@
             </td>
         </tr>
     </table>
-    <FamilyMembers bind:index bind:file />
+    <FamilyMembers />
     <p>
         હું બાહેંધરીપૂર્વક જાહેર કરું છું કે, મારા કુટુંબની વિગતો આજની તારીખે
         ઉપર મુજબ છે. તેમાં કોઈ પણ ફેરફાર થશે તો કચેરીના/ ખાતાના વડાને તેની જાણ
@@ -256,26 +256,26 @@
         પ્રમાણિત નકલ આ સાથે સામેલ રાખું છું.
     </p>
     <p>
-        ૧૩ મારા પુત્ર / પુત્રી / કુમારી
+        મારા પુત્ર / પુત્રી / કુમારી
         <b>
-            {file[index].apangSabhya || ".".repeat(40)}
+            {$data[index].apangSabhya || ".".repeat(40)}
         </b>- અંધ અપંગ/મંદબુદ્ધિના છે તેને લાગતું સિવિલ સર્જનનું દાકતરી
         પ્રમાણપત્ર સામેલ રાખેલ છે, તેઓ જીવન નિર્વાહ પૂરતું કમાવા માટે અશક્તિમાન
         છે. તેમને કુટુંબપેન્શન ચૂકવવાનો પ્રસંગ ઉપસ્થિત થાય ત્યારે તેમના વળી
         તરીકે શ્રી/શ્રીમતિ .
         <b>
-            {file[index].vali || ".".repeat(123)}
+            {$data[index].vali || ".".repeat(123)}
         </b>
         ને ફરજ બજાવવા નીકું છું.
     </p>
     <p>ગુ,મુ.સેવા (પેન્શન) નિયમોના નિયમ-૯૩</p>
     <p>
-        ૧૪ ઉપર જણાવેલ નિયમોમાં ફેરફાર કે સુધારા વધારા થાય તેવા પ્રસંગે પેન્શન એન
+        ઉપર જણાવેલ નિયમોમાં ફેરફાર કે સુધારા વધારા થાય તેવા પ્રસંગે પેન્શન એન
         પ્રોવિડંડ ફંડ નિયામકશ્રી/કચેરીના વડા તેમજ સંબંધકર્તાને જાણ કરી અદ્યતન
         રાખવાની બાહેંધરી આપું છું. ઉપરની વિગતો મારી કચેરીના વડા સમક્ષ આજ તારીખ {new Date(
-            file[index].mudikrutTarikh[2],
-            file[index].mudikrutTarikh[1] - 1,
-            file[index].mudikrutTarikh[0]
+            $data[index].mudikrutTarikh[2],
+            $data[index].mudikrutTarikh[1] - 1,
+            $data[index].mudikrutTarikh[0]
         ).toLocaleDateString("en-GB", {
             day: "numeric",
             month: "numeric",
@@ -320,43 +320,49 @@
             માટે હું આ સાથેની મારી નિયુક્તિની પ્રમાણિત નકલ મુજબ ચુકવણી કરવા
             વિનંતી કરે છે, નકલ સામેલ છે)
         </p>
-        <p>(૨) જો નિયુક્ત સગીર હોય તો</p>
+        <p>જો નિયુક્ત સગીર હોય તો</p>
         <p class="indent">
             (ક) જન્મ તારીખ :
-            {(file[index].sagir &&
+            {($data[index].sagir &&
                 dateString(
-                    file[index].nayuktSagir[2],
-                    file[index].nayuktSagir[1],
-                    file[index].nayuktSagir[0],
+                    $data[index].nayuktSagir[2],
+                    $data[index].nayuktSagir[1],
+                    $data[index].nayuktSagir[0],
                     true
                 )) ||
                 ".".repeat(10)}
         </p>
         <p class="indent">
             (ખ) સગીર વય દરમ્યાન સદરહુ રકમ જે વ્યક્તિને વાલી તરીકે આપવાની હોય
-            તેનું નામ: {file[index].sadarhu || ".".repeat(30)}
+            તેનું નામ: {$data[index].sadarhu || ".".repeat(30)}
         </p>
         <p class="center">વાલી તરીકે નિયુક્તિનો</p>
         <p>
             (સરનામું પીનકોડ સહિત):
-            {file[index].sagirAddress || ".".repeat(50)}
+            {$data[index].sagirAddress || ".".repeat(50)}
         </p>
         <p>
             (ગ) વાલી તરીકે નિયુક્તિનો પેન્શનર સાથે સંબંધ :
-            {file[index].pentionerSatheSambandh || ".".repeat(30)}
+            {$data[index].pentionerSatheSambandh || ".".repeat(30)}
         </p>
     </div>
     <div>
         <p>
             ૧૬ બાહેંધરીપત્ર : ગુ.યુ.સેવા (પેન્શન) નિયમોના નિયમ ( ૧૩૪ / ૧૩૫ ) આથી
             હું
-            <u>{toString(file[index].karmchariNaam, " ") || ".".repeat(40)} </u>
+            <u
+                >{toString(
+                    $data[index].karmchariNaam[0] ||
+                        $data[index].karmchariNaam[1],
+                    " "
+                ) || ".".repeat(40)}
+            </u>
             હોદ્દો
             <u>
-                {file[index].karmchariHoddo || ".".repeat(40)}
+                {$data[index].karmchariHoddo || ".".repeat(40)}
             </u>
             બાહેંધરી ખત આપું છું કે, હું તા. {toString(
-                file[index].nivrutiTarikh,
+                $data[index].nivrutiTarikh,
                 "/"
             ) || ".".repeat(40)} ના રોજ નિવૃત્ત થાઉ છું. તે પછીથી મારી પાસેથી કોઈ
             પણ સરકારી લેણું જેવું કે, પગાર, રજા પગાર ભથ્થાં, લીધેલ પેશગીઓ, લોન, ઘરભાડા
@@ -378,12 +384,13 @@
                 <td>
                     <p>
                         નામ અને હોદ્દો : {toString(
-                            file[index].karmchariNaam,
+                            $data[index].karmchariNaam[0] ||
+                                $data[index].karmchariNaam[1],
                             " "
                         ) || ".".repeat(40)}
                     </p>
                     <p class="indent">
-                        {file[index].karmchariHoddo || ".".repeat(40)}
+                        {$data[index].karmchariHoddo || ".".repeat(40)}
                     </p>
                 </td>
             </tr>
@@ -394,7 +401,7 @@
         </table>
     </div>
 </div>
-<div class="page border">
+<div class="page-break-before border">
     <table class="layed-out">
         <tr>
             <td style="width:70%;">
@@ -477,7 +484,7 @@
         </tr>
     </thead>
     <tbody>
-        {#each file[index].monthWiseRecord as record, index}
+        {#each $data[index].monthWiseRecord as record, index}
             <tr>
                 <td>{toGujarati(index + 1)}</td>
                 <td>{record[0]}</td>
@@ -661,7 +668,7 @@
                 <th>દર </th>
             </tr>
         </thead>
-        {#each file[index].mudikrutRakam as rakam}
+        {#each $data[index].mudikrutRakam as rakam}
             <tr class="center">
                 <td>{toGujarati(rakam[0] || "")}</td>
                 <td>{toGujarati(rakam[1] || "")}</td>
@@ -721,7 +728,7 @@
         </thead>
 
         <tbody>
-            {#each file[index].leniRakamNiVigato as row, i}
+            {#each $data[index].leniRakamNiVigato as row, i}
                 {#if i < 4}
                     <tr>
                         <td>
@@ -752,7 +759,7 @@
         ગ્રેજ્યુટી/સેવા ગ્રેજ્યુઇટીમાંથી વસુલાત કરી જમા કરવા વિનંતી છે.
     </p>
 </div>
-<Pramanpatro bind:file {index} />
+<Pramanpatro {index} />
 
 <style>
     .field {

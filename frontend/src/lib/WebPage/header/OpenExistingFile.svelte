@@ -2,7 +2,7 @@
     // @ts-nocheck
 
     let fileInput;
-    import fileHandle from "./fileHandle.js";
+    import fileHandle from "../../tools/fileHandle";
     import { data, index } from "../../globalState/data";
     let d;
     data.subscribe((data) => (d = data));

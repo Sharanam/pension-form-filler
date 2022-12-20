@@ -1,7 +1,9 @@
 <script>
     // @ts-nocheck
 
-    export let file, index;
+    export let index;
+    import { data } from "../globalState/data";
+    $: d = $data[index];
 </script>
 
 <div class="tick">
@@ -11,20 +13,24 @@
             <td>
                 <div>
                     <input
-                        type="checkbox"
                         class="no-print"
-                        checked={file[index].isSarkariRajyaPatrit}
+                        type="checkbox"
+                        checked={$data[index].isSarkariRajyaPatrit}
                         on:change={(e) => {
-                            file[index].isSarkariRajyaPatrit =
-                                e.target.checked || undefined;
+                            data.update((data) => {
+                                data[index].isSarkariRajyaPatrit =
+                                    e.target.checked || undefined;
+                                return data;
+                            });
                         }}
                         name="isSarkariRajyaPatrit"
                     />
+
                     <label for="isSarkariRajyaPatrit">
                         (૧) સરકારી રાજ્ય પત્રિત
                     </label>
                     <span class="tick no-screen">
-                        {#if file[index].isSarkariRajyaPatrit}
+                        {#if d.isSarkariRajyaPatrit}
                             ✓
                         {/if}
                     </span>
@@ -35,9 +41,9 @@
                     <input
                         type="checkbox"
                         class="no-print"
-                        checked={file[index].isJillaPanchayatKar}
+                        checked={$data[index].isJillaPanchayatKar}
                         on:change={(e) => {
-                            file[index].isJillaPanchayatKar =
+                            $data[index].isJillaPanchayatKar =
                                 e.target.checked || undefined;
                         }}
                         name="isJillaPanchayatKar"
@@ -46,7 +52,7 @@
                         (૪) જીલ્લા પંચાયત કર્મચારી
                     </label>
                     <span class="tick no-screen">
-                        {#if file[index].isJillaPanchayatKar}
+                        {#if d.isJillaPanchayatKar}
                             ✓
                         {/if}
                     </span>
@@ -59,9 +65,9 @@
                     <input
                         type="checkbox"
                         class="no-print"
-                        checked={file[index].isSarkariBinaRajyaPatrit}
+                        checked={$data[index].isSarkariBinaRajyaPatrit}
                         on:change={(e) => {
-                            file[index].isSarkariBinaRajyaPatrit =
+                            $data[index].isSarkariBinaRajyaPatrit =
                                 e.target.checked || undefined;
                         }}
                         name="isSarkariBinaRajyaPatrit"
@@ -70,7 +76,7 @@
                         (૨) સરકારી બિન રાજ્ય પત્રિત
                     </label>
                     <span class="tick no-screen">
-                        {#if file[index].isSarkariBinaRajyaPatrit}
+                        {#if d.isSarkariBinaRajyaPatrit}
                             ✓
                         {/if}
                     </span>
@@ -81,16 +87,16 @@
                     <input
                         type="checkbox"
                         class="no-print"
-                        checked={file[index].isRojamadarKar}
+                        checked={$data[index].isRojamadarKar}
                         on:change={(e) => {
-                            file[index].isRojamadarKar =
+                            $data[index].isRojamadarKar =
                                 e.target.checked || undefined;
                         }}
                         name="isRojamadarKar"
                     />
                     <label for="isRojamadarKar"> (૫) રોજમદાર કર્મચારી </label>
                     <span class="tick no-screen">
-                        {#if file[index].isRojamadarKar}
+                        {#if d.isRojamadarKar}
                             ✓
                         {/if}
                     </span>
@@ -103,9 +109,9 @@
                     <input
                         type="checkbox"
                         class="no-print"
-                        checked={file[index].isWorkChargeKar}
+                        checked={$data[index].isWorkChargeKar}
                         on:change={(e) => {
-                            file[index].isWorkChargeKar =
+                            $data[index].isWorkChargeKar =
                                 e.target.checked || undefined;
                         }}
                         name="isWorkChargeKar"
@@ -114,7 +120,7 @@
                         (૩) વર્ક ચાર્જ કર્મચારી
                     </label>
                     <span class="tick no-screen">
-                        {#if file[index].isWorkChargeKar}
+                        {#if d.isWorkChargeKar}
                             ✓
                         {/if}
                     </span>
@@ -126,9 +132,9 @@
                     <input
                         type="checkbox"
                         class="no-print"
-                        checked={file[index].isPensionPatrGrantInAid}
+                        checked={$data[index].isPensionPatrGrantInAid}
                         on:change={(e) => {
-                            file[index].isPensionPatrGrantInAid =
+                            $data[index].isPensionPatrGrantInAid =
                                 e.target.checked || undefined;
                         }}
                         name="isPensionPatrGrantInAid"
@@ -137,7 +143,7 @@
                         (૬) પેન્શન પાત્ર ગ્રાન્ટ ઇન એઇડ સંસ્થાના કર્મચારી
                     </label>
                     <span class="tick no-screen">
-                        {#if file[index].isPensionPatrGrantInAid}
+                        {#if d.isPensionPatrGrantInAid}
                             ✓
                         {/if}
                     </span>
@@ -161,9 +167,13 @@
     table.tick > tr > td > div > span.tick {
         flex-grow: 0;
         flex-shrink: 0;
+        text-align: center;
+        padding: 0;
         flex-basis: auto;
         font-size: 1.5em;
         font-weight: bold;
-        margin-right: max(1em, 20%);
+        margin-right: min(1em, 20%);
+        min-width: 1.9em;
+        height: clamp(1em, 1.2em, 1.5em);
     }
 </style>

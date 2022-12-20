@@ -1,7 +1,8 @@
 <script>
-    import { toString } from "../../tools/toString";
+    import { toString } from "../../../tools/toString";
 
-    export let file, index;
+    import { data } from "../../../globalState/data";
+    export let index;
 </script>
 
 <div>
@@ -9,11 +10,14 @@
     <p>
         (૧) આથી સમગ્રપણે ખાતરી કરી પ્રમાણિત કરવામાં આવે છે કે આજની તારીખે
         શ્રી/શ્રીમતિ <u
-            >{toString(file[index].karmchariNaam, " ") || ".".repeat(40)}
+            >{toString(
+                $data[index].karmchariNaam[0] || $data[index].karmchariNaam[1],
+                " "
+            ) || ".".repeat(40)}
         </u>
         હોદ્દો
         <u>
-            {file[index].karmchariHoddo || ".".repeat(40)}
+            {$data[index].karmchariHoddo || ".".repeat(40)}
         </u> પાસે કશું લેણું બાકી નથી.
     </p>
     <div style="margin-top: 5em;">
@@ -48,52 +52,51 @@
 </div>
 <div>
     શ્રી/શ્રીમતી
-    <u>{toString(file[index].karmchariNaam, " ") || ".".repeat(40)} </u>
-    હોદ્દો
-
-    <u>
-        {file[index].karmchariHoddo || ".".repeat(40)}
-    </u>કચેરી / ખાતુ । વિભાગ
     <u
         >{toString(
-            [file[index].kacheriNaam, file[index].khaatu, file[index].vibhaag],
+            $data[index].karmchariNaam[0] || $data[index].karmchariNaam[1],
             " "
         ) || ".".repeat(40)}
     </u>
-    નિવૃત્તિ તારીખ {toString(file[index].nivrutiTarikh, "/") || ".".repeat(16)}
+    હોદ્દો
+
+    <u>
+        {$data[index].karmchariHoddo || ".".repeat(40)}
+    </u>કચેરી / ખાતુ । વિભાગ
+    <u
+        >{toString(
+            [
+                $data[index].kacheriNaam,
+                $data[index].khaatu,
+                $data[index].vibhaag,
+            ],
+            " "
+        ) || ".".repeat(40)}
+    </u>
+    નિવૃત્તિ તારીખ {toString($data[index].nivrutiTarikh, "/") || ".".repeat(16)}
     <hr />
     <div class="box">
         <div>
             ઓળખની અંગત નિશાની
-            <div class="image-box">
-                <input class="no-print" type="file" />
-            </div>
+            <div class="image-box" />
         </div>
         <div>
             ઉંચાઇ
-            <div class="image-box">
-                <input class="no-print" type="file" />
-            </div>
+            <div class="image-box" />
         </div>
         <div>
             સહીનો નમુનો
-            <div class="image-box">
-                <input class="no-print" type="file" />
-            </div>
+            <div class="image-box" />
         </div>
     </div>
     <div class="box">
         <div>
             સંયુક્ત ફોટો
-            <div class="image-box">
-                <input class="no-print" type="file" />
-            </div>
+            <div class="image-box" />
         </div>
         <div>
             વાલીનો ફોટો
-            <div class="image-box">
-                <input class="no-print" type="file" />
-            </div>
+            <div class="image-box" />
         </div>
     </div>
 </div>
