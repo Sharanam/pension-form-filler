@@ -1,0 +1,539 @@
+<script>
+  import { data, index } from "../../globalState/data";
+</script>
+
+<div>
+  <div>
+    (એ) એકંદર નોકરી તા
+    <div class="date">
+      <input
+        type="number"
+        min="1"
+        max="31"
+        bind:value={$data[$index].pensionPatrNokri[0][0][0]}
+        placeholder="DD"
+      />
+      <input
+        type="number"
+        min="1"
+        max="12"
+        bind:value={$data[$index].pensionPatrNokri[0][0][1]}
+        placeholder="MM"
+      />
+      <input
+        type="number"
+        min="1900"
+        max="2100"
+        bind:value={$data[$index].pensionPatrNokri[0][0][2]}
+        placeholder="YYYY"
+      />
+    </div>
+    થી તા
+    <div class="date">
+      <input
+        type="number"
+        min="1"
+        max="31"
+        bind:value={$data[$index].pensionPatrNokri[0][1][0]}
+        placeholder="DD"
+      />
+      <input
+        type="number"
+        min="1"
+        max="12"
+        bind:value={$data[$index].pensionPatrNokri[0][1][1]}
+        placeholder="MM"
+      />
+      <input
+        type="number"
+        min="1900"
+        max="2100"
+        bind:value={$data[$index].pensionPatrNokri[0][1][2]}
+        placeholder="YYYY"
+      />
+    </div>
+    બાદ પેન્શન માટે ન ગણવાનો સમય
+  </div>
+
+  <div>
+    (૧) ૩૬ માસથી વધારે અસાધારણ રજા
+    <div>
+      તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[1][0][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[1][0][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[1][0][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      થી તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[1][1][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[1][1][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[1][1][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      <div>
+        તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[1][2][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[1][2][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[1][2][2]}
+            placeholder="YYYY"
+          />
+        </div>
+        થી તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[1][3][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[1][3][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[1][3][2]}
+            placeholder="YYYY"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    (૨) પેન્શનપાત્ર નોકરી તરીકે ન ગણવાના હૂકમો થયા હોય તેવો ફરજ મોકૂફીનો સમય
+    <div>
+      તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[2][0][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[2][0][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[2][0][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      થી તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[2][1][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[2][1][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[2][1][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      <div>
+        તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[2][2][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[2][2][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[2][2][2]}
+            placeholder="YYYY"
+          />
+        </div>
+        થી તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[2][3][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[2][3][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[2][3][2]}
+            placeholder="YYYY"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    (૩) ત્રણ માસ કરતાં વધારે મુદતની તૂટ હોય ત્યાં બે ગાળા વચ્ચેનો તૂટ નો સમયગાળો
+    <div>
+      તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[3][0][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[3][0][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[3][0][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      થી તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[3][1][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[3][1][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[3][1][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      <div>
+        તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[3][2][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[3][2][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[3][2][2]}
+            placeholder="YYYY"
+          />
+        </div>
+        થી તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[3][3][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[3][3][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[3][3][2]}
+            placeholder="YYYY"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    (૪) પેન્શનપાત્ર નહિ ગણાતી અન્ય મુદતો
+    <div>
+      તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[4][0][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[4][0][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[4][0][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      થી તા
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[4][1][0]}
+          placeholder="DD"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[4][1][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[4][1][2]}
+          placeholder="YYYY"
+        />
+      </div>
+      <div>
+        તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[4][2][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[4][2][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[4][2][2]}
+            placeholder="YYYY"
+          />
+        </div>
+        થી તા
+        <div class="date">
+          <input
+            type="number"
+            min="1"
+            max="31"
+            bind:value={$data[$index].pensionPatrNokri[4][3][0]}
+            placeholder="DD"
+          />
+          <input
+            type="number"
+            min="1"
+            max="12"
+            bind:value={$data[$index].pensionPatrNokri[4][3][1]}
+            placeholder="MM"
+          />
+          <input
+            type="number"
+            min="1900"
+            max="2100"
+            bind:value={$data[$index].pensionPatrNokri[4][3][2]}
+            placeholder="YYYY"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      (સી) ૨૦/૨૫ વર્ષ બાદ સ્વૈચ્છિક નિવૃત્તિ હોય તો નોશનલ નોકરી
+      <p class="indent">ગણતરી કરીને વર્ષ, માસ અને દિવસ નાંખવા.</p>
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[5][0]}
+          placeholder="YY"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[5][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[5][2]}
+          placeholder="DD"
+        />
+      </div>
+    </div>
+    <div>
+      (ડી) ન્યાયિક સેવા ના અધિકારી/ મદદનિશ સરકારી વકીલ માટે:
+      <p class="indent">ગણતરી કરીને વર્ષ, માસ અને દિવસ નાંખવા.</p>
+      <div class="date">
+        <input
+          type="number"
+          min="1"
+          max="31"
+          bind:value={$data[$index].pensionPatrNokri[6][0]}
+          placeholder="YY"
+        />
+        <input
+          type="number"
+          min="1"
+          max="12"
+          bind:value={$data[$index].pensionPatrNokri[6][1]}
+          placeholder="MM"
+        />
+        <input
+          type="number"
+          min="1900"
+          max="2100"
+          bind:value={$data[$index].pensionPatrNokri[6][2]}
+          placeholder="DD"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .date {
+    display: inline;
+  }
+
+  .date > input {
+    width: 4rem;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+</style>

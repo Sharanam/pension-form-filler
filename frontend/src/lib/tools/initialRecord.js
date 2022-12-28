@@ -1,28 +1,43 @@
-import { mudikrutRakam } from "./constantValues";
+import { mudikrut, mudikrutRakam } from "./constantValues";
 
 export function initialRecord() {
     return {
         /*
          * Pension case data
          */
+        bhaag: [1, 2, 5],
         karmchariNaam: [
             ["", "", "", ""],
             ["", "", "", ""]
         ],
         mudikrutTarikh: new Date().toLocaleDateString("en-GB").split("/"),
-        karmchariHoddo: "",
-        kacheriNaam: "",
-        khaatu: "",
-        vibhaag: "",
+        karmchariHoddo: ["", ""],
+        kacheriNaam: [
+            "સરદાર પટેલ યુનિવર્સિટી,\nવલ્લભ વિદ્યાનગર-388120,\nજિ. આણંદ,\nગુજરાત.\nફોન નંબર: ૦૨૬૯૨-૨૨૬૮૧૫",
+            "Sardar Patel University,\nVallabh Vidyanagar-388120,\nDist. Anand,\nGujarat.\nPhone No.: 02692-226815"
+        ],
+
+        // khaatu/vibhaag nu naam, vada nu naam, code number
+        khaatu: ["", "", ""],
+        vibhaag: ["", "", ""],
+
         janmTarikh: ["", "", ""],
         nokriDakhalTarikh: ["", "", ""],
-        nivrutiPrakar: "",
+        nivrutiPrakar: ["0"],
         nivrutiTarikh: ["", "", ""],
+        notionalNivrutiTarikh: [
+            ["", "", ""],
+            ["", "", ""],
+        ],
+        gpfNumber: "",
         santrat: ["", "", ""],
         avsaanTarik: ["", "", ""], // avsaan paamela karmchari na kissa ma
         /*
          * Bhaag-5 data
          */
+        isRajyaPatrit: true,
+        isNotRajyaPatrit: undefined,
+
         isSarkariRajyaPatrit: undefined,
         isJillaPanchayatKar: undefined,
         isSarkariBinaRajyaPatrit: true,
@@ -44,11 +59,19 @@ export function initialRecord() {
         /*
         ૯ જીલ્લા/ પેટા તિજોરીએથી 
         */
-        petaTijori: "",
-        jillo: "",
-        taluko: "",
+        petaTijori: "આણંદ",
+        jillo: "આણંદ",
+        taluko: "આણંદ",
 
-        mudikrut: "40",
+        // 2.3: 16
+        paatrta: ['પત્ની'],
+        paatrataNaam: [
+            ["", "", "", ], // નામ 
+            ["", "", "", ], // Name
+
+        ],
+
+        mudikrut,
         // 13: 
         apangSabhya: "",
         vali: "",
@@ -58,6 +81,48 @@ export function initialRecord() {
         sadarhu: "",
         sagirAddress: "",
         pentionerSatheSambandh: "",
+
+        // bhaag-2 (18)
+        niyuktiTable: [
+            ["", "", ["", ["", "", ""]], "", "", "", ""]
+        ],
+
+        // bhaag - 2 (19)
+        pensionPatrNokri: [
+            [
+                ["", "", "", ],
+                ["", "", "", ],
+            ], // (એ) 
+            [
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+            ], // (એ) 1
+            [
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+            ], // (એ) 2
+            [
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+            ], // (એ) 3
+            [
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+                ["", "", "", ],
+            ], // (એ) 4
+
+            ["", "", ""], // C
+            ["", "", ""], // D
+
+        ],
+
         // 22:
         monthWiseRecord: [
             ["", "", "", "", "", ],

@@ -3,22 +3,16 @@
 
     import { data, index } from "../../globalState/data";
     import { deleteRecord } from "../../tools/deleteRecord";
+    import { pensionPrakar } from "../../tools/constantValues";
 </script>
 
-<div
-    style="
-max-height: 50vh;
-overflow-y: auto;
-"
-    class="no-print"
->
+<div style="max-height: 50vh;overflow-y: auto;" class="no-print">
     {#if $data.length > 1}
         <table>
             <thead>
                 <th> ક્રમાંક </th>
                 <th>કર્મચારીનું નામ</th>
                 <th>કર્મચારીનો હોદ્દો</th>
-                <th>કચેરીનું નામ</th>
                 <th>નિવૃત્તિનો પ્રકાર</th>
                 <th>નિવૃત્તિની તારીખ</th>
                 <th> રેકોર્ડ કાઢી નાખો </th>
@@ -37,9 +31,19 @@ overflow-y: auto;
                                 " "
                             ) || ""}</td
                         >
-                        <td class="center">{record.karmchariHoddo || ""}</td>
-                        <td class="center">{record.kacheriNaam || ""}</td>
-                        <td class="center">{record.nivrutiPrakar || ""}</td>
+                        <td class="center"
+                            >{record.karmchariHoddo[0] ||
+                                record.karmchariHoddo[1] ||
+                                ""}</td
+                        >
+                        <td class="center">
+                            {toString(
+                                record.nivrutiPrakar.map(
+                                    (p) => pensionPrakar[p]
+                                ),
+                                ", "
+                            )}
+                        </td>
                         <td class="center">
                             {toString(record.nivrutiTarikh, "/") || ""}
                         </td>

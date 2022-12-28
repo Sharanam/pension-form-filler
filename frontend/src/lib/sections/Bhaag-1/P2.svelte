@@ -10,7 +10,7 @@
 </script>
 
 <div class="page-break-before">
-    <table class="layed-out">
+    <table style="width: 100%;">
         <tr>
             <td>૯ </td>
             <td colspan="5">
@@ -64,7 +64,7 @@
         </tr>
     </table>
     <FamilyMembers i={index} />
-    <table class="layed-out">
+    <table style="width: 100%;">
         <tr>
             <td />
             <td colspan="5">
@@ -130,7 +130,7 @@
 </div>
 
 <style>
-    tr > td:first-child {
+    td {
         vertical-align: top;
     }
 </style>

@@ -154,6 +154,38 @@ table.border th {
     opacity: 1;
 }
 
+
+/* block letter box */
+
+.block-letters {
+    width: 100%;
+}
+
+.block-letters>div {
+    display: flex;
+}
+
+.block-letters>div>span {
+    border: 1px solid black;
+    min-width: 3em;
+    padding: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.block-letters>div>span:first-child {
+    text-align: left;
+    min-width: min(10em, 20%);
+}
+
+.capitalized {
+    text-transform: uppercase;
+}
+
+td.align-top {
+    vertical-align: top;
+}
+
 @media print {
     .no-print {
         display: none;

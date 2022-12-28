@@ -15,17 +15,6 @@
             <p>સરદાર પટેલ યુનિવર્સિટી</p>
             <p>વલ્લભ વિદ્યાનગર</p>
         </td>
-        <td>
-            <p>કર્મચારીની સહી</p>
-            <p>
-                નામ: {toString($data[index]?.karmchariNaam[0], " ") ||
-                    toString($data[index]?.karmchariNaam[1], " ") ||
-                    ".".repeat(30)}
-            </p>
-            <p>
-                હોદ્દો: {$data[index].karmchariHoddo[1] || ".".repeat(30)}
-            </p>
-        </td>
     </tr>
 </table>
 

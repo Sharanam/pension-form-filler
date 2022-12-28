@@ -1,0 +1,24 @@
+table.tick>tr>td>div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: space-between;
+    gap: 0.5em;
+}
+
+table.tick>tr>td>div>label {
+    flex-grow: 1;
+}
+
+table.tick>tr>td>div>span.tick {
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+    padding: 0;
+    flex-basis: auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: min(1em, 20%);
+    min-width: 1.9em;
+    height: clamp(1em, 1.2em, 1.5em);
+}

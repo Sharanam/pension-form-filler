@@ -9,7 +9,7 @@
 </script>
 
 <div class="page-break-before">
-    <table class="layed-out">
+    <table style="width: 100%;">
         <tr>
             <td>૧૫</td>
             <td colspan="5"> વારસ નિયુક્તિ </td>
@@ -88,7 +88,7 @@
                     </u>
                     હોદ્દો
                     <u>
-                        {$data[index].karmchariHoddo || ".".repeat(40)}
+                        {$data[index].karmchariHoddo[1] || ".".repeat(40)}
                     </u>
                     બાહેંધરી ખત આપું છું કે, હું તા. {toString(
                         $data[index].nivrutiTarikh,

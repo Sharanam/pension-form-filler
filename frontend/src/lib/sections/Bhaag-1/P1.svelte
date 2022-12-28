@@ -29,7 +29,7 @@
                 ".".repeat(50)}</u
         >
         હોદ્દો
-        <u>{$data[index].karmchariHoddo || ".".repeat(44)}</u> તારીખ
+        <u>{$data[index].karmchariHoddo[1] || ".".repeat(44)}</u> તારીખ
         <u>
             {toString($data[index].nivrutiTarikh, "/") || ".".repeat(54)}
         </u>
@@ -63,7 +63,7 @@
             <td>૨</td>
             <td> હોદ્દો </td>
             <td colspan="5">
-                {$data[index].karmchariHoddo || ".".repeat(44)}
+                {$data[index].karmchariHoddo[1] || ".".repeat(44)}
             </td>
         </tr>
         <tr>
@@ -75,8 +75,8 @@
                 </div>
             </td>
             <td colspan="5" class="no-spacing">
-                {#if $data[index].kacheriNaam}
-                    {#each $data[index].kacheriNaam?.split("\n") as kacheri}
+                {#if $data[index].kacheriNaam[0]}
+                    {#each $data[index].kacheriNaam[0]?.split("\n") as kacheri}
                         <span style="display: block;">
                             {kacheri || ".".repeat(100)}
                         </span>
@@ -110,7 +110,7 @@
             <td>૫</td>
             <td> નોકરીમા દાખલ તારીખ </td>
 
-            <td colspan="5">
+            <td colspan="4">
                 <b class="border field">
                     {toString($data[index].nokriDakhalTarikh, "/") || "."}
                 </b>
@@ -119,7 +119,7 @@
         <tr>
             <td>૬</td>
             <td> સત્રાંત નિવૃત્તિની તારીખ : </td>
-            <td colspan="5">
+            <td colspan="4">
                 <b class="border field">
                     {toString($data[index].nivrutiTarikh, "/") || "."}
                 </b>
@@ -157,7 +157,6 @@
                             <span style="display:block">{line}</span>
                         {/each}
                     {:else}
-                        <!-- for 4 lines of dots  -->
                         {`${".".repeat(100)}\n`.repeat(4)}
                     {/if}
                 </b>
@@ -171,7 +170,7 @@
     .field {
         display: block;
         margin: 0.2em;
-        min-width: max(5rem, 3ch);
+        min-width: min(4rem, 3ch);
     }
     td {
         vertical-align: top;

@@ -1,25 +1,20 @@
 <script>
-    import PensionCase from "../../lib/sections/PensionCase.svelte";
+  // @ts-nocheck
 
-    import PensionCase1 from "../sections/old/PensionCase1.svelte";
-    import TableOfContents from "../sections/TableOfContents.svelte";
-    import Bhaag1 from "../sections/Bhaag-1/Index.svelte";
-    export let index;
+  import { data } from "../globalState/data";
+  import PensionCase from "../../lib/sections/PensionCase.svelte";
+  import TableOfContents from "../sections/TableOfContents.svelte";
+  import Bhaag1 from "../sections/Bhaag-1/Index.svelte";
+  import Bhaag2 from "../sections/Bhaag-2/Index.svelte";
+  export let index;
+  $: bhaag = $data[index].bhaag;
 </script>
 
 <TableOfContents />
 <PensionCase {index} />
-<Bhaag1 {index} />
-<hr class="end" />
-<div class="no-print">
-    <PensionCase1 {index} />
-</div>
-
-<style>
-    hr.end {
-        margin-block: 15px;
-        color: red;
-        background-color: red;
-        height: 15px;
-    }
-</style>
+{#if bhaag.includes(1)}
+  <Bhaag1 {index} />
+{/if}
+{#if bhaag.includes(2)}
+  <Bhaag2 {index} />
+{/if}
