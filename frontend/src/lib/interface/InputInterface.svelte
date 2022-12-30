@@ -10,6 +10,7 @@
   import { toString } from "../tools/toString";
   import NiyuktiTable from "../commonElements/NiyuktiTable.svelte";
   import Bhaag_2_19 from "./partialInterface/Bhaag_2_19.svelte";
+  import Bhaag_2_P5 from "./partialInterface/Bhaag_2_P5.svelte";
 </script>
 
 <div class="no-print dark">
@@ -17,10 +18,21 @@
   <div>
     ભાગ:
     <div>
-      {#each [1, 2, 3, 4, 5] as i (i)}
-        <label for={`bhaag${i}`}>{i}</label>
-        <input type="checkbox" bind:group={$data[$index].bhaag} value={i} />
-      {/each}
+      <table class="layed-out center">
+        <tr>
+          {#each [1, 2, 3, 4, 5] as i (i)}
+            <td class="align-top">
+              <label for={`bhaag${i}`}>{i}</label>
+              <input
+                type="checkbox"
+                bind:group={$data[$index].bhaag}
+                name={`bhaag${i}`}
+                value={i}
+              />
+            </td>
+          {/each}
+        </tr>
+      </table>
     </div>
   </div>
   <div>
@@ -475,7 +487,7 @@
         </div>
       </div>
       <p>
-        (ગુ.મુ.સેવા (પેન્શન) નિયમો -૨૦૦૨ના નિયમ -૯૧ (૫ ) નિયમ -૯૨ ની શરતો
+        (ગુ.મુ.સેવા (પેન્શન) નિયમો -૨૦૦૨ના નિયમ -૯૧ (૫) નિયમ -૯૨ ની શરતો
         પરિપૂર્ણ થતી હોય તો)
       </p>
     </div>
@@ -544,6 +556,10 @@
   <div>
     ભાગ - 2: (19)
     <Bhaag_2_19 />
+  </div>
+  <div>
+    ભાગ - 2: (P5)
+    <Bhaag_2_P5 />
   </div>
 </div>
 

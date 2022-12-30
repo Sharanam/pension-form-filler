@@ -41,7 +41,7 @@
                                 ? "Print all records"
                                 : "Print current record"}
 
-                            ( Ctrl + P)
+                            (Ctrl + P)
                         </button>
                     </li>
                     <hr />

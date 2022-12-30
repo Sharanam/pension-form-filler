@@ -474,22 +474,22 @@
       <div class="date">
         <input
           type="number"
-          min="1"
-          max="31"
+          min="0"
+          max="99"
           bind:value={$data[$index].pensionPatrNokri[5][0]}
           placeholder="YY"
         />
         <input
           type="number"
-          min="1"
+          min="0"
           max="12"
           bind:value={$data[$index].pensionPatrNokri[5][1]}
           placeholder="MM"
         />
         <input
           type="number"
-          min="1900"
-          max="2100"
+          min="0"
+          max="31"
           bind:value={$data[$index].pensionPatrNokri[5][2]}
           placeholder="DD"
         />
@@ -501,22 +501,22 @@
       <div class="date">
         <input
           type="number"
-          min="1"
-          max="31"
+          min="0"
+          max="99"
           bind:value={$data[$index].pensionPatrNokri[6][0]}
           placeholder="YY"
         />
         <input
           type="number"
-          min="1"
+          min="0"
           max="12"
           bind:value={$data[$index].pensionPatrNokri[6][1]}
           placeholder="MM"
         />
         <input
           type="number"
-          min="1900"
-          max="2100"
+          min="0"
+          max="31"
           bind:value={$data[$index].pensionPatrNokri[6][2]}
           placeholder="DD"
         />

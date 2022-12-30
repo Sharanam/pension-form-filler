@@ -3,12 +3,14 @@
     font-family: 'Arial Unicode MS', 'Noto Serif Gujarati', Inter, Helvetica, Arial, sans-serif;
     font-size: 12pt;
     line-height: 24px;
-    font-weight: 400;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
+    /* font-weight: 400; */
+    /* line-spacing */
+    --line-spacing: 1.5;
+    /* font-synthesis: none; */
+    /* text-rendering: optimizeLegibility; */
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
+    /* -webkit-text-size-adjust: 100%; */
     scroll-behavior: smooth;
 }
 
@@ -60,6 +62,10 @@ div.page-break-before {
 
 .center {
     text-align: center;
+}
+
+.right {
+    text-align: right;
 }
 
 div.no-spacing>p {
@@ -146,6 +152,13 @@ table.border th {
     border-collapse: collapse;
 }
 
+table.padding,
+table.padding tr,
+table.padding td,
+table.padding th {
+    padding: 0.2rem;
+}
+
 .usually-hidden>* {
     opacity: 0;
 }
@@ -202,7 +215,7 @@ td.align-top {
     main {
         margin: 0 auto;
         padding: 1rem;
-        max-width: clamp( 800px, 80vw, 100%);
+        max-width: clamp(800px, 80vw, 100%);
     }
     main>* {
         max-width: 100%;

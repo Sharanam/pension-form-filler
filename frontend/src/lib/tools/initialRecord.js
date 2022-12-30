@@ -123,6 +123,30 @@ export function initialRecord() {
 
         ],
 
+        // bhaag - 2 (P5 onwards)
+        bandData: {
+            nivrutiSamayNo: {
+                lastPayBand: "",
+                lastPayGrade: "",
+            },
+            swaichitNivrutiSamayNo: {
+                lastPayBand: "",
+                lastPayGrade: "",
+            },
+            pensionPatrPagar: {
+                pensionDateFrom: ["", "", ""],
+                pensionDateTo: ["", "", ""],
+            },
+            pensionPatrPagarNiVigato: {
+                payBand: Array(10).fill(""),
+                gradePay: Array(10).fill(""),
+                kulPagaar: "",
+                sarvaadoDasMaas: "",
+                chhelloPagaar: "",
+                masikSarerashPpp: "",
+            }
+        },
+
         // 22:
         monthWiseRecord: [
             ["", "", "", "", "", ],
