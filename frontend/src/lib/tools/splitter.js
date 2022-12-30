@@ -1,15 +1,18 @@
 export function splitter(value, delimiter) {
-    value = value + ""
+    if (!value) return value
+    let v = value + ""
 
-    if (!value.includes(delimiter)) {
-        if (/\d*/.test(value)) {
-            value = value.split("").reverse().join("")
-            return value.match(/.{1,3}/g)
+    if (!v.includes(delimiter)) {
+        if (/\d*/.test(v)) {
+            v = v.split("").reverse().join("")
+            return v.match(/.{1,3}/g)
                 .reverse()
                 .map(i => i.split("").reverse().join(""))
                 .join(delimiter)
         }
+        return value
     }
+
 
 
 }
