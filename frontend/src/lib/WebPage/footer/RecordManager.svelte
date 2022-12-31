@@ -6,6 +6,7 @@
 
   export let file = [];
   let show = window.localStorage.getItem("showRecordManager") === "true";
+  let fontSize = window.localStorage.getItem("fontSize") || 1;
 </script>
 
 <div class="no-print">
@@ -24,6 +25,33 @@
         </button>
       </div>
       {#if file}
+        <div class="one-line">
+          <label for="font-size">Font Size</label>
+          <input
+            type="range"
+            min="0.5"
+            max="2"
+            step="0.1"
+            value={fontSize}
+            on:change={(e) => {
+              window.localStorage.setItem("fontSize", e.target.value);
+              document.documentElement.style.fontSize = e.target.value + "rem";
+              fontSize = e.target.value;
+            }}
+            id="font-size"
+          />
+          <button
+            on:click={() => {
+              window.localStorage.setItem("fontSize", 1);
+              document.documentElement.style.fontSize = "1rem";
+              fontSize = 1;
+            }}
+            disabled={fontSize == 1}
+            class="easy-button"
+          >
+            Default
+          </button>
+        </div>
         <ShowAllRecords />
         <!-- record navigator starts -->
         <div class=" center">
@@ -126,5 +154,15 @@
     margin: 0;
     border-radius: 0;
     font-size: 1rem;
+  }
+  .easy-button {
+    padding: 0.1rem;
+    border-radius: 0;
+    margin: 0;
+  }
+  .one-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>

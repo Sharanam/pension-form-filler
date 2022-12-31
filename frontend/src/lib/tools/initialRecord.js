@@ -1,4 +1,4 @@
-import { mudikrut, mudikrutRakam } from "./constantValues";
+import { mudikrut } from "./constantValues";
 
 export function initialRecord() {
     return {
@@ -147,6 +147,12 @@ export function initialRecord() {
             }
         },
 
+        // bhaag - 2 (P7 onwards)
+        monghvaari: "34952",
+        pensionPatrNokariVarsh: "33", // (maximum 33)
+        bhaag2_25_2: ['', ""],
+
+
         // 22:
         monthWiseRecord: [
             ["", "", "", "", "", ],
@@ -162,7 +168,7 @@ export function initialRecord() {
         ],
         // 27
         // મુડીકૃત રકમ nu table
-        mudikrutRakam: mudikrutRakam,
+        mudikrutRakamAge: "",
         // 28(2)
 
         leniRakamNiVigato: [

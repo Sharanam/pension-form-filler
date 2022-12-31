@@ -1,7 +1,7 @@
 <script>
   // @ts-nocheck
 
-  import { data } from "../../globalState/data";
+  import { data, preferences } from "../../globalState/data";
   import Bhaag_2P5 from "../../interface/partialInterface/Bhaag_2_P5.svelte";
   import { splitter } from "../../tools/splitter";
   import { toGujarati } from "../../tools/toGujarati";
@@ -46,9 +46,11 @@
 </script>
 
 <div class="page-break-before">
-  <div class="no-print">
-    <Bhaag_2P5 />
-  </div>
+  {#if !$preferences.showAll}
+    <div class="no-print">
+      <Bhaag_2P5 />
+    </div>
+  {/if}
   <table style="width: 100%;">
     <tr>
       <td class="align-top"> ૨૦. </td>

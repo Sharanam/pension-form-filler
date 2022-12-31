@@ -1,7 +1,6 @@
 <script>
   // @ts-nocheck
 
-  import { dateString } from "../tools/dateString";
   import FamilyMembers from "../commonElements/FamilyMembers.svelte";
   import KarmchariDarjjo from "../commonElements/KarmchariDarjjo.svelte";
   import { data, index } from "../globalState/data";
@@ -11,6 +10,8 @@
   import NiyuktiTable from "../commonElements/NiyuktiTable.svelte";
   import Bhaag_2_19 from "./partialInterface/Bhaag_2_19.svelte";
   import Bhaag_2_P5 from "./partialInterface/Bhaag_2_P5.svelte";
+  import Bhaag_2_P7 from "./partialInterface/Bhaag_2_P7.svelte";
+  import Bhaag_2P9 from "./partialInterface/Bhaag_2_P9.svelte";
 </script>
 
 <div class="no-print dark">
@@ -155,24 +156,25 @@
     </div>
   </div>
   <div>
-    {toString($data[$index].khaatu)}
-    {toString($data[$index].vibhaag)}
-  </div>
-  <div>
     ૬ જન્મ તારીખ : આંકડામાં:
     <div>
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="31"
         placeholder="dd"
         bind:value={$data[$index].janmTarikh[0]}
       />
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="12"
         placeholder="mm"
         bind:value={$data[$index].janmTarikh[1]}
       />
       <input
-        type="text"
+        type="number"
+        min="1900"
         placeholder="yyyy"
         bind:value={$data[$index].janmTarikh[2]}
       />
@@ -182,17 +184,22 @@
     ૭ નોકરીમા દાખલ તારીખ:
     <div>
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="31"
         placeholder="dd"
         bind:value={$data[$index].nokriDakhalTarikh[0]}
       />
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="12"
         placeholder="mm"
         bind:value={$data[$index].nokriDakhalTarikh[1]}
       />
       <input
-        type="text"
+        type="number"
+        min="1900"
         placeholder="yyyy"
         bind:value={$data[$index].nokriDakhalTarikh[2]}
       />
@@ -206,17 +213,22 @@
     ૯ નિવૃત્તિની તારીખ:
     <div>
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="31"
         placeholder="dd"
         bind:value={$data[$index].nivrutiTarikh[0]}
       />
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="12"
         placeholder="mm"
         bind:value={$data[$index].nivrutiTarikh[1]}
       />
       <input
-        type="text"
+        type="number"
+        min="1900"
         placeholder="yyyy"
         bind:value={$data[$index].nivrutiTarikh[2]}
       />
@@ -231,17 +243,22 @@
       </p>
       <div>
         <input
-          type="text"
+          type="number"
+          min="1"
+          max="31"
           placeholder="dd"
           bind:value={$data[$index].notionalNivrutiTarikh[0][0]}
         />
         <input
-          type="text"
+          type="number"
+          min="1"
+          max="12"
           placeholder="mm"
           bind:value={$data[$index].notionalNivrutiTarikh[0][1]}
         />
         <input
-          type="text"
+          type="number"
+          min="1900"
           placeholder="yyyy"
           bind:value={$data[$index].notionalNivrutiTarikh[0][2]}
         />
@@ -252,17 +269,22 @@
       </p>
       <div>
         <input
-          type="text"
+          type="number"
+          min="1"
+          max="31"
           placeholder="dd"
           bind:value={$data[$index].notionalNivrutiTarikh[1][0]}
         />
         <input
-          type="text"
+          type="number"
+          min="1"
+          max="12"
           placeholder="mm"
           bind:value={$data[$index].notionalNivrutiTarikh[1][1]}
         />
         <input
-          type="text"
+          type="number"
+          min="1900"
           placeholder="yyyy"
           bind:value={$data[$index].notionalNivrutiTarikh[1][2]}
         />
@@ -271,33 +293,53 @@
   </div>
   <div>
     ૧૦ સંત્રાત તારીખ:
-    <input
-      type="date"
-      value={dateString(
-        $data[$index].santrat[2],
-        $data[$index].santrat[1],
-        $data[$index].santrat[0]
-      )}
-      on:change={(e) => {
-        let date = e.target.value.split("-");
-        $data[$index].santrat = [date[2], date[1], date[0]];
-      }}
-    />
+    <div>
+      <input
+        type="number"
+        min="1"
+        max="31"
+        placeholder="dd"
+        bind:value={$data[$index].santrat[0]}
+      />
+      <input
+        type="number"
+        min="1"
+        max="12"
+        placeholder="mm"
+        bind:value={$data[$index].santrat[1]}
+      />
+      <input
+        type="number"
+        min="1900"
+        placeholder="yyyy"
+        bind:value={$data[$index].santrat[2]}
+      />
+    </div>
   </div>
   <div>
     ૧૧ અવસાન તારીખ:
-    <input
-      type="date"
-      value={dateString(
-        $data[$index].avsaanTarik[2],
-        $data[$index].avsaanTarik[1],
-        $data[$index].avsaanTarik[0]
-      )}
-      on:change={(e) => {
-        let date = e.target.value.split("-");
-        $data[$index].avsaanTarik = [date[2], date[1], date[0]];
-      }}
-    />
+    <div>
+      <input
+        type="number"
+        min="1"
+        max="31"
+        placeholder="dd"
+        bind:value={$data[$index].avsaanTarik[0]}
+      />
+      <input
+        type="number"
+        min="1"
+        max="12"
+        placeholder="mm"
+        bind:value={$data[$index].avsaanTarik[1]}
+      />
+      <input
+        type="number"
+        min="1900"
+        placeholder="yyyy"
+        bind:value={$data[$index].avsaanTarik[2]}
+      />
+    </div>
   </div>
   <div>
     <div class="no-space">
@@ -357,17 +399,22 @@
     <label for="dateOfSubmission"> રૂપાંતરની તારીખ (આજ રોજ): </label>
     <div>
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="31"
         bind:value={$data[$index].mudikrutTarikh[0]}
         placeholder="dd"
       />
       <input
-        type="text"
+        type="number"
+        min="1"
+        max="12"
         placeholder="mm"
         bind:value={$data[$index].mudikrutTarikh[1]}
       />
       <input
-        type="text"
+        type="number"
+        min="1900"
         placeholder="yyyy"
         bind:value={$data[$index].mudikrutTarikh[2]}
       />
@@ -560,6 +607,13 @@
   <div>
     ભાગ - 2: (P5)
     <Bhaag_2_P5 />
+  </div>
+  <div>
+    ભાગ - 2: (P7)
+    <Bhaag_2_P7 />
+  </div>
+  <div>
+    Age: <Bhaag_2P9 />
   </div>
 </div>
 

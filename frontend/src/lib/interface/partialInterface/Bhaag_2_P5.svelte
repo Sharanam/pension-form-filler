@@ -28,7 +28,6 @@
   import { data, index } from "../../globalState/data";
 
   function calculate() {
-    console.log("calculate");
     data.update((data) => {
       //   data[$index].bandData
 
