@@ -11,7 +11,8 @@
   import Bhaag_2_19 from "./partialInterface/Bhaag_2_19.svelte";
   import Bhaag_2_P5 from "./partialInterface/Bhaag_2_P5.svelte";
   import Bhaag_2_P7 from "./partialInterface/Bhaag_2_P7.svelte";
-  import Bhaag_2P9 from "./partialInterface/Bhaag_2_P9.svelte";
+  import Bhaag_2_P8 from "./partialInterface/Bhaag_2_P8.svelte";
+  import Bhaag_2_P9 from "./partialInterface/Bhaag_2_P9.svelte";
 </script>
 
 <div class="no-print dark">
@@ -389,7 +390,9 @@
     <p>મૂડીકૃત રૂપાંતરની માહિતી</p>
     <div>
       <input
-        type="text"
+        type="number"
+        min="0"
+        max="100"
         bind:value={$data[$index].mudikrut}
         placeholder="% મૂડીકૃત રૂપાંતર"
       />
@@ -613,7 +616,11 @@
     <Bhaag_2_P7 />
   </div>
   <div>
-    Age: <Bhaag_2P9 />
+    Age: <Bhaag_2_P8 />
+  </div>
+  <div>
+    લાભોમાથી કપાત કરવાની વિગત
+    <Bhaag_2_P9 />
   </div>
 </div>
 

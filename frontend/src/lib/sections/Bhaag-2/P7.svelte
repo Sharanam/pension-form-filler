@@ -3,9 +3,17 @@
 
   import { data, preferences } from "../../globalState/data";
   import Bhaag_2P7 from "../../interface/partialInterface/Bhaag_2_P7.svelte";
+  import { ageCalculator } from "../../tools/ageCalculator";
   import { splitter } from "../../tools/splitter";
   import LocalFooter from "./LocalFooter.svelte";
   export let index = 0;
+  $: calculatedAge = ageCalculator(
+    $data[index].nokriDakhalTarikh,
+    $data[index].nivrutiTarikh
+  );
+  $: pensionPatrNokariVarsh =
+    $data[index].pensionPatrNokariVarsh ||
+    (calculatedAge <= 33 && calculatedAge);
 </script>
 
 <div class="page-break-before">
@@ -34,7 +42,7 @@
           +
           {$data[index].monghvaari || "_".repeat(15)}
           ) &#215;
-          {$data[index].pensionPatrNokariVarsh || "_".repeat(15)}
+          {pensionPatrNokariVarsh || "_".repeat(15)}
           /2 =
         </p>
         <p>
@@ -44,7 +52,7 @@
               ((+$data[index].monghvaari +
                 +$data[index].bandData?.pensionPatrPagarNiVigato
                   ?.chhelloPagaar) *
-                +$data[index].pensionPatrNokariVarsh) /
+                +pensionPatrNokariVarsh) /
                 2
           ) || "_".repeat(15)}
         </p>

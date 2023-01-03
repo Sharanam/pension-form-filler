@@ -2,7 +2,7 @@
   // @ts-nocheck
 
   import { data, preferences } from "../../globalState/data";
-  import Bhaag_2P9 from "../../interface/partialInterface/Bhaag_2_P9.svelte";
+  import Bhaag_2_P8 from "../../interface/partialInterface/Bhaag_2_P8.svelte";
   import { ageCalculator } from "../../tools/ageCalculator";
   import { mudikrutRakam } from "../../tools/constantValues";
   import { splitter } from "../../tools/splitter";
@@ -19,12 +19,20 @@
     +$data[index].mudikrutRakamAge ||
     ageCalculator($data[index].janmTarikh, $data[index].mudikrutTarikh) ||
     "";
+
+  $: calculatedAge = ageCalculator(
+    $data[index].nokriDakhalTarikh,
+    $data[index].nivrutiTarikh
+  );
+  $: pensionPatrNokariVarsh =
+    $data[index].pensionPatrNokariVarsh ||
+    (calculatedAge <= 33 && calculatedAge);
 </script>
 
 <div class="page-break-before">
   {#if !$preferences.showAll}
     <div class="no-print">
-      <Bhaag_2P9 />
+      <Bhaag_2_P8 />
     </div>
   {/if}
   <table style="width: 100%;">
@@ -42,13 +50,13 @@
         +
         {$data[index].monghvaari || "_".repeat(15)}
         ) &#215;
-        {$data[index].pensionPatrNokariVarsh || "_".repeat(15)} = રુ.
+        {pensionPatrNokariVarsh || "_".repeat(15)} = રુ.
         {splitter(
           $data[index].monghvaari &&
             $data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar &&
             ((+$data[index].monghvaari +
               +$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar) *
-              +$data[index].pensionPatrNokariVarsh) /
+              +pensionPatrNokariVarsh) /
               2
         ) || "_".repeat(15)}
       </p>
@@ -110,6 +118,24 @@
         ) || "_".repeat(15)}/-
         <p>
           રુપાંતર પેન્શન ભાગ &#215; રુપાંતર દર &#215; ૧૨ =
+          {toGujarati(
+            splitter(
+              $data[index].mudikrut &&
+                age &&
+                mudikrutRakam.get(+age) &&
+                $data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar &&
+                parseInt(
+                  ((+$data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar || 0) /
+                    2) *
+                    (+$data[index].mudikrut / 100)
+                )
+            )
+          ) || "_".repeat(15)} &#215; {toGujarati(
+            $data[index].mudikrut && age && mudikrutRakam.get(+age)
+          ) || "_".repeat(15)} &#215; ૧૨ =
+
           {toGujarati(
             splitter(
               $data[index].mudikrut &&

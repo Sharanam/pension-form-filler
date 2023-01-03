@@ -9,6 +9,9 @@
   import P6 from "./P6.svelte";
   import P7 from "./P7.svelte";
   import P8 from "./P8.svelte";
+  import P9 from "./P9.svelte";
+  import P10 from "./P10.svelte";
+  import P11 from "./P11.svelte";
   export let index;
 </script>
 
@@ -20,3 +23,6 @@
 <P6 {index} />
 <P7 {index} />
 <P8 {index} />
+<P9 {index} />
+<P10 {index} />
+<P11 {index} />

@@ -1,0 +1,169 @@
+<script>
+  // @ts-nocheck
+
+  import { data, preferences } from "../../globalState/data";
+  import Bhaag_2_P9 from "../../interface/partialInterface/Bhaag_2_P9.svelte";
+  import { ageCalculator } from "../../tools/ageCalculator";
+  import { splitter } from "../../tools/splitter";
+  import { toGujarati } from "../../tools/toGujarati";
+  import { toString } from "../../tools/toString";
+  import LocalFooter from "./LocalFooter.svelte";
+  export let index = 0;
+
+  $: age =
+    +$data[index].mudikrutRakamAge ||
+    ageCalculator($data[index].janmTarikh, $data[index].mudikrutTarikh) ||
+    "";
+  $: leniNiRakam = $data[index].leniRakamNiVigato;
+</script>
+
+<div class="page-break-before">
+  {#if !$preferences.showAll}
+    <div class="no-print">
+      <Bhaag_2_P9 />
+    </div>
+  {/if}
+  <table style="width: 100%;">
+    <tr>
+      <td class="align-top"> ૨૮.</td>
+      <td colspan="7">
+        <p>નિવૃત્તિના લાભોમાથી કપાત કરવાની હોય તો તેની વિગત</p>
+      </td>
+    </tr>
+    <tr>
+      <td />
+      <td class="align-top"> (૧) </td>
+      <td>
+        <div>
+          પેન્શનમાંથી કપાત રુ.
+          {$data[index].Kapaat[0][0] || "_".repeat(15)}
+          તા.
+          {toString($data[index].Kapaat[0][1], "/") || "_".repeat(15)}
+          થી તા
+          {toString($data[index].Kapaat[0][2], "/") || "_".repeat(15)} સુધી રુ
+          {$data[index].Kapaat[0][3] || "_".repeat(15)}
+          તા
+          {toString($data[index].Kapaat[0][4], "/") || "_".repeat(15)}
+          થી કાયમી કપાત
+          <br />
+          પેન્શનમાંથી કપાત કરવાના સિક્ષા હુકમ નંબર {$data[index].Kapaat[1][0] ||
+            "_".repeat(15)}
+          તા {toString($data[index].Kapaat[1][1], "/") || "_".repeat(15)} પેન્શન
+          કાપના શિક્ષાના હુકમની નકલ સામેલ છે.
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td />
+      <td class="align-top"> (૨) </td>
+      <td colspan="7">
+        સરકારી કર્મચારી પાસેથી લેણી રકમની વિગત નીચે મુજબ છે. (ગુ. મુ. સેવા
+        (પેન્શન) નિયમોના નિયમ 133/134/135)
+      </td>
+    </tr>
+    <tr>
+      <td colspan="7">
+        <table class="border padding center" style="width: 100%;">
+          <thead>
+            <tr>
+              <td> ક્રમ </td>
+              <td> વિગત </td>
+
+              <td>ખાતા નંબર</td>
+              <td> મુદ્દલ </td>
+              <td> વ્યાજ </td>
+              <td> કુલ </td>
+              <td> જમા કરાવવાનું અંદાજપત્ર સદર </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>૧</td>
+              <td> મકાન પેશગી </td>
+              {#if leniNiRakam[0]}
+                {#each leniNiRakam[1][0] as col}
+                  <td>
+                    {col}
+                  </td>
+                {/each}
+              {/if}
+            </tr>
+            <tr>
+              <td>૨</td>
+              <td> વાહન પેશગી </td>
+              {#if !leniNiRakam[0]}
+                <td rowspan="3" colspan="5">
+                  {toString($data[index]?.karmchariNaam[0], " ") ||
+                    toString($data[index]?.karmchariNaam[1], " ") ||
+                    ".".repeat(50)} પાસેથી કોઈ વસુલાત કરવાની બાકી નથી.
+                </td>
+              {:else}
+                {#each leniNiRakam[1][1] as col}
+                  <td>
+                    {col}
+                  </td>
+                {/each}
+              {/if}
+            </tr>
+            <tr>
+              <td>૩</td>
+              <td> પગાર ભથ્થાની વસુલાત </td>
+              {#if leniNiRakam[0]}
+                {#each leniNiRakam[1][2] as col}
+                  <td>
+                    {col}
+                  </td>
+                {/each}
+              {/if}
+            </tr>
+            <tr>
+              <td>૪</td>
+              <td> અન્ય વસુલાત </td>
+              {#if leniNiRakam[0]}
+                {#each leniNiRakam[1][3] as col}
+                  <td>
+                    {col}
+                  </td>
+                {/each}
+              {/if}
+            </tr>
+            <tr>
+              <td />
+              <td> કુલ વસુલાત </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="indent">
+          ઉપર જણાવેલ વિગતે રકમ સરકારી લેણા પેટે મૃત્યુ-સહ-નિવૃતિ ગ્રેજ્યુટી /
+          સેવા ગ્રેજ્યુઇટીમાંથી વસુલાત કરી જમા કરવા વિનંતી છે.
+        </p>
+      </td>
+    </tr>
+  </table>
+  <p class="center">-: પ્રમાણપત્રો :-</p>
+  <table>
+    <tr>
+      <td class="align-top"> (૧) </td>
+      <td>
+        આથી સમગ્રપણે ખાતરી કરી પ્રમાણિત કરવામાં આવે છે કે આજની તારીખે
+        શ્રી/શ્રીમતિ {toString($data[index]?.karmchariNaam[0], " ") ||
+          toString($data[index]?.karmchariNaam[1], " ") ||
+          ".".repeat(50)}
+        તા:
+        {toString($data[index].nokriDakhalTarikh, "/") || ".".repeat(20)}
+        થી તા:
+        {toString($data[index].nivrutiTarikh, "/") || ".".repeat(20)}
+        પાસે કશું લેણું બાકી નથી.
+      </td>
+    </tr>
+  </table>
+  <LocalFooter {index} />
+</div>
+
+<style>
+  .no-print {
+    background-color: #756e6e;
+    color: white;
+    padding: 5px;
+  }
+</style>
