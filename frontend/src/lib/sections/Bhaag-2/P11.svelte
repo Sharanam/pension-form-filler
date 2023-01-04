@@ -3,6 +3,7 @@
   import { data, preferences } from "../../globalState/data";
   import { toString } from "../../tools/toString";
   import LocalFooter from "./LocalFooter.svelte";
+  import Bhaag_2_P11 from "./../../interface/partialInterface/Bhaag_2_P11.svelte";
   export let index = 0;
   $: nm =
     toString($data[index]?.karmchariNaam[0], " ") ||
@@ -12,8 +13,8 @@
 
 <div class="page-break-before ">
   {#if !$preferences.showAll}
-    <div class="no-print">
-      <!-- <Bhaag_2_P8 /> -->
+    <div class="no-print in-page-interface">
+      <Bhaag_2_P11 />
     </div>
   {/if}
   <div class="center">
@@ -43,11 +44,73 @@
       ) || ".".repeat(20)}
     </div>
   </div>
+
+  <div class="grid center">
+    <div class="ni">
+      ઓળખની અંગત નિશાની
+      <div class="box">
+        {$data[index].personal[0] || ""}
+      </div>
+    </div>
+    <div class="height">
+      ઉંચાઇ
+      <div class="box">
+        {$data[index].personal[1] || ""}
+      </div>
+    </div>
+    <div class="sahi">
+      સહીનો નમુનો
+      <div class="box" />
+    </div>
+    <div class="photo">
+      સંયુક્ત ફોટો
+      <div class="box" />
+    </div>
+  </div>
   <LocalFooter {index} />
 </div>
 
 <style>
   .mt {
     margin-top: 1.6em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5em 0.2em;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "ni height sahi"
+      "photo photo photo";
+  }
+  .box {
+    content: "";
+    border: 1px solid black;
+    display: block;
+
+    min-height: 20vh;
+    max-height: 80%;
+
+    min-width: 10vw;
+    max-width: 12em;
+
+    margin-inline: auto;
+  }
+
+  .ni {
+    grid-area: ni;
+  }
+
+  .height {
+    grid-area: height;
+  }
+
+  .sahi {
+    grid-area: sahi;
+  }
+
+  .photo {
+    grid-area: photo;
   }
 </style>

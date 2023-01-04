@@ -2,7 +2,7 @@
 :root {
     font-family: 'Arial Unicode MS', 'Noto Serif Gujarati', Inter, Helvetica, Arial, sans-serif;
     font-size: 12pt;
-    line-height: 24px;
+    line-height: 1.6;
     /* font-weight: 400; */
     /* line-spacing */
     --line-spacing: 1.5;
@@ -197,6 +197,12 @@ table.padding th {
 
 td.align-top {
     vertical-align: top;
+}
+
+.in-page-interface {
+    background-color: #756e6e;
+    color: white;
+    padding: 5px;
 }
 
 @media print {

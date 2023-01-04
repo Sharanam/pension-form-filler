@@ -1,176 +1,176 @@
 import { mudikrut } from "./constantValues";
 
 export function initialRecord() {
-    return {
-        /*
-         * Pension case data
-         */
-        bhaag: [1, 2, 5],
-        karmchariNaam: [
-            ["", "", "", ""],
-            ["", "", "", ""],
-        ],
-        mudikrutTarikh: new Date().toLocaleDateString("en-GB").split("/"),
-        karmchariHoddo: ["", ""],
-        kacheriNaam: [
-            "સરદાર પટેલ યુનિવર્સિટી,\nવલ્લભ વિદ્યાનગર-388120,\nજિ. આણંદ,\nગુજરાત.\nફોન નંબર: ૦૨૬૯૨-૨૨૬૮૧૫",
-            "Sardar Patel University,\nVallabh Vidyanagar-388120,\nDist. Anand,\nGujarat.\nPhone No.: 02692-226815",
-        ],
+  return {
+    /*
+     * Pension case data
+     */
+    bhaag: [1, 2, 5],
+    karmchariNaam: [
+      ["", "", "", ""],
+      ["", "", "", ""],
+    ],
+    mudikrutTarikh: new Date().toLocaleDateString("en-GB").split("/"),
+    karmchariHoddo: ["", ""],
+    kacheriNaam: [
+      "સરદાર પટેલ યુનિવર્સિટી,\nવલ્લભ વિદ્યાનગર-388120,\nજિ. આણંદ,\nગુજરાત.\nફોન નંબર: ૦૨૬૯૨-૨૨૬૮૧૫",
+      "Sardar Patel University,\nVallabh Vidyanagar-388120,\nDist. Anand,\nGujarat.\nPhone No.: 02692-226815",
+    ],
 
-        // khaatu/vibhaag nu naam, vada nu naam, code number
-        khaatu: ["", "", ""],
-        vibhaag: ["", "", ""],
+    // khaatu/vibhaag nu naam, vada nu naam, code number
+    khaatu: ["", "", ""],
+    vibhaag: ["", "", ""],
 
-        janmTarikh: ["", "", ""],
-        nokriDakhalTarikh: ["", "", ""],
-        nivrutiPrakar: ["0"],
-        nivrutiTarikh: ["", "", ""],
-        notionalNivrutiTarikh: [
-            ["", "", ""],
-            ["", "", ""],
-        ],
-        gpfNumber: "",
-        santrat: ["", "", ""],
-        avsaanTarik: ["", "", ""], // avsaan paamela karmchari na kissa ma
-        /*
-         * Bhaag-5 data
-         */
-        isRajyaPatrit: true,
-        isNotRajyaPatrit: undefined,
+    janmTarikh: ["", "", ""],
+    nokriDakhalTarikh: ["", "", ""],
+    nivrutiPrakar: ["0"],
+    nivrutiTarikh: ["", "", ""],
+    notionalNivrutiTarikh: [
+      ["", "", ""],
+      ["", "", ""],
+    ],
+    gpfNumber: "",
+    santrat: ["", "", ""],
+    avsaanTarik: ["", "", ""], // avsaan paamela karmchari na kissa ma
+    /*
+     * Bhaag-5 data
+     */
+    isRajyaPatrit: true,
+    isNotRajyaPatrit: undefined,
 
-        isSarkariRajyaPatrit: undefined,
-        isJillaPanchayatKar: undefined,
-        isSarkariBinaRajyaPatrit: true,
-        isRojamadarKar: undefined,
-        isWorkChargeKar: undefined,
-        isPensionPatrGrantInAid: undefined,
-        /*
-         * Pension case -1
-         */
-        address: "",
-        // કુટુંબના સભ્યોના નામ
-        // જન્મ તારીખ
-        // કર્મચારી/ અધિકારી સાથે સંબંધ
-        // નોંધ
-        members: [
-            ["", ["", "", ""], "", ""]
-        ],
+    isSarkariRajyaPatrit: undefined,
+    isJillaPanchayatKar: undefined,
+    isSarkariBinaRajyaPatrit: true,
+    isRojamadarKar: undefined,
+    isWorkChargeKar: undefined,
+    isPensionPatrGrantInAid: undefined,
+    /*
+     * Pension case -1
+     */
+    address: "",
+    // કુટુંબના સભ્યોના નામ
+    // જન્મ તારીખ
+    // કર્મચારી/ અધિકારી સાથે સંબંધ
+    // નોંધ
+    members: [["", ["", "", ""], "", ""]],
 
-        /*
-            ૯ જીલ્લા/ પેટા તિજોરીએથી 
-            */
-        petaTijori: "આણંદ",
-        jillo: "આણંદ",
-        taluko: "આણંદ",
+    /*
+        ૯ જીલ્લા/ પેટા તિજોરીએથી 
+        */
+    petaTijori: "આણંદ",
+    jillo: "આણંદ",
+    taluko: "આણંદ",
 
-        // 2.3: 16
-        paatrta: ["પત્ની"],
-        paatrataNaam: [
-            ["", "", ""], // નામ
-            ["", "", ""], // Name
-        ],
+    // 2.3: 16
+    paatrta: ["પત્ની"],
+    paatrataNaam: [
+      ["", "", ""], // નામ
+      ["", "", ""], // Name
+    ],
 
-        mudikrut,
-        // 13:
-        apangSabhya: "",
-        vali: "",
-        // 15 (2):
-        sagir: false,
-        nayuktSagir: ["", "", ""],
-        sadarhu: "",
-        sagirAddress: "",
-        pentionerSatheSambandh: "",
+    mudikrut,
+    // 13:
+    apangSabhya: "",
+    vali: "",
+    // 15 (2):
+    sagir: false,
+    nayuktSagir: ["", "", ""],
+    sadarhu: "",
+    sagirAddress: "",
+    pentionerSatheSambandh: "",
 
-        // bhaag-2 (18)
-        niyuktiTable: [
-            ["", "", ["", ["", "", ""]], "", "", "", ""]
-        ],
+    // bhaag-2 (18)
+    niyuktiTable: [["", "", ["", ["", "", ""]], "", "", "", ""]],
 
-        // bhaag - 2 (19)
-        pensionPatrNokri: [
-            [
-                ["", "", ""],
-                ["", "", ""],
-            ], // (એ)
-            [
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-            ], // (એ) 1
-            [
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-            ], // (એ) 2
-            [
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-            ], // (એ) 3
-            [
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-                ["", "", ""],
-            ], // (એ) 4
+    // bhaag - 2 (19)
+    pensionPatrNokri: [
+      [
+        ["", "", ""],
+        ["", "", ""],
+      ], // (એ)
+      [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ], // (એ) 1
+      [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ], // (એ) 2
+      [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ], // (એ) 3
+      [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ], // (એ) 4
 
-            ["", "", ""], // C
-            ["", "", ""], // D
-        ],
+      ["", "", ""], // C
+      ["", "", ""], // D
+    ],
 
-        // bhaag - 2 (P5 onwards)
-        bandData: {
-            nivrutiSamayNo: {
-                lastPayBand: "",
-                lastPayGrade: "",
-            },
-            swaichitNivrutiSamayNo: {
-                lastPayBand: "",
-                lastPayGrade: "",
-            },
-            pensionPatrPagar: {
-                pensionDateFrom: ["", "", ""],
-                pensionDateTo: ["", "", ""],
-            },
-            pensionPatrPagarNiVigato: {
-                payBand: Array(10).fill(""),
-                gradePay: Array(10).fill(""),
-                kulPagaar: "",
-                sarvaadoDasMaas: "",
-                chhelloPagaar: "",
-                masikSarerashPpp: "",
-            },
-        },
+    // bhaag - 2 (P5 onwards)
+    bandData: {
+      nivrutiSamayNo: {
+        lastPayBand: "",
+        lastPayGrade: "",
+      },
+      swaichitNivrutiSamayNo: {
+        lastPayBand: "",
+        lastPayGrade: "",
+      },
+      pensionPatrPagar: {
+        pensionDateFrom: ["", "", ""],
+        pensionDateTo: ["", "", ""],
+      },
+      pensionPatrPagarNiVigato: {
+        payBand: Array(10).fill(""),
+        gradePay: Array(10).fill(""),
+        kulPagaar: "",
+        sarvaadoDasMaas: "",
+        chhelloPagaar: "",
+        masikSarerashPpp: "",
+      },
+    },
 
-        // bhaag - 2 (P7 onwards)
-        monghvaari: "34952",
-        pensionPatrNokariVarsh: "", // (maximum 33)
-        bhaag2_25_2: ["", ""],
+    // bhaag - 2 (P7 onwards)
+    monghvaari: "34952",
+    pensionPatrNokariVarsh: "", // (maximum 33)
+    bhaag2_25_2: ["", ""],
 
-        // bhaag - 2 (P9)
-        // 28 (1)
-        Kapaat: [
-            ["", ["", "", ""],
-                ["", "", ""], "", ["", "", ""]
-            ],
-            ["", ["", "", ""]],
-        ],
-        // 28(2)
-        leniRakamNiVigato: [
-            undefined, [
-                // khataNumber, muddal, vyaj, andajpatr
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-                ["", "", "", ""],
-            ],
-        ],
+    // bhaag - 2 (P9)
+    // 28 (1)
+    Kapaat: [
+      ["", ["", "", ""], ["", "", ""], "", ["", "", ""]],
+      ["", ["", "", ""]],
+    ],
+    // 28(2)
+    leniRakamNiVigato: [
+      undefined,
+      [
+        // khataNumber, muddal, vyaj, andajpatr
+        ["", "", "", ""],
+        ["", "", "", ""],
+        ["", "", "", ""],
+        ["", "", "", ""],
+      ],
+    ],
 
-        // 27
-        // મુડીકૃત રકમ nu table
-        mudikrutRakamAge: "",
-    };
+    // 27
+    // મુડીકૃત રકમ nu table
+    mudikrutRakamAge: "",
+    personal: [
+      // [A sign of identity, height]
+      "",
+      "",
+    ],
+  };
 }

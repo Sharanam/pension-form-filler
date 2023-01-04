@@ -3,8 +3,8 @@
   import InputInterface from "./lib/interface/InputInterface.svelte";
   import RecordTable from "./lib/interface/recordManager/RecordTable.svelte";
   import PrintableUnit from "./lib/interface/PrintableUnit.svelte";
-  import Header from "./lib/WebPage/header/Header.svelte";
-  import Footer from "./lib/WebPage/footer/Footer.svelte";
+  import Header from "./lib/webPage/header/Header.svelte";
+  import Footer from "./lib/webPage/footer/Footer.svelte";
   import { data, index, preferences } from "./lib/globalState/data";
   import ShowAllRecords from "./lib/interface/recordManager/ShowAllRecords.svelte";
   import { initialRecord } from "./lib/tools/initialRecord";

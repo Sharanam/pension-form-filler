@@ -47,7 +47,7 @@
 
 <div class="page-break-before">
   {#if !$preferences.showAll}
-    <div class="no-print">
+    <div class="no-print in-page-interface">
       <Bhaag_2P5 />
     </div>
   {/if}
@@ -199,11 +199,5 @@
 <style>
   td.right::after {
     content: " : ";
-  }
-
-  .no-print {
-    background-color: #756e6e;
-    color: white;
-    padding: 5px;
   }
 </style>

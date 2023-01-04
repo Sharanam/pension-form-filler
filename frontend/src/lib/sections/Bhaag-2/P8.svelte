@@ -31,7 +31,7 @@
 
 <div class="page-break-before">
   {#if !$preferences.showAll}
-    <div class="no-print">
+    <div class="no-print in-page-interface">
       <Bhaag_2_P8 />
     </div>
   {/if}
@@ -164,10 +164,5 @@
   td.selected {
     background-color: lightsalmon;
     font-weight: bold;
-  }
-  .no-print {
-    background-color: #756e6e;
-    color: white;
-    padding: 5px;
   }
 </style>
