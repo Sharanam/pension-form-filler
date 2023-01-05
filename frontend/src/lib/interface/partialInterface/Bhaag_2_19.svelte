@@ -1,4 +1,6 @@
 <script>
+  // @ts-nocheck
+
   import { data, index } from "../../globalState/data";
 </script>
 
@@ -57,55 +59,24 @@
 
   <div>
     (૧) ૩૬ માસથી વધારે અસાધારણ રજા
-    <div>
-      તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[1][0][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[1][0][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[1][0][2]}
-          placeholder="YYYY"
-        />
-      </div>
-      થી તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[1][1][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[1][1][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[1][1][2]}
-          placeholder="YYYY"
-        />
-      </div>
+    <button
+      class="positive"
+      on:click={() =>
+        data.update((data) => {
+          data[$index].pensionPatrNokri[1] = [
+            ...data[$index].pensionPatrNokri[1],
+            [
+              ["", "", ""],
+              ["", "", ""],
+            ],
+          ];
+          return data;
+        })}
+    >
+      તારીખની પંક્તિ ઉમેરો
+    </button>
+    <div />
+    {#each $data[$index].pensionPatrNokri[1] as item, i}
       <div>
         તા
         <div class="date">
@@ -113,21 +84,21 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[1][2][0]}
+            bind:value={$data[$index].pensionPatrNokri[1][i][0][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[1][2][1]}
+            bind:value={$data[$index].pensionPatrNokri[1][i][0][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[1][2][2]}
+            bind:value={$data[$index].pensionPatrNokri[1][i][0][2]}
             placeholder="YYYY"
           />
         </div>
@@ -137,78 +108,59 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[1][3][0]}
+            bind:value={$data[$index].pensionPatrNokri[1][i][1][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[1][3][1]}
+            bind:value={$data[$index].pensionPatrNokri[1][i][1][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[1][3][2]}
+            bind:value={$data[$index].pensionPatrNokri[1][i][1][2]}
             placeholder="YYYY"
           />
         </div>
+        <button
+          class="negative"
+          on:click={() =>
+            data.update((data) => {
+              data[$index].pensionPatrNokri[1] = data[
+                $index
+              ].pensionPatrNokri[1].filter((item, index) => index !== i);
+              return data;
+            })}
+        >
+          કાઢી નાખો
+        </button>
       </div>
-    </div>
+    {/each}
   </div>
   <div>
     (૨) પેન્શનપાત્ર નોકરી તરીકે ન ગણવાના હૂકમો થયા હોય તેવો ફરજ મોકૂફીનો સમય
-    <div>
-      તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[2][0][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[2][0][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[2][0][2]}
-          placeholder="YYYY"
-        />
-      </div>
-      થી તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[2][1][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[2][1][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[2][1][2]}
-          placeholder="YYYY"
-        />
-      </div>
+    <button
+      class="positive"
+      on:click={() =>
+        data.update((data) => {
+          data[$index].pensionPatrNokri[2] = [
+            ...data[$index].pensionPatrNokri[2],
+            [
+              ["", "", ""],
+              ["", "", ""],
+            ],
+          ];
+          return data;
+        })}
+    >
+      તારીખની પંક્તિ ઉમેરો
+    </button>
+    <div />
+    {#each $data[$index].pensionPatrNokri[2] as item, i}
       <div>
         તા
         <div class="date">
@@ -216,21 +168,21 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[2][2][0]}
+            bind:value={$data[$index].pensionPatrNokri[2][i][0][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[2][2][1]}
+            bind:value={$data[$index].pensionPatrNokri[2][i][0][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[2][2][2]}
+            bind:value={$data[$index].pensionPatrNokri[2][i][0][2]}
             placeholder="YYYY"
           />
         </div>
@@ -240,78 +192,60 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[2][3][0]}
+            bind:value={$data[$index].pensionPatrNokri[2][i][1][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[2][3][1]}
+            bind:value={$data[$index].pensionPatrNokri[2][i][1][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[2][3][2]}
+            bind:value={$data[$index].pensionPatrNokri[2][i][1][2]}
             placeholder="YYYY"
           />
         </div>
+        <button
+          on:click={() => {
+            data.update((data) => {
+              data[$index].pensionPatrNokri[2] = data[
+                $index
+              ].pensionPatrNokri[2].filter((item, index) => index !== i);
+              return data;
+            });
+          }}
+          class="negative"
+        >
+          કાઢી નાખો
+        </button>
       </div>
-    </div>
+    {/each}
   </div>
   <div>
     (૩) ત્રણ માસ કરતાં વધારે મુદતની તૂટ હોય ત્યાં બે ગાળા વચ્ચેનો તૂટ નો સમયગાળો
-    <div>
-      તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[3][0][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[3][0][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[3][0][2]}
-          placeholder="YYYY"
-        />
-      </div>
-      થી તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[3][1][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[3][1][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[3][1][2]}
-          placeholder="YYYY"
-        />
-      </div>
+    <button
+      class="positive"
+      on:click={() =>
+        data.update((data) => {
+          data[$index].pensionPatrNokri[3] = [
+            ...data[$index].pensionPatrNokri[3],
+            [
+              ["", "", ""],
+              ["", "", ""],
+            ],
+          ];
+          return data;
+        })}
+    >
+      તારીખની પંક્તિ ઉમેરો
+    </button>
+    <div />
+    {#each $data[$index].pensionPatrNokri[3] as item, i}
       <div>
         તા
         <div class="date">
@@ -319,21 +253,21 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[3][2][0]}
+            bind:value={$data[$index].pensionPatrNokri[3][i][0][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[3][2][1]}
+            bind:value={$data[$index].pensionPatrNokri[3][i][0][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[3][2][2]}
+            bind:value={$data[$index].pensionPatrNokri[3][i][0][2]}
             placeholder="YYYY"
           />
         </div>
@@ -343,78 +277,60 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[3][3][0]}
+            bind:value={$data[$index].pensionPatrNokri[3][i][1][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[3][3][1]}
+            bind:value={$data[$index].pensionPatrNokri[3][i][1][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[3][3][2]}
+            bind:value={$data[$index].pensionPatrNokri[3][i][1][2]}
             placeholder="YYYY"
           />
         </div>
+        <button
+          on:click={() => {
+            data.update((data) => {
+              data[$index].pensionPatrNokri[3] = data[
+                $index
+              ].pensionPatrNokri[3].filter((item, index) => index !== i);
+              return data;
+            });
+          }}
+          class="negative"
+        >
+          કાઢી નાખો
+        </button>
       </div>
-    </div>
+    {/each}
   </div>
   <div>
     (૪) પેન્શનપાત્ર નહિ ગણાતી અન્ય મુદતો
-    <div>
-      તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[4][0][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[4][0][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[4][0][2]}
-          placeholder="YYYY"
-        />
-      </div>
-      થી તા
-      <div class="date">
-        <input
-          type="number"
-          min="1"
-          max="31"
-          bind:value={$data[$index].pensionPatrNokri[4][1][0]}
-          placeholder="DD"
-        />
-        <input
-          type="number"
-          min="1"
-          max="12"
-          bind:value={$data[$index].pensionPatrNokri[4][1][1]}
-          placeholder="MM"
-        />
-        <input
-          type="number"
-          min="1900"
-          max="2100"
-          bind:value={$data[$index].pensionPatrNokri[4][1][2]}
-          placeholder="YYYY"
-        />
-      </div>
+    <button
+      class="positive"
+      on:click={() =>
+        data.update((data) => {
+          data[$index].pensionPatrNokri[4] = [
+            ...data[$index].pensionPatrNokri[4],
+            [
+              ["", "", ""],
+              ["", "", ""],
+            ],
+          ];
+          return data;
+        })}
+    >
+      તારીખની પંક્તિ ઉમેરો
+    </button>
+    <div />
+    {#each $data[$index].pensionPatrNokri[4] as item, i}
       <div>
         તા
         <div class="date">
@@ -422,21 +338,21 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[4][2][0]}
+            bind:value={$data[$index].pensionPatrNokri[4][i][0][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[4][2][1]}
+            bind:value={$data[$index].pensionPatrNokri[4][i][0][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[4][2][2]}
+            bind:value={$data[$index].pensionPatrNokri[4][i][0][2]}
             placeholder="YYYY"
           />
         </div>
@@ -446,26 +362,39 @@
             type="number"
             min="1"
             max="31"
-            bind:value={$data[$index].pensionPatrNokri[4][3][0]}
+            bind:value={$data[$index].pensionPatrNokri[4][i][1][0]}
             placeholder="DD"
           />
           <input
             type="number"
             min="1"
             max="12"
-            bind:value={$data[$index].pensionPatrNokri[4][3][1]}
+            bind:value={$data[$index].pensionPatrNokri[4][i][1][1]}
             placeholder="MM"
           />
           <input
             type="number"
             min="1900"
             max="2100"
-            bind:value={$data[$index].pensionPatrNokri[4][3][2]}
+            bind:value={$data[$index].pensionPatrNokri[4][i][1][2]}
             placeholder="YYYY"
           />
         </div>
+        <button
+          on:click={() => {
+            data.update((data) => {
+              data[$index].pensionPatrNokri[4] = data[
+                $index
+              ].pensionPatrNokri[4].filter((item, index) => index !== i);
+              return data;
+            });
+          }}
+          class="negative"
+        >
+          કાઢી નાખો
+        </button>
       </div>
-    </div>
+    {/each}
   </div>
   <div>
     <div>
@@ -535,5 +464,13 @@
     margin: 0;
     padding: 0;
     border-radius: 0;
+  }
+  button {
+    margin: auto;
+    display: inline-block;
+    padding: 0;
+    border-radius: 0;
+    font-size: medium;
+    font-weight: lighter;
   }
 </style>

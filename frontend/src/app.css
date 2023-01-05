@@ -1,230 +1,236 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati&display=swap");
 :root {
-    font-family: 'Arial Unicode MS', 'Noto Serif Gujarati', Inter, Helvetica, Arial, sans-serif;
-    font-size: 12pt;
-    line-height: 1.6;
-    /* font-weight: 400; */
-    /* line-spacing */
-    --line-spacing: 1.5;
-    /* font-synthesis: none; */
-    /* text-rendering: optimizeLegibility; */
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
-    /* -webkit-text-size-adjust: 100%; */
-    scroll-behavior: smooth;
+  font-family: "Arial Unicode MS", "Noto Serif Gujarati", Inter, Helvetica,
+    Arial, sans-serif;
+  font-size: 12pt;
+  line-height: 1.6;
+  /* font-weight: 400; */
+  /* line-spacing */
+  --line-spacing: 1.5;
+  /* font-synthesis: none; */
+  /* text-rendering: optimizeLegibility; */
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+  /* -webkit-text-size-adjust: 100%; */
+  scroll-behavior: smooth;
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    /* background-color: rgb(25 0 0 / 10%); */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* background-color: rgb(25 0 0 / 10%); */
 }
 
 a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
 
 a:hover {
-    color: #535bf2;
+  color: #535bf2;
 }
 
 ::-webkit-scrollbar {
-    width: 0.3rem;
+  width: 0.3rem;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
-
 
 /* lib classes */
 
 div.page {
-    page-break-after: always;
-    min-height: 80vh;
+  page-break-after: always;
+  min-height: 80vh;
 }
 
 div.page-break-before {
-    margin-top: 10px;
-    page-break-before: always;
+  margin-top: 10px;
+  page-break-before: always;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 .right {
-    text-align: right;
+  text-align: right;
 }
 
-div.no-spacing>p {
-    margin: 0;
+div.no-spacing > p {
+  margin: 0;
 }
 
 .border {
-    border: 1px solid #000;
+  border: 1px solid #000;
 }
 
 .p-1 {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #1e90ff;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: 600;
-    cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #1e90ff;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 button.negative {
-    background-color: #ff1e1e;
+  background-color: #ff1e1e;
 }
 
 button:hover,
 button:focus {
-    background-color: #1a7ed6;
+  background-color: #1a7ed6;
 }
 
 button.negative:hover,
 button.negative:focus {
-    background-color: #e60000;
+  background-color: #e60000;
+}
+
+button.positive {
+  background-color: green;
+  margin-left: auto;
+}
+button.positive:hover {
+  background-color: darkgreen;
 }
 
 button[disabled],
 button[disabled]:hover,
 button[disabled]:focus {
-    background-color: #b3b3b3;
-    cursor: not-allowed;
+  background-color: #b3b3b3;
+  cursor: not-allowed;
 }
 
 input {
-    padding: 0.5rem;
-    border: 1px solid #000;
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
 }
 
 input[type="checkbox"] {
-    width: 1.2rem;
-    height: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 p.indent {
-    text-indent: 2em;
+  text-indent: 2em;
 }
 
 span.tick {
-    display: inline-block;
-    font-weight: bolder;
-    padding: 0 0.5em;
-    min-width: 0.8em;
-    border: 1px solid #000;
-    border-radius: 5px;
-    vertical-align: middle;
+  display: inline-block;
+  font-weight: bolder;
+  padding: 0 0.5em;
+  min-width: 0.8em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  vertical-align: middle;
 }
 
 table.layed-out {
-    width: 100%;
-    table-layout: fixed;
+  width: 100%;
+  table-layout: fixed;
 }
 
 table.border,
 table.border tr,
 table.border td,
 table.border th {
-    border: 1px solid #000;
-    border-collapse: collapse;
+  border: 1px solid #000;
+  border-collapse: collapse;
 }
 
 table.padding,
 table.padding tr,
 table.padding td,
 table.padding th {
-    padding: 0.2rem;
+  padding: 0.2rem;
 }
 
-.usually-hidden>* {
-    opacity: 0;
+.usually-hidden > * {
+  opacity: 0;
 }
 
-.usually-hidden:hover>* {
-    opacity: 1;
+.usually-hidden:hover > * {
+  opacity: 1;
 }
-
 
 /* block letter box */
 
 .block-letters {
-    width: 100%;
+  width: 100%;
 }
 
-.block-letters>div {
-    display: flex;
+.block-letters > div {
+  display: flex;
 }
 
-.block-letters>div>span {
-    border: 1px solid black;
-    min-width: 3em;
-    padding: 0.2em;
-    text-align: center;
-    text-transform: uppercase;
+.block-letters > div > span {
+  border: 1px solid black;
+  min-width: 3em;
+  padding: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.block-letters>div>span:first-child {
-    text-align: left;
-    min-width: min(10em, 20%);
+.block-letters > div > span:first-child {
+  text-align: left;
+  min-width: min(10em, 20%);
 }
 
 .capitalized {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 td.align-top {
-    vertical-align: top;
+  vertical-align: top;
 }
-
 .in-page-interface {
-    background-color: #756e6e;
-    color: white;
-    padding: 5px;
+  background-color: #756e6e;
+  color: white;
+  padding: 5px;
 }
 
 @media print {
-    .no-print {
-        display: none;
-    }
-    div.page {
-        margin: 0;
-    }
+  .no-print {
+    display: none;
+  }
+  div.page {
+    margin: 0;
+  }
 }
 
 @media screen {
-    .no-screen {
-        display: none;
-    }
-    main {
-        margin: 0 auto;
-        padding: 1rem;
-        max-width: clamp(800px, 80vw, 100%);
-    }
-    main>* {
-        max-width: 100%;
-        overflow-x: auto;
-    }
+  .no-screen {
+    display: none;
+  }
+  main {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: clamp(800px, 80vw, 100%);
+  }
+  main > * {
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
