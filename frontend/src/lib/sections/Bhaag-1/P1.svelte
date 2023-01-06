@@ -6,38 +6,13 @@
 </script>
 
 <div class="page-break-before">
-    <div class="center" style="margin-top: 10px;">
-        <h2>પેન્શન કેસ</h2>
-        <h3>ભાગ - ૧</h3>
-        <p>
-            વય નિવૃત્તિને કારણે નિવૃત્ત થતાં કર્મચારીએ ૨૪ માસ પહેલાં અને
-            સ્વૈચ્છિક નિવૃત્તિ લેતાં કર્મચારીએ સ્વૈચ્છિક નિવૃત્તિ તારીખ પછી
-            તુરતજ તેમની કચેરીના વડાને નિવૃત્તિના લાભો મેળવવા માટે આપવાનું અરજી
-            ફોર્મ
-        </p>
-    </div>
-    <div class="no-spacing">
-        <p>પ્રતિ,</p>
-        <p>ઉચ્ચ શિક્ષણ કમિશ્નરશ્રી, જુના સચિવાલય,</p>
-        <p>ગાંધીનગર.</p>
-    </div>
-    <p class="indent">
-        હું
-        <u
-            >
-            {toString($data[index]?.karmchariNaam[0], " ") ||
-                toString($data[index]?.karmchariNaam[1], " ") ||
-                ".".repeat(50)}
-                </u
-        >
-        હોદ્દો
-        <u>{$data[index].karmchariHoddo[1] || ".".repeat(44)}</u> તારીખ
-        <u>
-            {toString($data[index].nivrutiTarikh, "/") || ".".repeat(54)}
-        </u>
-        ના રોજ વય નિવૃત્ત/સ્વૈચ્છિક નિવૃત્તિના કારણે નિવૃત્ત થાઉં છુ. મારા પેન્શન
-        મંજુરી અર્થે નીચે મુજબની માહીતે ગુ.મુ.સેવા (પેન્શન) નિયમોના નિયમો ૧૨૮(૧)
-        મુજબ રજું કરુ છું.
+  <div class="center" style="margin-top: 10px;">
+    <h2>પેન્શન કેસ</h2>
+    <h3>ભાગ - ૧</h3>
+    <p>
+      વય નિવૃત્તિને કારણે નિવૃત્ત થતાં કર્મચારીએ ૨૪ માસ પહેલાં અને સ્વૈચ્છિક
+      નિવૃત્તિ લેતાં કર્મચારીએ સ્વૈચ્છિક નિવૃત્તિ તારીખ પછી તુરતજ તેમની કચેરીના
+      વડાને નિવૃત્તિના લાભો મેળવવા માટે આપવાનું અરજી ફોર્મ
     </p>
   </div>
   <div class="no-spacing">
@@ -166,30 +141,30 @@
       </td>
     </tr>
 
-        <tr>
-            <td>૮</td>
-            <td>
-                <p>પત્રવ્યવહારનું સરનામું</p>
-                (પીનકોડ ટેલીફોન નંબર સાથે)
-            </td>
-            <td colspan="5">
+    <tr>
+      <td>૮</td>
+      <td>
+        <p>પત્રવ્યવહારનું સરનામું</p>
+        (પીનકોડ ટેલીફોન નંબર સાથે)
+      </td>
+      <td colspan="5">
             
                 <b>
-                {toString($data[index]?.karmchariNaam[0], " ") ||
+                <p>{toString($data[index]?.karmchariNaam[0], " ") ||
                 toString($data[index]?.karmchariNaam[1], " ") ||
-                ".".repeat(50)}
-                    {#if $data[index].address}
-                        {#each $data[index].address.split("\n") as line}
-                            <span style="display:block">{line}</span>
-                        {/each}
-                    {:else}
-                        {`${".".repeat(100)}\n`.repeat(4)}
-                    {/if}
-                </b>
-            </td>
-        </tr>
-    </table>
-    <LocalFooter {index} />
+                ".".repeat(50)}</p>
+          {#if $data[index].address}
+            {#each $data[index].address.split("\n") as line}
+              <span style="display:block">{line}</span>
+            {/each}
+          {:else}
+            {`${".".repeat(100)}\n`.repeat(4)}
+          {/if}
+        </b>
+      </td>
+    </tr>
+  </table>
+  <LocalFooter {index} />
 </div>
 
 <style>
