@@ -14,6 +14,10 @@
   $: pensionPatrNokariVarsh =
     $data[index].pensionPatrNokariVarsh ||
     (calculatedAge <= 33 && calculatedAge);
+  $: monghvaari =
+    (+$data[index].monghvaariPercentage *
+      +$data[index].bandData.pensionPatrPagarNiVigato.chhelloPagaar || 0) /
+      200 || 0;
 </script>
 
 <div class="page-break-before">
@@ -40,16 +44,16 @@
           {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
             "_".repeat(15)}
           +
-          {$data[index].monghvaari || "_".repeat(15)}
+          {monghvaari || "_".repeat(15)}
           ) &#215;
           {pensionPatrNokariVarsh || "_".repeat(15)}
           /2 =
         </p>
         <p>
           = {splitter(
-            $data[index].monghvaari &&
+            monghvaari &&
               $data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar &&
-              ((+$data[index].monghvaari +
+              ((+monghvaari +
                 +$data[index].bandData?.pensionPatrPagarNiVigato
                   ?.chhelloPagaar) *
                 +pensionPatrNokariVarsh) /
@@ -66,10 +70,10 @@
             (છેલ્લો પગાર + મોંઘવારી ) &#215; ૨ =
             {splitter(
               $data[index].bhaag2_25_2[0] === "a" &&
-                $data[index].monghvaari &&
+                monghvaari &&
                 $data[index].bandData?.pensionPatrPagarNiVigato
                   ?.chhelloPagaar &&
-                (+$data[index].monghvaari +
+                (+monghvaari +
                   +$data[index].bandData?.pensionPatrPagarNiVigato
                     ?.chhelloPagaar) *
                   2
@@ -83,10 +87,10 @@
             (છેલ્લો પગાર + મોંઘવારી ) &#215; ૬ =
             {splitter(
               $data[index].bhaag2_25_2[0] === "b" &&
-                $data[index].monghvaari &&
+                monghvaari &&
                 $data[index].bandData?.pensionPatrPagarNiVigato
                   ?.chhelloPagaar &&
-                (+$data[index].monghvaari +
+                (+monghvaari +
                   +$data[index].bandData?.pensionPatrPagarNiVigato
                     ?.chhelloPagaar) *
                   6
@@ -100,10 +104,10 @@
             (છેલ્લો પગાર + મોંઘવારી ) &#215; ૧૨ =
             {splitter(
               $data[index].bhaag2_25_2[0] === "c" &&
-                $data[index].monghvaari &&
+                monghvaari &&
                 $data[index].bandData?.pensionPatrPagarNiVigato
                   ?.chhelloPagaar &&
-                (+$data[index].monghvaari +
+                (+monghvaari +
                   +$data[index].bandData?.pensionPatrPagarNiVigato
                     ?.chhelloPagaar) *
                   12
@@ -118,10 +122,10 @@
             (મહત્તમ 33 વર્ષ) =
             {splitter(
               $data[index].bhaag2_25_2[0] === "d" &&
-                $data[index].monghvaari &&
+                monghvaari &&
                 $data[index].bandData?.pensionPatrPagarNiVigato
                   ?.chhelloPagaar &&
-                (+$data[index].monghvaari +
+                (+monghvaari +
                   +$data[index].bandData?.pensionPatrPagarNiVigato
                     ?.chhelloPagaar) *
                   33

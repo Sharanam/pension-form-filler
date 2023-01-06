@@ -1,16 +1,15 @@
-<div class="outer border">
-  <div class=" center box">કચેરીનું સીલ</div>
+<div class="outer">
+  <div class="border center box">કચેરીનું સીલ</div>
 </div>
 
 <style>
   .box {
-    margin: auto;
+    padding: 0.5rem;
     width: min-content;
   }
   .outer {
-    font-size: 0.85em;
-    height: 0;
-    width: 20%;
-    padding-bottom: 20%;
+    font-size: 0.85rem;
+    width: auto;
+    padding-bottom: auto;
   }
 </style>

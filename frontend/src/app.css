@@ -136,6 +136,9 @@ input[type="checkbox"] {
 p.indent {
   text-indent: 2em;
 }
+.bolder {
+  font-weight: bolder;
+}
 
 span.tick {
   display: inline-block;
