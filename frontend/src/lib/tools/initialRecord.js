@@ -5,7 +5,7 @@ export function initialRecord() {
     /*
      * Pension case data
      */
-    bhaag: [1,2,5],
+    bhaag: [1, 2, 5],
     karmchariNaam: [
       ["", "", "", ""],
       ["", "", "", ""],
