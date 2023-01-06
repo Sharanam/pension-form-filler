@@ -1,7 +1,6 @@
 <script>
   import KacheriSeal from "../../commonElements/kacheriSeal.svelte";
   import { data } from "../../globalState/data";
-  export let index;
   import { toString } from "../../tools/toString";
 </script>
 
@@ -10,7 +9,7 @@
     <td>
       <KacheriSeal />
       <p>સ્થળ: વલ્લભ વિદ્યાનગર</p>
-      <p>તારીખ : {toString($data[index].mudikrutTarikh, "/")}</p>
+      <p>તારીખ :  {toString(new Date().toLocaleDateString("en-GB").split("/"), "/")}</p>
     </td>
     <td class="center">
       <p>કુલસચિવ</p>

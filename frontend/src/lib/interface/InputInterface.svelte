@@ -211,7 +211,7 @@
     <PensionPrakar i={$index} />
   </div>
   <div>
-    ૯ નિવૃત્તિની તારીખ:
+    ૯ સત્રાંતે નિવૃત્તિની તારીખ:
     <div>
       <input
         type="number"
@@ -293,27 +293,27 @@
     </div>
   </div>
   <div>
-    ૧૦ સંત્રાત તારીખ:
+    ૧૦ ઉમર મુજબ નિવૃત્તિ તારીખ:
     <div>
       <input
         type="number"
         min="1"
         max="31"
         placeholder="dd"
-        bind:value={$data[$index].santrat[0]}
+        bind:value={$data[$index].ageWiseNivrutiTarikh[0]}
       />
       <input
         type="number"
         min="1"
         max="12"
         placeholder="mm"
-        bind:value={$data[$index].santrat[1]}
+        bind:value={$data[$index].ageWiseNivrutiTarikh[1]}
       />
       <input
         type="number"
         min="1900"
         placeholder="yyyy"
-        bind:value={$data[$index].santrat[2]}
+        bind:value={$data[$index].ageWiseNivrutiTarikh[2]}
       />
     </div>
   </div>

@@ -43,9 +43,15 @@
     </tr>
     <tr>
       <td />
-      <td> અંગ્રેજીમાં: </td>
-      <td colspan="4" class="capitalized">
-        {toString($data[index].paatrataNaam[1], " ") || ".".repeat(60)}
+      <td colspan="2"> અંગ્રેજીમાં: </td>
+      <td colspan="2">
+        <b>{$data[index].paatrataNaam[1][0] || ".".repeat(20)}</b>
+      </td>
+      <td colspan="2">
+        <b>{$data[index].paatrataNaam[1][1] || ".".repeat(20)}</b>
+      </td>
+      <td colspan="2">
+        <b>{$data[index].paatrataNaam[1][2] || ".".repeat(20)}</b>
       </td>
     </tr>
     <tr>

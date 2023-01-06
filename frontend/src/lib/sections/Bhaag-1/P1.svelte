@@ -24,9 +24,11 @@
     <p class="indent">
         હું
         <u
-            >{toString($data[index]?.karmchariNaam[0], " ") ||
+            >
+            {toString($data[index]?.karmchariNaam[0], " ") ||
                 toString($data[index]?.karmchariNaam[1], " ") ||
-                ".".repeat(50)}</u
+                ".".repeat(50)}
+                </u
         >
         હોદ્દો
         <u>{$data[index].karmchariHoddo[1] || ".".repeat(44)}</u> તારીખ
@@ -151,7 +153,11 @@
                 (પીનકોડ ટેલીફોન નંબર સાથે)
             </td>
             <td colspan="5">
+            
                 <b>
+                {toString($data[index]?.karmchariNaam[0], " ") ||
+                toString($data[index]?.karmchariNaam[1], " ") ||
+                ".".repeat(50)}
                     {#if $data[index].address}
                         {#each $data[index].address.split("\n") as line}
                             <span style="display:block">{line}</span>

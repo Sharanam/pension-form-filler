@@ -30,7 +30,7 @@ export function initialRecord() {
       ["", "", ""],
     ],
     gpfNumber: "",
-    santrat: ["", "", ""],
+    ageWiseNivrutiTarikh: ["", "", ""],
     avsaanTarik: ["", "", ""], // avsaan paamela karmchari na kissa ma
     /*
      * Bhaag-5 data

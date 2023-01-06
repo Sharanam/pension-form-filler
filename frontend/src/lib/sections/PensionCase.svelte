@@ -75,7 +75,7 @@
     <table class="layed-out">
         <tr>
             <td>
-                <p>તારીખ : {toString($data[index].mudikrutTarikh, "/")}</p>
+                <p>તારીખ :  {toString(new Date().toLocaleDateString("en-GB").split("/"), "/")}</p>
                 <p>સ્થળ: વલ્લભ વિદ્યાનગર</p>
             </td>
             <td class="center">
