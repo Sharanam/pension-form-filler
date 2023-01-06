@@ -5,10 +5,12 @@
 
 <div>
   <div>
-    મોંઘવારી: <input
+    મોંઘવારીના ટકા
+    <input
       type="number"
-      bind:value={$data[$index].monghvaari}
+      bind:value={$data[$index].monghvaariPercentage}
       min="0"
+      max="100"
       placeholder="0"
     />
   </div>

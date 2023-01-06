@@ -27,6 +27,10 @@
   $: pensionPatrNokariVarsh =
     $data[index].pensionPatrNokariVarsh ||
     (calculatedAge <= 33 && calculatedAge);
+  $: monghvaari =
+    (+$data[index].monghvaariPercentage *
+      +$data[index].bandData.pensionPatrPagarNiVigato.chhelloPagaar || 0) /
+      200 || 0;
 </script>
 
 <div class="page-break-before">
@@ -48,13 +52,13 @@
         {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
           "_".repeat(15)}
         +
-        {$data[index].monghvaari || "_".repeat(15)}
+        {monghvaari || "_".repeat(15)}
         ) &#215;
         {pensionPatrNokariVarsh || "_".repeat(15)} = રુ.
         {splitter(
-          $data[index].monghvaari &&
+          monghvaari &&
             $data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar &&
-            ((+$data[index].monghvaari +
+            ((+monghvaari +
               +$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar) *
               +pensionPatrNokariVarsh) /
               2

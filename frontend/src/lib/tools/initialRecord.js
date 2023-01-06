@@ -142,7 +142,7 @@ export function initialRecord() {
     },
 
     // bhaag - 2 (P7 onwards)
-    monghvaari: "34952",
+    monghvaariPercentage: "34",
     pensionPatrNokariVarsh: "", // (maximum 33)
     bhaag2_25_2: ["", ""],
 
