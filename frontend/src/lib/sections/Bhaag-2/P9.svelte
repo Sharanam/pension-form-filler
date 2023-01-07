@@ -146,14 +146,57 @@
       <td class="align-top"> (૧) </td>
       <td>
         આથી સમગ્રપણે ખાતરી કરી પ્રમાણિત કરવામાં આવે છે કે આજની તારીખે
-        શ્રી/શ્રીમતિ {toString($data[index]?.karmchariNaam[0], " ") ||
-          toString($data[index]?.karmchariNaam[1], " ") ||
-          ".".repeat(50)}
+        શ્રી/શ્રીમતિ
+        <span class="bolder">
+          {toString($data[index]?.karmchariNaam[0], " ") ||
+            toString($data[index]?.karmchariNaam[1], " ") ||
+            ".".repeat(50)}
+        </span>
         તા:
-        {toString($data[index].nokriDakhalTarikh, "/") || ".".repeat(20)}
+
+        <span class="bolder">
+          {toString($data[index].nokriDakhalTarikh, "/") || ".".repeat(20)}
+        </span>
         થી તા:
-        {toString($data[index].nivrutiTarikh, "/") || ".".repeat(20)}
+        <span class="bolder">
+          {toString($data[index].nivrutiTarikh, "/") || ".".repeat(20)}
+        </span>
         પાસે કશું લેણું બાકી નથી.
+      </td>
+    </tr>
+  </table>
+  <LocalFooter />
+  <table>
+    <tr>
+      <td class="align-top"> (૨) </td>
+      <td>
+        સ્વૈચ્છિક નિવૃત્તિના કેસમાં આપવાપાત્ર પ્રમાણપત્ર:
+        <p>
+          (નાણાં વિભાગનાં તારીખ: 26/08/1971ના ઠરાવ ક્રમાંક:નવન/1070/2699/જે
+          મુજબ)
+        </p>
+
+        <p>
+          આથી પ્રમાણપત્ર આપવામાં આવે છે કે શ્રી {".".repeat(30)} કે જેઓને નાણાં વિભાગનાં
+          તારીખ:08/10/1970ના ઠરાવ ક્રમાંક:નવન/1030/3158/જે અન્વયે સ્વૈ. નિવૃત્તિ
+          થવાની પરવાનગી આપવામાં આવી છે.
+        </p>
+        <p class="indent">
+          (૧) તેઓએ તે જમા અથવા કેડરની જગા કાર્યકારી રીતે ધારણ કરવાનું ચાલુ
+          રાખ્યું હોત.
+        </p>
+        <p class="indent">
+          (૨) તેઓએ / તેણીએ નિવૃત્તિ પહેલા જે ખાસ પગાર મેળવ્યો હોય તે મેળવવાનું
+          ચાલુ રાખ્યુ હોત.
+        </p>
+        <p class="indent">
+          (૩) તેઓએ તેણીએ સ્વૈચ્છિક નિવૃત્તિ ન લીધી હોત તો કાલ્પનિક પેન્શનપાત્ર
+          નોકરી / ફરજ દરમિયાન આપતી લાચડી આડ ઓળંગવાની પરવાનગી આપવામાં આવી હોત.
+        </p>
+        <p class="indent">
+          (૪) તેઓએ / તેણીએ કાલ્પનિક પેન્શનપાત્ર નોકરી દરમ્યાન ઇજાફાઓ મેળવવાનું
+          ચાલુ રાખ્યું હોત.
+        </p>
       </td>
     </tr>
   </table>

@@ -234,4 +234,8 @@ td.align-top {
     max-width: 100%;
     overflow-x: auto;
   }
+
+  div.page-break-before {
+    border-top: 2px dashed red;
+  }
 }
