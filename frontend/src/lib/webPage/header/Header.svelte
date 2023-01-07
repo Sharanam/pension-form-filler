@@ -1,10 +1,14 @@
 <script>
+  // @ts-nocheck
+
   import AppendExistingFile from "./AppendExistingFile.svelte";
   import OpenExistingFile from "./OpenExistingFile.svelte";
-  import { data, preferences } from "../../globalState/data";
+  import { data, preferences, index } from "../../globalState/data";
   import { exportCSV, exportJSON } from "../../tools/exportFiles";
+  import { initialRecord } from "../../tools/initialRecord";
 
-  export let showAll = false;
+  export let showAll = false,
+    processing = null;
   preferences.subscribe((preferences) => (showAll = preferences.showAll));
 </script>
 
@@ -51,7 +55,12 @@
                     "Are you sure you want to start a new file? All unsaved changes will be lost."
                   )
                 )
-                  window.location.reload();
+                  processing = "Creating New Data File";
+                data.set([initialRecord()]);
+                index.set(0);
+                setTimeout(() => {
+                  processing = null;
+                }, 200);
               }}
             >
               New file

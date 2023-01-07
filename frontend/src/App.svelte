@@ -13,7 +13,7 @@
   let processing = null;
 </script>
 
-<Header />
+<Header bind:processing />
 <main>
   <div class="center no-print">
     <ShowAllRecords />
