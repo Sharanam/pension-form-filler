@@ -223,6 +223,12 @@ td.align-top {
   div.page {
     margin: 0;
   }
+  main {
+    padding-left: 2rem;
+  }
+  @page {
+    size: A4;
+  }
 }
 
 @media screen {
