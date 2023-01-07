@@ -13,10 +13,14 @@
 <div class="page-break-before">
   <table style="width: 100%;" class="layed-out">
     <tr>
-      <td> ૧૬. </td>
+      <td class='align-top'> ૧૬. </td>
       <td colspan="9">
-        નિવૃત્તિ બાદ અવસાન થતાં કુટુંબ પેન્શનને પાત્ર પત્ની/ પતિ /સંતાન માતા/
-        પિતાનું નામ :
+        નિવૃત્તિ બાદ અવસાન થતાં કુટુંબ પેન્શનને પાત્ર 
+        <span class={(toString($data[index].paatrta) == 'પત્ની') && 'bolder'}>પત્ની</span> / 
+        <span class={(toString($data[index].paatrta) == 'પતિ') && 'bolder'}>પતિ</span> /
+         <span class={(toString($data[index].paatrta) == 'સંતાન') && 'bolder'}>સંતાન</span> /
+          <span class={(toString($data[index].paatrta) == 'માતા') && 'bolder'}>માતા</span> /
+           <span class={(toString($data[index].paatrta) == 'પિતા') && 'bolder'}>પિતા</span>નું નામ :
         <p>
           (ગુ.મુ.સેવા (પેન્શન) નિયમો -૨૦૦૨ના નિયમ -૯૧ (૫) નિયમ -૯૨ ની શરતો
           પરિપૂર્ણ થતી હોય તો)
@@ -73,7 +77,7 @@
       </td>
     </tr>
     <tr>
-      <td> ૧૭. </td>
+      <td class="align-top"> ૧૭. </td>
       <td colspan="7">
         <p>
           કર્મચારી પેન્શનનું મુડીકૃત રૂપાંતર માંગતા હોય તો માંગણી કર્યાની અરજી
@@ -92,7 +96,7 @@
       </td>
     </tr>
     <tr>
-      <td>૧૮</td>
+      <td class='align-top'>૧૮</td>
       <td colspan="9">
         <p>
           કર્મચારીએ તેમના અવસાન સમયે પેન્શન/મૃત્યુ-સહનિવૃતિ ગ્રેજયુઈટી/પેન્શન

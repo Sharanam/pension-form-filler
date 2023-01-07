@@ -21,8 +21,8 @@
 
     .date > span {
         border: 1px solid black;
-        min-width: 3em;
-        padding: 0.2em;
+        min-width: 2rem;
+        padding: 0.2rem;
         text-align: center;
         text-transform: uppercase;
     }

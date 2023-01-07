@@ -18,7 +18,7 @@ table.tick > tr > td > div > span.tick {
   flex-basis: auto;
   font-size: 1.5em;
   font-weight: bold;
-  margin-right: min(1em, 20%);
-  min-width: 1.9em;
+  margin-right: min(1rem, 20%);
+  min-width: 1.9rem;
   height: clamp(1.5em, 1.3em, 1.8em);
 }

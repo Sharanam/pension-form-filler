@@ -2,16 +2,14 @@
 :root {
   font-family: "Arial Unicode MS", "Noto Serif Gujarati", Inter, Helvetica,
     Arial, sans-serif;
-  font-size: 14pt;
+  font-size: 12pt;
   line-height: 1.6;
-  /* font-weight: 400; */
-  /* line-spacing */
   --line-spacing: 1.5;
   /* font-synthesis: none; */
   /* text-rendering: optimizeLegibility; */
   /* -webkit-font-smoothing: antialiased; */
   /* -moz-osx-font-smoothing: grayscale; */
-  /* -webkit-text-size-adjust: 100%; */
+  -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
 }
 
@@ -190,8 +188,8 @@ table.padding th {
 
 .block-letters > div > span {
   border: 1px solid black;
-  min-width: 3em;
-  padding: 0.2em;
+  min-width: 2rem;
+  padding: 0.2rem;
   text-align: center;
   text-transform: uppercase;
 }
