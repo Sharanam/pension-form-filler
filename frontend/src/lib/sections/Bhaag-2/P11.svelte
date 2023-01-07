@@ -67,7 +67,7 @@
       <div class="box" />
     </div>
   </div>
-  <LocalFooter {index} />
+  <LocalFooter />
 </div>
 
 <style>

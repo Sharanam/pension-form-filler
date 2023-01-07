@@ -5,6 +5,18 @@
 
 <div>
   <div>
+    ૨૪. (૨) ચાલુ નોકરીમાં અવસાન : (નિયમ -૯૦ (૧) (૧))
+    <input
+      type="checkbox"
+      checked={$data[$index].chaluNaukariMaAvsaan}
+      on:change={(e) => {
+        $data[$index].chaluNaukariMaAvsaan = e.target.checked || undefined;
+      }}
+      name="chaluNaukariMaAvsaan"
+    />
+    <label for="chaluNaukariMaAvsaan">હા, થયું છે</label>
+  </div>
+  <div>
     મોંઘવારીના ટકા
     <input
       type="number"

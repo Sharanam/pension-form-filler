@@ -193,7 +193,7 @@
       </td>
     </tr>
   </table>
-  <LocalFooter {index} />
+  <LocalFooter />
 </div>
 
 <style>

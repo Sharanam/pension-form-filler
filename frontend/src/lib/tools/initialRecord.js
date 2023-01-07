@@ -142,6 +142,7 @@ export function initialRecord() {
     },
 
     // bhaag - 2 (P7 onwards)
+    chaluNaukariMaAvsaan: undefined,
     monghvaariPercentage: "34",
     pensionPatrNokariVarsh: "", // (maximum 33)
     bhaag2_25_2: ["", ""],
@@ -154,7 +155,7 @@ export function initialRecord() {
     ],
     // 28(2)
     leniRakamNiVigato: [
-      undefined,
+      0,
       [
         // khataNumber, muddal, vyaj, andajpatr
         ["", "", "", ""],

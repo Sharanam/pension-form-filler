@@ -42,9 +42,7 @@
       <td class="align-top"> ૨૪. </td>
       <td>
         <p>કુટુંબ પેન્શન (ગુ. મુ. સેવા (પેન્શન) નિયમોના નિયમ- ૯૦ (૧) (૨))</p>
-        <div>
-        (૧) નિવૃત્તિ બાદ અવસાન 
-        </div>
+        <div>(૧) નિવૃત્તિ બાદ અવસાન</div>
         <div style="margin-left: 1em;">
           (એ) કુટુંબ પેન્શન - ૧
 
@@ -84,5 +82,5 @@
       </td>
     </tr>
   </table>
-  <LocalFooter {index} />
+  <LocalFooter />
 </div>

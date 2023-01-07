@@ -63,5 +63,5 @@
     </td>
   </table>
   <NaukariNiVigato {index} />
-  <LocalFooter {index} />
+  <LocalFooter />
 </div>

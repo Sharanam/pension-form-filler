@@ -28,64 +28,93 @@
   {/if}
   <table style="width: 100%;">
     <tr>
-    <td />
-    <td>
-    (૨) ચાલુ નોકરીમાં અવસાન : (નિયમ મુજબ)
-    interface: chalu nokri ma avsaan
-    <div style="margin-left: 1em;">
-    (એ) કુટુંબ પેન્શન - ૧
+      <td />
+      <td>
+        (૨) ચાલુ નોકરીમાં અવસાન : (નિયમ -૯૦ (૧) (૧))
+        <div style="margin-left: 1em;">
+          (એ) કુટુંબ પેન્શન - ૧
 
           <p class="indent">
-            ચાલુ નોકરીએ અવસાન થાય ત્યારે અવસાનની તારીખ પછીની તારીખથી પ્રથમ દશ વર્ષ સુધી નીચે મુજબ કુટુંબ પેન્શન મળવાપાત્ર થશે. 
-          </p>
-          <p class="indent">
-            છેલ્લા પગારના ૫૦% જેટલી રકમ
+            ચાલુ નોકરીએ અવસાન થાય ત્યારે અવસાનની તારીખ પછીની તારીખથી પ્રથમ દશ
+            વર્ષ સુધી નીચે મુજબ કુટુંબ પેન્શન મળવાપાત્ર થશે. ચાલુ નોકરીએ અવસાન
+            થાય ત્યારે અવસાનની તારીખ પછીથી તારીખથી પ્રથમ દસ વર્ષ માટે પરંતુ
+            કર્મચારી જીવતા હોત અને ૬૫ વર્ષની ઉંમરે પહોંચે તે તારીખ સુધી બે પૈકી
+            જે વહેલું હોય ત્યાં સુધી નીચે મુજબ કુટુંબ પેન્શન મળવાપાત્ર થશે.
           </p>
 
           <p class="indent">
-          પે બેન્ડ 
-          <span class="border">
-          {
-          $data[index].bandData?.swaichitNivrutiSamayNo
-            ?.lastPayBand 
-            
-||          $data[index].bandData?.nivrutiSamayNo
-            ?.lastPayBand 
-            
-            || "_".repeat(15)} 
+            પે બેન્ડ
+            <span class="bolder">
+              {($data[index].chaluNaukariMaAvsaan &&
+                ($data[index].bandData?.swaichitNivrutiSamayNo?.lastPayBand ||
+                  $data[index].bandData?.nivrutiSamayNo?.lastPayBand)) ||
+                "_".repeat(15)}
             </span>
-            + ગ્રેડ પે 
-            <span class="border">
-            {
-            $data[index].bandData
-            ?.swaichitNivrutiSamayNo?.lastPayGrade 
-            
-            ||$data[index].bandData
-            ?.nivrutiSamayNo?.lastPayGrade 
-            
-            || "_".repeat(15)}
-          </span>
+            + ગ્રેડ પે
+            <span class="bolder">
+              {($data[index].chaluNaukariMaAvsaan &&
+                ($data[index].bandData?.swaichitNivrutiSamayNo?.lastPayGrade ||
+                  $data[index].bandData?.nivrutiSamayNo?.lastPayGrade)) ||
+                "-"}
+            </span>
           </p>
           <p class="indent">
-            છેલ્લો પગાર {$data[index].bandData?.pensionPatrPagarNiVigato
-              ?.chhelloPagaar ||
-              0 ||
-              "_".repeat(15)} રુ. &#215; 30% =
-            {parseInt(
-              ($data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-                0) * 0.3
-            ) || "_".repeat(15)}/-
+            છેલ્લો પગાર
+            <span class="bolder">
+              {($data[index].chaluNaukariMaAvsaan &&
+                $data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar) ||
+                0 ||
+                "_".repeat(15)}
+            </span>
+            રુ. &#215; 50% =
+            <span class="bolder">
+              {($data[index].chaluNaukariMaAvsaan &&
+                parseInt(
+                  ($data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar || 0) * 0.5
+                )) ||
+                "_".repeat(15)}/-
+            </span>
           </p>
-          (બી) કુટુંબ પેન્શન -૨
           <p class="indent">
-            ઉપર (૧) (એ) માં દર્શાવેલ સમયગાળા બાદ મળવાપાત્ર કુટુંબ પેન્શન છેલ્લા
-            પગારના ૩૦% જેટલી રકમ રૂ. = {parseInt(
-              ($data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-                0) * 0.3
-            ) || "_".repeat(15)}/-
+            છેલ્લા પગારના ૫૦% જેટલી રકમ રૂ.
+            <span class="bolder">
+              {($data[index].chaluNaukariMaAvsaan &&
+                parseInt(
+                  ($data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar || 0) * 0.5
+                )) ||
+                "_".repeat(15)}/-
+            </span>
           </p>
-    </div>
-    </td>
+          (બી) કુટુંબ પેન્શન -૨ (બી) કુટુંબ પેન્શન - ૨
+
+          <p class="indent">
+            ત્યારબાદ એટલે કે કર્મચારીના અવસાનની તારીખ પછીની તારીખથી ૧૦ વર્ષ પછી
+            છેલ્લા પગારના ૩૦% જેટલી રકમ
+          </p>
+          <p class="indent">
+            છેલ્લો પગાર
+            <span class="bolder">
+              {($data[index].chaluNaukariMaAvsaan &&
+                $data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar) ||
+                0 ||
+                "_".repeat(15)}
+            </span>
+            રુ. &#215; ૩૦ % = રુ.
+            <span class="bolder">
+              {($data[index].chaluNaukariMaAvsaan &&
+                parseInt(
+                  ($data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar || 0) * 0.3
+                )) ||
+                "_".repeat(15)}/-
+            </span>
+          </p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td class="align-top"> ૨૫. </td>
@@ -195,5 +224,5 @@
       </td>
     </tr>
   </table>
-  <LocalFooter {index} />
+  <LocalFooter />
 </div>

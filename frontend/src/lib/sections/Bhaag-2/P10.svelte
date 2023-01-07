@@ -26,7 +26,8 @@
       </td>
     </tr>
   </table>
-  <LocalFooter {index} />
+  <LocalFooter />
+
   <table style="width: 100%;">
     <tr>
       <td class="align-top"> ૩૦. </td>
@@ -49,18 +50,26 @@
       </td>
     </tr>
   </table>
-  <LocalFooter {index} />
+  <LocalFooter />
+
   <table style="width: 100%;">
     <tr>
       <td class="align-top">૩૧. </td>
       <td>
         <p>
-          ગુ.મુ.સેવા(પેન્શન) નિયમોના નિયમ –૯(૬૦) અન્વયે મળેલ સત્તાની રૂએ થી શ્રી {nm}
-          હોદ્દો: {$data[index].karmchariHoddo[1] || ".".repeat(30)}
+          ગુ.મુ.સેવા(પેન્શન) નિયમોના નિયમ - ૯(૬૦) અન્વયે મળેલ સત્તાની રૂએ થી
+          <span class="bolder">
+            શ્રી
+            {nm}</span
+          >
+          હોદ્દો:
+          <span class="bolder">
+            {$data[index].karmchariHoddo[1] || ".".repeat(30)}
+          </span>
           પેન્શન મંજૂર કરું છું.
         </p>
       </td>
     </tr>
   </table>
-  <LocalFooter {index} />
+  <LocalFooter />
 </div>
