@@ -57,9 +57,16 @@
       <td>
         <p>નિવૃત્તિ સમયનો છેલ્લો પગાર:</p>
         <p>
-          પે બેન્ડ {$data[index].bandData?.nivrutiSamayNo?.lastPayBand ||
-            "_".repeat(15)} + ગ્રેડ પે {$data[index].bandData?.nivrutiSamayNo
-            ?.lastPayGrade || "_".repeat(15)}
+          પે બેન્ડ
+          <b>
+            {$data[index].bandData?.nivrutiSamayNo?.lastPayBand ||
+              "_".repeat(15)}
+          </b>
+          + ગ્રેડ પે
+          <b>
+            {$data[index].bandData?.nivrutiSamayNo?.lastPayGrade ||
+              "_".repeat(15)}
+          </b>
         </p>
       </td>
     </tr>
@@ -69,9 +76,16 @@
       <td>
         <p>સ્વૈચ્છિક નિવૃત્તિ હોય નોકરીનો છેલ્લી તારીખે સંભવિત મુળ પગાર:</p>
         <p>
-          પે બેન્ડ {$data[index].bandData?.swaichitNivrutiSamayNo
-            ?.lastPayBand || "_".repeat(15)} + ગ્રેડ પે {$data[index].bandData
-            ?.swaichitNivrutiSamayNo?.lastPayGrade || "_".repeat(15)}
+          પે બેન્ડ
+          <b>
+            {$data[index].bandData?.swaichitNivrutiSamayNo?.lastPayBand ||
+              "_".repeat(15)}
+          </b>
+          + ગ્રેડ પે
+          <b>
+            {$data[index].bandData?.swaichitNivrutiSamayNo?.lastPayGrade ||
+              "_".repeat(15)}
+          </b>
         </p>
       </td>
     </tr>
@@ -83,14 +97,21 @@
           નિયમ-૪૩)
         </p>
         <p>
-          તા. {toString(
-            $data[index].bandData?.pensionPatrPagar?.pensionDateFrom,
-            "/"
-          ) || "_".repeat(20)} થી તા.
-          {toString(
-            $data[index].bandData?.pensionPatrPagar?.pensionDateTo,
-            "/"
-          ) || "_".repeat(20)}
+          તા.
+          <b>
+            {toString(
+              $data[index].bandData?.pensionPatrPagar?.pensionDateFrom,
+              "/"
+            ) || "_".repeat(20)}
+          </b>
+          થી તા.
+
+          <b>
+            {toString(
+              $data[index].bandData?.pensionPatrPagar?.pensionDateTo,
+              "/"
+            ) || "_".repeat(20)}
+          </b>
         </p>
         <p>(૨૫ વર્ષ બાદની સ્વૈચ્છિક નિવૃત્તિ હોય તો નોશનલ પગાર ધ્યાને લેવો)</p>
       </td>
@@ -115,12 +136,12 @@
                 <td>
                   {item[0]} થી {item[1]}
                 </td>
-                <td>
+                <td class="bolder">
                   {$data[index].bandData?.pensionPatrPagarNiVigato?.payBand[
                     i
                   ] || "-"}
                 </td>
-                <td>
+                <td class="bolder">
                   {$data[index].bandData?.pensionPatrPagarNiVigato?.gradePay[
                     i
                   ] || "-"}
@@ -130,7 +151,7 @@
             <tr>
               <td />
               <td class="right"> કુલ પગાર </td>
-              <td colspan="2">
+              <td colspan="2" class="bolder">
                 {$data[index].bandData?.pensionPatrPagarNiVigato?.kulPagaar ||
                   "_".repeat(15)}
               </td>
@@ -138,7 +159,7 @@
             <tr>
               <td />
               <td class="right"> સરવાળો દશ માસ </td>
-              <td colspan="2">
+              <td colspan="2" class="bolder">
                 {splitter(
                   $data[index].bandData?.pensionPatrPagarNiVigato
                     ?.sarvaadoDasMaas || 0,
@@ -149,7 +170,7 @@
             <tr>
               <td />
               <td class="right"> માસિક સરેરાશ પેન્શનપાત્ર પગાર </td>
-              <td colspan="2">
+              <td colspan="2" class="bolder">
                 <p>
                   {$data[index].bandData.pensionPatrPagarNiVigato
                     .chhelloPagaar || "_".repeat(15)}

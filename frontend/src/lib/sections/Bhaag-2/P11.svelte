@@ -33,15 +33,17 @@
       (જો પેન્શનર સગીર કે માનસિક અપંગ હોય તો જ વાલીનો ફોટો ચોટાડવાનો રહેશે)
     </div>
     <div class="mt">
-      {nm}
+      <b>
+        {nm}
+      </b>
       હોદ્દો
-      {$data[index]?.karmchariHoddo[0] ||
-        $data[index]?.karmchariHoddo[1] ||
-        ".".repeat(50)}
-      સરદાર પટેલ યુનિવર્સિટી, વલ્લભ વિદ્યાનગર સત્રાંતે વયનિવૃત્તિ તારીખ: {toString(
-        $data[index].nivrutiTarikh,
-        "/"
-      ) || ".".repeat(20)}
+      <b>
+        {$data[index]?.karmchariHoddo[0] ||
+          $data[index]?.karmchariHoddo[1] ||
+          ".".repeat(50)}
+      </b>
+      સરદાર પટેલ યુનિવર્સિટી, વલ્લભ વિદ્યાનગર સત્રાંતે વયનિવૃત્તિ તારીખ:
+      <b>{toString($data[index].nivrutiTarikh, "/") || ".".repeat(20)}</b>
     </div>
   </div>
 
@@ -49,13 +51,13 @@
     <div class="ni">
       ઓળખની અંગત નિશાની
       <div class="box">
-        {$data[index].personal[0] || ""}
+        <b>{$data[index].personal[0] || ""}</b>
       </div>
     </div>
     <div class="height">
       ઉંચાઇ
       <div class="box">
-        {$data[index].personal[1] || ""}
+        <b>{$data[index].personal[1] || ""}</b>
       </div>
     </div>
     <div class="sahi">

@@ -58,12 +58,17 @@
     <tr>
       <td />
       <td>
-        (એ) એકંદર નોકરી તા. {toString(
-          $data[index].pensionPatrNokri[0][0] || "",
-          "/"
-        ) || "____/____/____"} થી તા.
-        {toString($data[index].pensionPatrNokri[0][1] || "", "/") ||
-          "____/____/____"}
+        (એ) એકંદર નોકરી તા.
+        <span class="bolder">
+          {toString($data[index].pensionPatrNokri[0][0] || "", "/") ||
+            "____/____/____"}
+        </span>
+        થી તા.
+
+        <span class="bolder">
+          {toString($data[index].pensionPatrNokri[0][1] || "", "/") ||
+            "____/____/____"}
+        </span>
         બાદ પેન્શન માટે ન ગણવાનો સમય
       </td>
       {#each l1 as ymd}
@@ -81,8 +86,14 @@
         {#each $data[index].pensionPatrNokri[1] as row}
           <p class="indent tarikh">
             તા
-            {toString(row[0], "/") || "____/____/____"}
-            થી તા {toString(row[1], "/") || "____/____/____"}
+
+            <b>
+              {toString(row[0], "/") || "____/____/____"}
+            </b>
+            થી તા
+            <b>
+              {toString(row[1], "/") || "____/____/____"}
+            </b>
           </p>
         {/each}
       </td>
@@ -104,8 +115,8 @@
         {#each $data[index].pensionPatrNokri[2] as row}
           <p class="indent tarikh">
             તા
-            {toString(row[0], "/") || "____/____/____"}
-            થી તા {toString(row[1], "/") || "____/____/____"}
+            <b>{toString(row[0], "/") || "____/____/____"}</b>
+            થી તા <b>{toString(row[1], "/") || "____/____/____"}</b>
           </p>
         {/each}
       </td>
@@ -127,8 +138,8 @@
         {#each $data[index].pensionPatrNokri[3] as row}
           <p class="indent tarikh">
             તા
-            {toString(row[0], "/") || "____/____/____"}
-            થી તા {toString(row[1], "/") || "____/____/____"}
+            <b>{toString(row[0], "/") || "____/____/____"}</b>
+            થી તા <b>{toString(row[1], "/") || "____/____/____"}</b>
           </p>
         {/each}
       </td>
@@ -147,8 +158,8 @@
         {#each $data[index].pensionPatrNokri[4] as row}
           <p class="indent tarikh">
             તા
-            {toString(row[0], "/") || "____/____/____"}
-            થી તા {toString(row[1], "/") || "____/____/____"}
+            <b>{toString(row[0], "/") || "____/____/____"}</b>
+            થી તા <b>{toString(row[1], "/") || "____/____/____"}</b>
           </p>
         {/each}
       </td>

@@ -36,19 +36,26 @@
       <td>
         <div>
           પેન્શનમાંથી કપાત રુ.
-          {$data[index].Kapaat[0][0] || "_".repeat(15)}
+          <b>
+            {$data[index].Kapaat[0][0] || "_".repeat(15)}
+          </b>
           તા.
-          {toString($data[index].Kapaat[0][1], "/") || "_".repeat(15)}
+          <b>
+            {toString($data[index].Kapaat[0][1], "/") || "_".repeat(15)}
+          </b>
           થી તા
-          {toString($data[index].Kapaat[0][2], "/") || "_".repeat(15)} સુધી રુ
-          {$data[index].Kapaat[0][3] || "_".repeat(15)}
+          <b>{toString($data[index].Kapaat[0][2], "/") || "_".repeat(15)}</b>
+
+          સુધી રુ
+          <b>{$data[index].Kapaat[0][3] || "_".repeat(15)}</b>
           તા
-          {toString($data[index].Kapaat[0][4], "/") || "_".repeat(15)}
+          <b>{toString($data[index].Kapaat[0][4], "/") || "_".repeat(15)}</b>
           થી કાયમી કપાત
           <br />
-          પેન્શનમાંથી કપાત કરવાના સિક્ષા હુકમ નંબર {$data[index].Kapaat[1][0] ||
-            "_".repeat(15)}
-          તા {toString($data[index].Kapaat[1][1], "/") || "_".repeat(15)} પેન્શન
+          પેન્શનમાંથી કપાત કરવાના સિક્ષા હુકમ નંબર
+          <b>{$data[index].Kapaat[1][0] || "_".repeat(15)}</b>
+          તા
+          <b>{toString($data[index].Kapaat[1][1], "/") || "_".repeat(15)}</b> પેન્શન
           કાપના શિક્ષાના હુકમની નકલ સામેલ છે.
         </div>
       </td>

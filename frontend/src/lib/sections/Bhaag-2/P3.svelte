@@ -44,7 +44,9 @@
     <tr>
       <td />
       <td colspan="2">
-        {toString($data[index].paatrta)}નું નામ (ગુજરાતીમાં):
+        <span class="bolder">
+          {toString($data[index].paatrta)}નું
+        </span> નામ (ગુજરાતીમાં):
       </td>
       <td colspan="2">
         <span style="display:block"> અટક </span>
@@ -95,9 +97,12 @@
       <td colspan="7">
         <p>
           કર્મચારી પેન્શનનું મુડીકૃત રૂપાંતર માંગતા હોય તો માંગણી કર્યાની અરજી
-          તારીખ : {toGujarati(
-            toString($data[index].mudikrutTarikh, "/") || ".".repeat(25)
-          )} મુડીકૃત રૂપાંતર માટેના ટકા:
+          તારીખ :
+          <u class="bolder">
+            {toGujarati(
+              toString($data[index].mudikrutTarikh, "/") || ".".repeat(25)
+            )}
+          </u> મુડીકૃત રૂપાંતર માટેના ટકા:
         </p>
         <p>(મહતમ ૪૦ ટકા, ન્યાયિક સેવાના અધિકારી માટે ૫૦ ટકા)</p>
 
@@ -105,7 +110,7 @@
       </td>
       <td class="center">
         <span class="border" style="padding: 0.3em;">
-          {toGujarati($data[index].mudikrut)}
+          <b>{toGujarati($data[index].mudikrut)}</b>
         </span>
       </td>
     </tr>

@@ -19,7 +19,7 @@
         <p>કર્મચારીનું પત્રવ્યવહાર નું સરનામું:</p>
         <p>(પીનકોડ, ટેલીફોન નંબર, ઇમેઇલ સાથે)</p>
       </td>
-      <td class="align-top" colspan="6">
+      <td class="align-top bolder" colspan="6">
         {#if $data[index].address}
           {#each $data[index].address.split("\n") as line}
             <span style="display:block">{line}</span>
@@ -33,7 +33,7 @@
     <tr>
       <td class="align-top"> ૮ </td>
       <td class="align-top" colspan="3"> કર્મચારીનો જી. પી.એફ. નંબર: </td>
-      <td class="align-top" colspan="0">
+      <td class="align-top bolder" colspan="0">
         <LetterBox arr={toString($data[index].gpfNumber).split()} s="3" />
       </td>
     </tr>
@@ -55,7 +55,7 @@
           <p>(અંગ્રેજીમાં)</p>
         </div>
       </td>
-      <td colspan="5" class="align-top no-spacing border">
+      <td colspan="5" class="align-top no-spacing border bolder">
         {#if $data[index].kacheriNaam[1]}
           {#each $data[index].kacheriNaam[1]?.split("\n") as kacheri}
             <span style="display: block;">
@@ -70,7 +70,7 @@
       <td class="align-top" colspan="2">
         <p>(ગુજરાતીમાં)</p>
       </td>
-      <td colspan="5" class="align-top no-spacing border">
+      <td colspan="5" class="align-top no-spacing border bolder">
         {#if $data[index].kacheriNaam[0]}
           {#each $data[index].kacheriNaam[0]?.split("\n") as kacheri}
             <span style="display: block;">
@@ -86,7 +86,7 @@
         <p>ખાતાના વડા:</p>
         <p>કોડ નંબર:</p>
       </td>
-      <td class="align-top" colspan="5">
+      <td class="align-top bolder" colspan="5">
         <p>
           {$data[index].khaatu[1] || ".".repeat(40)}
         </p>
@@ -101,7 +101,7 @@
         <p>વિભાગનું નામ:</p>
         <p>કોડ નંબર:</p>
       </td>
-      <td class="align-top" colspan="5">
+      <td class="align-top bolder" colspan="5">
         <p>
           {$data[index].vibhaag[1] || ".".repeat(40)}
         </p>
@@ -123,10 +123,13 @@
       <td class="align-top" />
       <td class="align-top" colspan="7" style="font-size: 1.3em; ">
         <p>
-          જિલ્લા તિજોરી: <span style="text-decoration: underline;">
+          જિલ્લા તિજોરી: <span
+            class="bolder"
+            style="text-decoration: underline;"
+          >
             {$data[index].jillo || ".".repeat(40)}
           </span>, પેટા તિજોરી :
-          <span style="text-decoration: underline;">
+          <span class="bolder" style="text-decoration: underline;">
             {$data[index].petaTijori || $data[index].taluko || ".".repeat(40)}
           </span>
         </p>

@@ -203,6 +203,10 @@ table.padding th {
   text-transform: uppercase;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 td.align-top {
   vertical-align: top;
 }

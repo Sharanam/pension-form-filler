@@ -35,31 +35,37 @@
   </div>
   <div class="center">
     <p>
-      વિષય: બિનસરકારી કર્મચારી {nm} હોદ્દો
-      {$data[index]?.karmchariHoddo[0] ||
-        $data[index]?.karmchariHoddo[1] ||
-        ".".repeat(50)} નોકરીનું સ્થળ: સરદાર પટેલ યુનિવર્સિટી, વલ્લભ વિદ્યાનગરના
-      પેન્શન પેપર્સ મોકલવા બાબત.
+      વિષય: બિનસરકારી કર્મચારી <b>{nm}</b> હોદ્દો
+      <b
+        >{$data[index]?.karmchariHoddo[0] ||
+          $data[index]?.karmchariHoddo[1] ||
+          ".".repeat(50)}</b
+      > નોકરીનું સ્થળ: સરદાર પટેલ યુનિવર્સિટી, વલ્લભ વિદ્યાનગરના પેન્શન પેપર્સ મોકલવા
+      બાબત.
     </p>
   </div>
   <div>
     <p>માનનીયશ્રી,</p>
     <p class="indent">
       જયભારત સહ ઉપરોક્ત બાબતે આ સાથે સરદાર પટેલ યુનિવર્સિટી, વલ્લભ વિદ્યાનગરના
-      હોદ્દો {$data[index]?.karmchariHoddo[0] ||
-        $data[index]?.karmchariHoddo[1] ||
-        ".".repeat(50)}, {nm}ના પેન્શન પેપર્સ તથા અસલ સેવાપોથી તૈયાર કરી નીચેની
-      વિગતે રજૂ કરવામાં આવે છે તો નિવૃત્તિના લાભો અધિકૃત કરવા વિંનતી છે.
+      હોદ્દો <b
+        >{$data[index]?.karmchariHoddo[0] ||
+          $data[index]?.karmchariHoddo[1] ||
+          ".".repeat(50)}</b
+      >, <b>{nm}</b>
+      ના પેન્શન પેપર્સ તથા અસલ સેવાપોથી તૈયાર કરી નીચેની વિગતે રજૂ કરવામાં આવે છે
+      તો નિવૃત્તિના લાભો અધિકૃત કરવા વિંનતી છે.
     </p>
   </div>
   <table>
     <td class="align-top"> ૧ </td>
     <td>
-      {nm} એ તારીખ:
-      {toString($data[index].nokriDakhalTarikh, "/") || ".".repeat(20)}
+      <b>{nm}</b>
+      એ તારીખ:
+      <b>{toString($data[index].nokriDakhalTarikh, "/") || ".".repeat(20)}</b>
       થી તારીખ:
-      {toString($data[index].nivrutiTarikh, "/") || ".".repeat(20)} સુધીની કરેલ નોકરીની
-      તારીખ નીચે મુજબ છે.
+      <b>{toString($data[index].nivrutiTarikh, "/") || ".".repeat(20)} </b>
+      સુધીની કરેલ નોકરીની તારીખ નીચે મુજબ છે.
     </td>
   </table>
   <NaukariNiVigato {index} />

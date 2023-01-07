@@ -32,43 +32,51 @@
       <td colspan="5">
         <p>જો નિયુક્ત સગીર હોય તો</p>
 
-        <p>
+        <div>
           (ક) જન્મ તારીખ :
-          {#if $data[index].sagir}
-            {toString($data[index].nayuktSagir, "/") || ".".repeat(15)}
-          {:else}
-            <span>- - નથી - -</span>
-          {/if}
-        </p>
-        <p>
+          <span class="bolder">
+            {#if $data[index].sagir}
+              {toString($data[index].nayuktSagir, "/") || ".".repeat(15)}
+            {:else}
+              - - નથી - -
+            {/if}
+          </span>
+        </div>
+        <div>
           (ખ) સગીર વય દરમ્યાન સદરહુ રકમ જે વ્યક્તિને વાલી તરીકે આપવાની હોય તેનું
           નામ:
-          {#if $data[index].sagir}
-            {$data[index].sadarhu || ".".repeat(15)}
-          {:else}
-            <span>- - નથી - -</span>
-          {/if}
-        </p>
-        <p>
+          <span class="bolder">
+            {#if $data[index].sagir}
+              {$data[index].sadarhu || ".".repeat(15)}
+            {:else}
+              - - નથી - -
+            {/if}
+          </span>
+        </div>
+        <div>
           (સરનામું પીનકોડ સહિત):
 
-          {#if $data[index].sagir}
-            {#each $data[index].sagirAddress.split("\n") as line}
-              <span style="display: block;">{line}</span>
-            {/each}
-          {:else}
-            <span>- - નથી - -</span>
-          {/if}
-        </p>
-        <p>
+          <span class="bolder">
+            {#if $data[index].sagir}
+              {#each $data[index].sagirAddress.split("\n") as line}
+                <span style="display: block;">{line}</span>
+              {/each}
+            {:else}
+              - - નથી - -
+            {/if}
+          </span>
+        </div>
+        <div>
           (ગ) વાલી તરીકે નિયુક્તિનો પેન્શનર સાથે સંબંધ :
 
-          {#if $data[index].sagir}
-            {$data[index].pentionerSatheSambandh || ".".repeat(15)}
-          {:else}
-            <span>- - નથી - -</span>
-          {/if}
-        </p>
+          <span class="bolder">
+            {#if $data[index].sagir}
+              {$data[index].pentionerSatheSambandh || ".".repeat(15)}
+            {:else}
+              - - નથી - -
+            {/if}
+          </span>
+        </div>
       </td>
     </tr>
     <tr>
@@ -76,27 +84,27 @@
       <td colspan="5">
         <p>
           બાહેંધરીપત્ર : ગુ.યુ.સેવા (પેન્શન) નિયમોના નિયમ (૧૪ / ૧૩૫) આથી હું
-          <u
-            >{toString(
+          <b>
+            {toString(
               $data[index].karmchariNaam[0] || $data[index].karmchariNaam[1],
               " "
             ) || ".".repeat(40)}
-          </u>
+          </b>
           હોદ્દો
-          <u>
+          <b>
             {$data[index].karmchariHoddo[1] || ".".repeat(40)}
-          </u>
-          બાહેંધરી ખત આપું છું કે, હું તા. {toString(
-            $data[index].nivrutiTarikh,
-            "/"
-          ) || ".".repeat(40)} ના રોજ નિવૃત્ત થાઉ છું. તે પછીથી મારી પાસેથી કોઈ પણ
-          સરકારી લેણું જેવું કે, પગાર, રજા પગાર ભથ્થાં, લીધેલ પેશગીઓ, લોન, ઘરભાડા
-          અંગે થયેલ અધિક ચૂકવણીઓ સામે બાકી રહેતી રકમ પગારધોરણની સુધારણા કરતા થયેલ
-          અધિક ચુકવણી અથવા અન્ય સરકારી લેણુ બાકી જણાય તો તે મારા પેન્શના મૃત્યુ સાહ
-          ગ્રેજયુઈટીમાંથી ભરપાઈ કરવા બાહેંધરી સંમતિ આપું છું. નિવૃત્તિ બાદ સરકારી
-          રહેણાંક ચાલુ રહેવાની મંજુરી આપવામાં આવે તો વસૂલ કરવાપાત્ર થતું મકાનભાડું
-          મને મંજૂર કરવામાં આવેલ પેન્શના કુટુંબ પેન્શન અને તે પર મળવાપાત્ર ટી.આઈ.નથી
-          તિજોરી કક્ષાએ વસુલાત કરવા બાહેંધરી તેમજ સંમતિ આપું છું.
+          </b>
+          બાહેંધરી ખત આપું છું કે, હું તા.
+          <b>
+            {toString($data[index].nivrutiTarikh, "/") || ".".repeat(40)}
+          </b> ના રોજ નિવૃત્ત થાઉ છું. તે પછીથી મારી પાસેથી કોઈ પણ સરકારી લેણું જેવું
+          કે, પગાર, રજા પગાર ભથ્થાં, લીધેલ પેશગીઓ, લોન, ઘરભાડા અંગે થયેલ અધિક ચૂકવણીઓ
+          સામે બાકી રહેતી રકમ પગારધોરણની સુધારણા કરતા થયેલ અધિક ચુકવણી અથવા અન્ય
+          સરકારી લેણુ બાકી જણાય તો તે મારા પેન્શના મૃત્યુ સાહ ગ્રેજયુઈટીમાંથી ભરપાઈ
+          કરવા બાહેંધરી સંમતિ આપું છું. નિવૃત્તિ બાદ સરકારી રહેણાંક ચાલુ રહેવાની
+          મંજુરી આપવામાં આવે તો વસૂલ કરવાપાત્ર થતું મકાનભાડું મને મંજૂર કરવામાં આવેલ
+          પેન્શના કુટુંબ પેન્શન અને તે પર મળવાપાત્ર ટી.આઈ.નથી તિજોરી કક્ષાએ વસુલાત
+          કરવા બાહેંધરી તેમજ સંમતિ આપું છું.
         </p>
       </td>
     </tr>

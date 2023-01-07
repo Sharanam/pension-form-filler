@@ -130,24 +130,33 @@
         </p>
         <p>
           (
-          {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-            "_".repeat(15)}
+          <b>
+            {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
+              "_".repeat(15)}
+          </b>
           +
-          {monghvaari || "_".repeat(15)}
+          <b>
+            {monghvaari || "_".repeat(15)}
+          </b>
           ) &#215;
-          {pensionPatrNokariVarsh || "_".repeat(15)}
-          /2 =
+          <b>
+            {pensionPatrNokariVarsh || "_".repeat(15)}
+            / 2 =
+          </b>
         </p>
         <p>
-          = {splitter(
-            monghvaari &&
-              $data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar &&
-              ((+monghvaari +
-                +$data[index].bandData?.pensionPatrPagarNiVigato
-                  ?.chhelloPagaar) *
-                +pensionPatrNokariVarsh) /
-                2
-          ) || "_".repeat(15)}
+          = <b>
+            {splitter(
+              monghvaari &&
+                $data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar &&
+                ((+monghvaari +
+                  +$data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar) *
+                  +pensionPatrNokariVarsh) /
+                  2
+            ) || "_".repeat(15)}
+          </b>
         </p>
         <p>
           ૨. ચાલુ નોકરીએ અવસાન સમયે : ગુ.મુ. સેવા. (પેન્શન) નિયમો-૨૦૦૨ના
@@ -157,16 +166,18 @@
           <p>(એ) એક વર્ષ કરતાં ઓછી પેન્શનપાત્ર નોકરી હોય તે પ્રસંગે</p>
           <p>
             (છેલ્લો પગાર + મોંઘવારી ) &#215; ૨ =
-            {splitter(
-              $data[index].bhaag2_25_2[0] === "a" &&
-                monghvaari &&
-                $data[index].bandData?.pensionPatrPagarNiVigato
-                  ?.chhelloPagaar &&
-                (+monghvaari +
-                  +$data[index].bandData?.pensionPatrPagarNiVigato
-                    ?.chhelloPagaar) *
-                  2
-            ) || "_".repeat(15)}
+            <b>
+              {splitter(
+                $data[index].bhaag2_25_2[0] === "a" &&
+                  monghvaari &&
+                  $data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar &&
+                  (+monghvaari +
+                    +$data[index].bandData?.pensionPatrPagarNiVigato
+                      ?.chhelloPagaar) *
+                    2
+              ) || "_".repeat(15)}
+            </b>
           </p>
           <p>
             (બી) એક વર્ષ કે તે કરતાં વધુ પરંતુ પાંચ વર્ષ કરતાં ઓછી પેન્શનપાત્ર
@@ -174,16 +185,18 @@
           </p>
           <p>
             (છેલ્લો પગાર + મોંઘવારી ) &#215; ૬ =
-            {splitter(
-              $data[index].bhaag2_25_2[0] === "b" &&
-                monghvaari &&
-                $data[index].bandData?.pensionPatrPagarNiVigato
-                  ?.chhelloPagaar &&
-                (+monghvaari +
-                  +$data[index].bandData?.pensionPatrPagarNiVigato
-                    ?.chhelloPagaar) *
-                  6
-            ) || "_".repeat(15)}
+            <b>
+              {splitter(
+                $data[index].bhaag2_25_2[0] === "b" &&
+                  monghvaari &&
+                  $data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar &&
+                  (+monghvaari +
+                    +$data[index].bandData?.pensionPatrPagarNiVigato
+                      ?.chhelloPagaar) *
+                    6
+              ) || "_".repeat(15)}
+            </b>
           </p>
           <p>
             (સી) પાંચ વર્ષ કે વધુ પરંતુ ૨૦ વર્ષ કરતાં ઓછી પેન્શનપાત્ર નોકરી હોય
@@ -191,16 +204,18 @@
           </p>
           <p>
             (છેલ્લો પગાર + મોંઘવારી ) &#215; ૧૨ =
-            {splitter(
-              $data[index].bhaag2_25_2[0] === "c" &&
-                monghvaari &&
-                $data[index].bandData?.pensionPatrPagarNiVigato
-                  ?.chhelloPagaar &&
-                (+monghvaari +
-                  +$data[index].bandData?.pensionPatrPagarNiVigato
-                    ?.chhelloPagaar) *
-                  12
-            ) || "_".repeat(15)}
+            <b>
+              {splitter(
+                $data[index].bhaag2_25_2[0] === "c" &&
+                  monghvaari &&
+                  $data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar &&
+                  (+monghvaari +
+                    +$data[index].bandData?.pensionPatrPagarNiVigato
+                      ?.chhelloPagaar) *
+                    12
+              ) || "_".repeat(15)}
+            </b>
           </p>
           <p>
             (ડી) ૨૦ વર્ષ કે તેના કરતાં વધુ નોકરી કરી હોય ત્યાં મહત્તમ હોય મહત્તમ
@@ -209,16 +224,18 @@
           <p>
             (છેલ્લો પગાર + મોંઘવારી ) &#215; પુરા કરેલા પેન્શનપાત્ર નોકરીના વર્ષ
             (મહત્તમ 33 વર્ષ) =
-            {splitter(
-              $data[index].bhaag2_25_2[0] === "d" &&
-                monghvaari &&
-                $data[index].bandData?.pensionPatrPagarNiVigato
-                  ?.chhelloPagaar &&
-                (+monghvaari +
-                  +$data[index].bandData?.pensionPatrPagarNiVigato
-                    ?.chhelloPagaar) *
-                  33
-            ) || "_".repeat(15)}
+            <b>
+              {splitter(
+                $data[index].bhaag2_25_2[0] === "d" &&
+                  monghvaari &&
+                  $data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar &&
+                  (+monghvaari +
+                    +$data[index].bandData?.pensionPatrPagarNiVigato
+                      ?.chhelloPagaar) *
+                    33
+              ) || "_".repeat(15)}
+            </b>
           </p>
         </div>
       </td>

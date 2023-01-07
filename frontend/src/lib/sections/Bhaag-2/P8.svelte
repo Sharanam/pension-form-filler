@@ -49,20 +49,27 @@
       </p>
       <p class="indent">
         (છેલ્લો પગાર + મોંઘવારી) &#215; પુરી કરેલી નોકરીના વર્ષ = (
-        {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-          "_".repeat(15)}
+        <b>
+          {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
+            "_".repeat(15)}
+        </b>
         +
-        {monghvaari || "_".repeat(15)}
+        <b>
+          {monghvaari || "_".repeat(15)}
+        </b>
         ) &#215;
         {pensionPatrNokariVarsh || "_".repeat(15)} = રુ.
-        {splitter(
-          monghvaari &&
-            $data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar &&
-            ((+monghvaari +
-              +$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar) *
-              +pensionPatrNokariVarsh) /
-              2
-        ) || "_".repeat(15)}
+        <b>
+          {splitter(
+            monghvaari &&
+              $data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar &&
+              ((+monghvaari +
+                +$data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar) *
+                +pensionPatrNokariVarsh) /
+                2
+          ) || "_".repeat(15)}
+        </b>
       </p>
     </tr>
     <tr>
@@ -106,27 +113,14 @@
     <tr>
       <td />
       <td>
-        નક્કી થયેલ પેન્શન &#215; {toGujarati($data[index].mudikrut) ||
-          "_".repeat(10)}% = રુપાંતર પેંશન =
-        {toGujarati(
-          splitter(
-            $data[index].mudikrut &&
-              $data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar &&
-              parseInt(
-                ((+$data[index].bandData?.pensionPatrPagarNiVigato
-                  ?.chhelloPagaar || 0) /
-                  2) *
-                  (+$data[index].mudikrut / 100)
-              )
-          )
-        ) || "_".repeat(15)}/-
-        <p>
-          રુપાંતર પેન્શન ભાગ &#215; રુપાંતર દર &#215; ૧૨ =
+        નક્કી થયેલ પેન્શન &#215; <b>
+          {toGujarati($data[index].mudikrut) || "_".repeat(10)}%
+        </b>
+        = રુપાંતર પેંશન =
+        <b>
           {toGujarati(
             splitter(
               $data[index].mudikrut &&
-                age &&
-                mudikrutRakam.get(+age) &&
                 $data[index].bandData?.pensionPatrPagarNiVigato
                   ?.chhelloPagaar &&
                 parseInt(
@@ -136,27 +130,54 @@
                     (+$data[index].mudikrut / 100)
                 )
             )
-          ) || "_".repeat(15)} &#215; {toGujarati(
-            $data[index].mudikrut && age && mudikrutRakam.get(+age)
-          ) || "_".repeat(15)} &#215; ૧૨ =
-
-          {toGujarati(
-            splitter(
-              $data[index].mudikrut &&
-                age &&
-                mudikrutRakam.get(+age) &&
-                $data[index].bandData?.pensionPatrPagarNiVigato
-                  ?.chhelloPagaar &&
-                parseInt(
-                  ((+$data[index].bandData?.pensionPatrPagarNiVigato
-                    ?.chhelloPagaar || 0) /
-                    2) *
-                    (+$data[index].mudikrut / 100) *
-                    12 *
-                    +mudikrutRakam.get(+age)
-                )
-            )
           ) || "_".repeat(15)}/-
+        </b>
+        <p>
+          રુપાંતર પેન્શન ભાગ &#215; રુપાંતર દર &#215; ૧૨ =
+          <b>
+            {toGujarati(
+              splitter(
+                $data[index].mudikrut &&
+                  age &&
+                  mudikrutRakam.get(+age) &&
+                  $data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar &&
+                  parseInt(
+                    ((+$data[index].bandData?.pensionPatrPagarNiVigato
+                      ?.chhelloPagaar || 0) /
+                      2) *
+                      (+$data[index].mudikrut / 100)
+                  )
+              )
+            ) || "_".repeat(15)}
+          </b>
+          &#215;
+          <b>
+            {toGujarati(
+              $data[index].mudikrut && age && mudikrutRakam.get(+age)
+            ) || "_".repeat(15)}
+          </b>
+          &#215; ૧૨ =
+
+          <b>
+            {toGujarati(
+              splitter(
+                $data[index].mudikrut &&
+                  age &&
+                  mudikrutRakam.get(+age) &&
+                  $data[index].bandData?.pensionPatrPagarNiVigato
+                    ?.chhelloPagaar &&
+                  parseInt(
+                    ((+$data[index].bandData?.pensionPatrPagarNiVigato
+                      ?.chhelloPagaar || 0) /
+                      2) *
+                      (+$data[index].mudikrut / 100) *
+                      12 *
+                      +mudikrutRakam.get(+age)
+                  )
+              )
+            ) || "_".repeat(15)}/-
+          </b>
         </p>
       </td>
     </tr>

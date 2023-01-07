@@ -74,10 +74,10 @@
       </td>
       <td class="align-top" colspan="5">
         <p>
-          {$data[index].karmchariHoddo[1] || ".".repeat(44)}
+          <b>{$data[index].karmchariHoddo[1] || ".".repeat(44)}</b>
         </p>
         <p class="capitalized">
-          {$data[index].karmchariHoddo[0] || ".".repeat(44)}
+          <b>{$data[index].karmchariHoddo[0] || ".".repeat(44)}</b>
         </p>
       </td>
     </tr>

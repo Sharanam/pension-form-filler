@@ -22,16 +22,16 @@
   </div>
   <p class="indent ">
     હું
-    <u
-      >{toString($data[index]?.karmchariNaam[0], " ") ||
+    <b>
+      {toString($data[index]?.karmchariNaam[0], " ") ||
         toString($data[index]?.karmchariNaam[1], " ") ||
-        ".".repeat(50)}</u
-    >
+        ".".repeat(50)}
+    </b>
     હોદ્દો
-    <u>{$data[index].karmchariHoddo[1] || ".".repeat(44)}</u> તારીખ
-    <u>
+    <b>{$data[index].karmchariHoddo[1] || ".".repeat(44)}</b> તારીખ
+    <b>
       {toString($data[index].nivrutiTarikh, "/") || ".".repeat(54)}
-    </u>
+    </b>
     ના રોજ વય નિવૃત્ત/સ્વૈચ્છિક નિવૃત્તિના કારણે નિવૃત્ત થાઉં છુ. મારા પેન્શન મંજુરી
     અર્થે નીચે મુજબની માહીતે ગુ.મુ.સેવા (પેન્શન) નિયમોના નિયમો ૧૨૮(૧) મુજબ રજું કરુ
     છું.
@@ -62,7 +62,7 @@
       <td>૨</td>
       <td colspan="2"> હોદ્દો </td>
       <td colspan="5">
-        {$data[index].karmchariHoddo[1] || ".".repeat(44)}
+        <b>{$data[index].karmchariHoddo[1] || ".".repeat(44)}</b>
       </td>
     </tr>
     <tr>
@@ -73,7 +73,7 @@
           <p>(પીન કોડ નંબર સાથે)</p>
         </div>
       </td>
-      <td colspan="5" class="no-spacing">
+      <td colspan="5" class="no-spacing bolder">
         {#if $data[index].kacheriNaam[0]}
           {#each $data[index].kacheriNaam[0]?.split("\n") as kacheri}
             <span style="display: block;">
@@ -148,11 +148,12 @@
         (પીનકોડ ટેલીફોન નંબર સાથે)
       </td>
       <td colspan="5">
-            
-                <b>
-                <p>{toString($data[index]?.karmchariNaam[0], " ") ||
-                toString($data[index]?.karmchariNaam[1], " ") ||
-                ".".repeat(50)}</p>
+        <b>
+          <p>
+            {toString($data[index]?.karmchariNaam[0], " ") ||
+              toString($data[index]?.karmchariNaam[1], " ") ||
+              ".".repeat(50)}
+          </p>
           {#if $data[index].address}
             {#each $data[index].address.split("\n") as line}
               <span style="display:block">{line}</span>

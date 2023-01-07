@@ -14,12 +14,17 @@
         <p>પેન્શનની ગણતરી (ગુ. મુ. સેવા (પેન્શન) નિયમોના નિયમ- ૮૦)</p>
         <p>(૧) પેન્શન = છેલ્લો પગારના ૫૦ %</p>
         <p class="indent">
-          {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-            0 ||
-            "_".repeat(15)} / 2 =
+          <b>
+            {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
+              0 ||
+              "_".repeat(15)}
+          </b>
+          / 2 =
           <span class="border">
-            {($data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-              0) / 2 || "_".repeat(15)}
+            <b>
+              {($data[index].bandData?.pensionPatrPagarNiVigato
+                ?.chhelloPagaar || 0) / 2 || "_".repeat(15)}
+            </b>
           </span>
         </p>
       </td>
@@ -50,10 +55,13 @@
             અવસાનની તારીખ પછીની તારીખથી સાત વર્ષ સુધી અથવા કર્મચારી જીવતા હોત
             અને ૬૫ વર્ષની ઉંમરે પહોંચે ત્યાં સુધી આ બે પૈકી જે વહેલું હોય ત્યો
             સુધી નીચે મુજબ કુટુંબ પેન્શન મળવાપાત્ર બનશે. કર્મચારીને મંજૂર થયેલ
-            પેન્શન કેટલી રકમ રૂ. = {parseInt(
-              ($data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-                0) * 0.3
-            ) || "_".repeat(15)}/-
+            પેન્શન કેટલી રકમ રૂ. =
+            <b>
+              {parseInt(
+                ($data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar || 0) * 0.3
+              ) || "_".repeat(15)}/-
+            </b>
           </p>
 
           <p class="indent">
@@ -61,22 +69,30 @@
             હોવી જોઈએ એટલે કે છેલ્લા પગારના ૩૦%)
           </p>
           <p class="indent">
-            છેલ્લો પગાર {$data[index].bandData?.pensionPatrPagarNiVigato
-              ?.chhelloPagaar ||
-              0 ||
-              "_".repeat(15)} રુ. &#215; 30% =
-            {parseInt(
-              ($data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-                0) * 0.3
-            ) || "_".repeat(15)}/-
+            છેલ્લો પગાર
+            <b>
+              {$data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
+                0 ||
+                "_".repeat(15)}
+            </b>
+            રુ. &#215; 30% =
+            <b>
+              {parseInt(
+                ($data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar || 0) * 0.3
+              ) || "_".repeat(15)}/-
+            </b>
           </p>
           (બી) કુટુંબ પેન્શન -૨
           <p class="indent">
             ઉપર (૧) (એ) માં દર્શાવેલ સમયગાળા બાદ મળવાપાત્ર કુટુંબ પેન્શન છેલ્લા
-            પગારના ૩૦% જેટલી રકમ રૂ. = {parseInt(
-              ($data[index].bandData?.pensionPatrPagarNiVigato?.chhelloPagaar ||
-                0) * 0.3
-            ) || "_".repeat(15)}/-
+            પગારના ૩૦% જેટલી રકમ રૂ. =
+            <b>
+              {parseInt(
+                ($data[index].bandData?.pensionPatrPagarNiVigato
+                  ?.chhelloPagaar || 0) * 0.3
+              ) || "_".repeat(15)}/-
+            </b>
           </p>
         </div>
       </td>

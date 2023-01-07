@@ -35,8 +35,10 @@
             {toGujarati($data[index].mudikrut || "") || ".".repeat(10)} ટકા
           </b>
           ભાગનું મૂડીકૃત રૂપાંતર કરી રૂપાંતરની કિંમત આપવા આજ તા.
-          {toGujarati(toString($data[index].mudikrutTarikh, "/") || "") ||
-            ".".repeat(40)}
+          <b>
+            {toGujarati(toString($data[index].mudikrutTarikh, "/") || "") ||
+              ".".repeat(40)}
+          </b>
           ના રોજ વિનંતી કરું છું.
         </p>
         <p>
@@ -50,9 +52,11 @@
       <td>૧૧</td>
       <td colspan="5">
         <p>
-          કુટુંબની વિગતો :ગુ.મુ.સેવા (પેન્શન) નિયમો-૨૦૦૨ ના નિયમ-૮૯ મુજબ તા. {toGujarati(
-            toString($data[index].mudikrutTarikh, "/") || ""
-          ) || ".".repeat(40)}
+          કુટુંબની વિગતો :ગુ.મુ.સેવા (પેન્શન) નિયમો-૨૦૦૨ ના નિયમ-૮૯ મુજબ તા.
+          <b>
+            {toGujarati(toString($data[index].mudikrutTarikh, "/") || "") ||
+              ".".repeat(40)}
+          </b>
           ના દીવસે મરા કુટુંબના સભ્યોની વિગત નીચે પ્રમાણે છે.
         </p>
       </td>
@@ -105,15 +109,20 @@
         <p>
           ઉપર જણાવેલ નિયમોમાં ફેરફાર કે સુધારા વધારા થાય તેવા પ્રસંગે પેન્શન એન
           પ્રોવિડંડ ફંડ નિયામકશ્રી/કચેરીના વડા તેમજ સંબંધકર્તાને જાણ કરી અદ્યતન
-          રાખવાની બાહેંધરી આપું છું. ઉપરની વિગતો મારી કચેરીના વડા સમક્ષ આજ તારીખ {new Date(
-            $data[index].mudikrutTarikh[2],
-            $data[index].mudikrutTarikh[1] - 1,
-            $data[index].mudikrutTarikh[0]
-          ).toLocaleDateString("en-GB", {
-            day: "numeric",
-            month: "numeric",
-            year: "numeric",
-          })} ઉપસ્થિત થઇ પેન્શનની કાર્યવાહી અર્થે આપું છું. (કર્મચારીની માંદગી પ્રસંગે
+          રાખવાની બાહેંધરી આપું છું. ઉપરની વિગતો મારી કચેરીના વડા સમક્ષ આજ તારીખ
+          <b>
+            {toGujarati(
+              new Date(
+                $data[index].mudikrutTarikh[2],
+                $data[index].mudikrutTarikh[1] - 1,
+                $data[index].mudikrutTarikh[0]
+              ).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "numeric",
+                year: "numeric",
+              })
+            )}
+          </b> ઉપસ્થિત થઇ પેન્શનની કાર્યવાહી અર્થે આપું છું. (કર્મચારીની માંદગી પ્રસંગે
           કે બહારગામ ગયા હોય તેવા પ્રસંગે પ્રતિનિધિ અથવા ટપાલ મારફતે ઉપરની વિગતો
           મોકલી આવી શકાશે)
         </p>
