@@ -26,6 +26,8 @@
   //   };
 
   import { data, index } from "../../globalState/data";
+  import { toGujarati } from "../../tools/toGujarati";
+  import { dasMaas } from "../../tools/ymd";
 
   function calculate() {
     data.update((data) => {
@@ -43,29 +45,33 @@
       );
 
       // last 3-1 rows
-      data[$index].bandData.pensionPatrPagarNiVigato.kulPagaar =
-        (+data[$index].bandData.pensionPatrPagarNiVigato.payBand.reduce(
-          (a, b) => parseInt(a) + parseInt(b),
-          0
-        ) || 0) +
-        (+data[$index].bandData.pensionPatrPagarNiVigato.gradePay.reduce(
-          (a, b) => parseInt(a) + parseInt(b),
-          0
-        ) || 0);
-
-      data[$index].bandData.pensionPatrPagarNiVigato.sarvaadoDasMaas =
-        +data[$index].bandData.pensionPatrPagarNiVigato.kulPagaar || 0;
-
-      data[$index].bandData.pensionPatrPagarNiVigato.chhelloPagaar =
-        (+data[$index].bandData?.nivrutiSamayNo?.lastPayBand ||
-          +data[$index].bandData?.swaichitNivrutiSamayNo?.lastPayBand) +
-          (+data[$index].bandData?.nivrutiSamayNo?.lastPayGrade ||
-            +data[$index].bandData?.swaichitNivrutiSamayNo?.lastPayGrade) || 0;
-      data[$index].bandData.pensionPatrPagarNiVigato.masikSarerashPpp =
-        data[$index].bandData.pensionPatrPagarNiVigato.chhelloPagaar / 2;
-
+      data = calculateLastThree(data);
       return data;
     });
+  }
+  function calculateLastThree(data) {
+    data[$index].bandData.pensionPatrPagarNiVigato.kulPagaar =
+      (+data[$index].bandData.pensionPatrPagarNiVigato.payBand.reduce(
+        (a, b) => parseInt(a) + parseInt(b),
+        0
+      ) || 0) +
+      (+data[$index].bandData.pensionPatrPagarNiVigato.gradePay.reduce(
+        (a, b) => parseInt(a) + parseInt(b),
+        0
+      ) || 0);
+
+    data[$index].bandData.pensionPatrPagarNiVigato.sarvaadoDasMaas =
+      +data[$index].bandData.pensionPatrPagarNiVigato.kulPagaar || 0;
+
+    data[$index].bandData.pensionPatrPagarNiVigato.chhelloPagaar =
+      (+data[$index].bandData?.nivrutiSamayNo?.lastPayBand ||
+        +data[$index].bandData?.swaichitNivrutiSamayNo?.lastPayBand) +
+        (+data[$index].bandData?.nivrutiSamayNo?.lastPayGrade ||
+          +data[$index].bandData?.swaichitNivrutiSamayNo?.lastPayGrade) || 0;
+    data[$index].bandData.pensionPatrPagarNiVigato.masikSarerashPpp =
+      data[$index].bandData.pensionPatrPagarNiVigato.chhelloPagaar / 2;
+
+    return data;
   }
 </script>
 
@@ -172,6 +178,65 @@
       </div>
     </div>
     <p>(૨૫ વર્ષ બાદની સ્વૈચ્છિક નિવૃત્તિ હોય તો નોશનલ પગાર ધ્યાને લેવો)</p>
+  </div>
+
+  <div>
+    <table class="border padding center" style="min-width: 70%;">
+      <thead>
+        <th> ક્રમ </th>
+        <th> માસ </th>
+        <th> પે બેન્ડ </th>
+        <th> ગ્રેડ પે </th>
+      </thead>
+      <tbody>
+        {#each dasMaas($data[$index]?.bandData?.pensionPatrPagar?.pensionDateTo) || [] as item, i}
+          <tr>
+            <td>
+              {toGujarati(i + 1)}
+            </td>
+            <td>
+              {item[0]} થી {item[1]}
+            </td>
+            <td>
+              <!-- {$data[index].bandData?.pensionPatrPagarNiVigato?.payBand[
+                i
+              ] || "-"} -->
+              <input
+                type="number"
+                min="0"
+                value={$data[$index].bandData.pensionPatrPagarNiVigato.payBand[
+                  i
+                ]}
+                on:change={(e) =>
+                  data.update((data) => {
+                    data[$index].bandData.pensionPatrPagarNiVigato.payBand[i] =
+                      e.target.value;
+                    return calculateLastThree(data);
+                  })}
+              />
+            </td>
+            <td>
+              <!-- {$data[index].bandData?.pensionPatrPagarNiVigato?.gradePay[
+                i
+              ] || "-"} -->
+              <input
+                type="number"
+                min="0"
+                value={$data[$index].bandData.pensionPatrPagarNiVigato.gradePay[
+                  i
+                ]}
+                on:change={(e) =>
+                  data.update((data) => {
+                    data[$index].bandData.pensionPatrPagarNiVigato.gradePay[i] =
+                      e.target.value;
+                    return calculateLastThree(data);
+                  })}
+              />
+            </td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
   </div>
 </div>
 

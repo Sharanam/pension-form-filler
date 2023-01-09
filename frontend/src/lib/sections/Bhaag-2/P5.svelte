@@ -6,43 +6,9 @@
   import { splitter } from "../../tools/splitter";
   import { toGujarati } from "../../tools/toGujarati";
   import { toString } from "../../tools/toString";
+  import { dasMaas } from "../../tools/ymd";
   import LocalFooter from "./LocalFooter.svelte";
   export let index = 0;
-
-  function dasMaas([date, month, year]) {
-    if (!date || !month || !year)
-      return Array(10).fill(Array(2).fill("____/_____/_______"));
-    let [d, m, y] = [date, month, year];
-    const result = [];
-
-    if (m - 10 < 0) {
-      m = 12 + (m - 10);
-      y = y - 1;
-    } else {
-      m = m - 10;
-    }
-    d = 1;
-
-    for (let i = 0; i < 10; i++) {
-      const firstDay = new Date(y, m, d);
-      let lastDay = new Date(y, m + 1, 0);
-      if (m == month - 1 && y == year) {
-        lastDay = new Date(y, m, date);
-      }
-      result.push(
-        [firstDay, lastDay].map((x) =>
-          toGujarati(x.toLocaleDateString("en-GB"))
-        )
-      );
-      if (m === 11) {
-        m = 0;
-        y = y + 1;
-      } else {
-        m = m + 1;
-      }
-    }
-    return result;
-  }
 </script>
 
 <div class="page-break-before">
