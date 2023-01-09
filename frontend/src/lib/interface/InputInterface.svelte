@@ -13,6 +13,7 @@
   import Bhaag_2_P7 from "./partialInterface/Bhaag_2_P7.svelte";
   import Bhaag_2_P8 from "./partialInterface/Bhaag_2_P8.svelte";
   import Bhaag_2_P9 from "./partialInterface/Bhaag_2_P9.svelte";
+  import NaukariNiVigato from "../commonElements/naukariNiVigato.svelte";
 </script>
 
 <div class="no-print dark">
@@ -621,6 +622,10 @@
   <div>
     લાભોમાથી કપાત કરવાની વિગત
     <Bhaag_2_P9 />
+  </div>
+  <div>
+    ભાગ - 5:
+    <NaukariNiVigato index={$index} />
   </div>
 </div>
 

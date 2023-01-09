@@ -3,30 +3,30 @@
   import { toGujarati } from "../tools/toGujarati";
   import { toString } from "../tools/toString";
   import { data } from "../globalState/data";
+  import { countYMD } from "../tools/ymd";
 
-  export let index = 0;
-  function updateAge(i) {
-    let [dd, mm, yyyy] = $data[index].niyuktiTable[i][2][1];
-    if (dd && mm && yyyy) {
-      let dob = new Date(yyyy, mm - 1, dd);
-      let today = new Date();
-      let age = today.getFullYear() - dob.getFullYear();
-      let m = today.getMonth() - dob.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
-        age--;
-      }
-      $data[index].niyuktiTable[i][2][0] = age;
-    }
+  export let index;
+
+  function calculator(data, i) {
+    let ymd = countYMD(
+      data[index].naukariNiVigato[0][i][1][0],
+      data[index].naukariNiVigato[0][i][1][1]
+    );
+
+    data[index].naukariNiVigato[0][i][2] = ymd;
+    data[index].naukariNiVigato[0][i][3] = ymd;
+
+    return data;
   }
 </script>
 
-<table class="border">
+<table class="border center">
   <tr>
     <td>ક્રમ</td>
     <td>કઇ કઇ સંસ્થામા નોકરી કરી તેનુ નામ</td>
     <td>સમયગાળો તારીખ થી તારીખ</td>
     <td colspan="3">કુલ નોકરીના</td>
-    <td colspan="3">પેન્શનપાત્ર કરીના </td>
+    <td colspan="3">પેન્શનપાત્ર નોકરીના </td>
   </tr>
   <tr>
     <td />
@@ -41,7 +41,7 @@
     <td> દિવસ </td>
   </tr>
 
-  {#each $data[index].naukariNiVigato as tmp, i (i)}
+  {#each $data[index].naukariNiVigato[0] as tmp, i (i)}
     <tr class="member-row">
       <td>
         {toGujarati(i + 1)}
@@ -50,13 +50,10 @@
         <div class="no-print">
           <textarea
             rows="4"
-            value={tmp[0]}
-            on:change={(e) => {
-              $data[index].naukariNiVigato[i][0] = e.target.value || "";
-            }}
+            bind:value={$data[index].naukariNiVigato[0][i][0]}
           />
         </div>
-        <span class="">
+        <span class="no-screen bolder">
           <p>
             {#if tmp[0]}
               {#each tmp[0].split("\n") as line}
@@ -73,7 +70,11 @@
               type="number"
               value={tmp[1][0][0]}
               on:change={(e) => {
-                $data[index].naukariNiVigato[i][1][0][0] = e.target.value;
+                data.update((data) => {
+                  data[index].naukariNiVigato[0][i][1][0][0] = e.target.value;
+                  data = calculator(data, i);
+                  return data;
+                });
               }}
               placeholder="dd"
             />
@@ -81,7 +82,11 @@
               type="number"
               value={tmp[1][0][1]}
               on:change={(e) => {
-                $data[index].naukariNiVigato[i][1][0][1] = e.target.value;
+                data.update((data) => {
+                  data[index].naukariNiVigato[0][i][1][0][1] = e.target.value;
+                  data = calculator(data, i);
+                  return data;
+                });
               }}
               placeholder="mm"
             />
@@ -89,7 +94,11 @@
               type="number"
               value={tmp[1][0][2]}
               on:change={(e) => {
-                $data[index].naukariNiVigato[i][1][0][2] = e.target.value;
+                data.update((data) => {
+                  data[index].naukariNiVigato[0][i][1][0][2] = e.target.value;
+                  data = calculator(data, i);
+                  return data;
+                });
               }}
               placeholder="yyyy"
             />
@@ -99,7 +108,11 @@
               type="number"
               value={tmp[1][1][0]}
               on:change={(e) => {
-                $data[index].naukariNiVigato[i][1][1][0] = e.target.value;
+                data.update((data) => {
+                  data[index].naukariNiVigato[0][i][1][1][0] = e.target.value;
+                  data = calculator(data, i);
+                  return data;
+                });
               }}
               placeholder="dd"
             />
@@ -107,7 +120,11 @@
               type="number"
               value={tmp[1][1][1]}
               on:change={(e) => {
-                $data[index].naukariNiVigato[i][1][1][1] = e.target.value;
+                data.update((data) => {
+                  data[index].naukariNiVigato[0][i][1][1][1] = e.target.value;
+                  data = calculator(data, i);
+                  return data;
+                });
               }}
               placeholder="mm"
             />
@@ -115,35 +132,109 @@
               type="number"
               value={tmp[1][1][2]}
               on:change={(e) => {
-                $data[index].naukariNiVigato[i][1][1][2] = e.target.value;
+                data.update((data) => {
+                  data[index].naukariNiVigato[0][i][1][1][2] = e.target.value;
+                  data = calculator(data, i);
+                  return data;
+                });
               }}
               placeholder="yyyy"
             />
           </div>
+          <div>
+            <input
+              type="text"
+              bind:value={$data[index].naukariNiVigato[0][i][1][2]}
+              placeholder="વયનિવૃત્તિ"
+            />
+          </div>
         </div>
-        <span class="">
+        <p class="no-screen bolder">
           {(toString(tmp[1][0], "/") &&
             toString(tmp[1][1], "/") &&
             toString(tmp[1][0], "/") + " થી " + toString(tmp[1][1], "/")) ||
             ".".repeat(1)}
+        </p>
+        <p class="no-screen bolder">
+          ({tmp[1][2] || "."})
+        </p>
+      </td>
+      <td class="initial">
+        <div class="no-print">
+          <input
+            type="number"
+            bind:value={$data[index].naukariNiVigato[0][i][2][0]}
+          />
+        </div>
+        <span class="no-screen bolder">
+          {tmp[2][0] || ".".repeat(1)}
         </span>
       </td>
-      <td class="initial">varsh</td>
-      <td class="initial">maas</td>
-      <td class="initial">divas</td>
+      <td class="initial">
+        <div class="no-print">
+          <input
+            type="number"
+            bind:value={$data[index].naukariNiVigato[0][i][2][1]}
+          />
+        </div>
+        <span class="no-screen bolder">
+          {tmp[2][1] || ".".repeat(1)}
+        </span>
+      </td>
+      <td class="initial">
+        <div class="no-print">
+          <input
+            type="number"
+            bind:value={$data[index].naukariNiVigato[0][i][2][2]}
+          />
+        </div>
+        <span class="no-screen bolder">
+          {tmp[2][2] || ".".repeat(1)}
+        </span>
+      </td>
 
-      <td class="initial">varsh</td>
-      <td class="initial">maas</td>
-      <td class="initial">divas</td>
+      <td class="initial">
+        <div class="no-print">
+          <input
+            type="number"
+            bind:value={$data[index].naukariNiVigato[0][i][3][0]}
+          />
+        </div>
+        <span class="no-screen bolder">
+          {tmp[3][0] || ".".repeat(1)}
+        </span>
+      </td>
+      <td class="initial">
+        <div class="no-print">
+          <input
+            type="number"
+            bind:value={$data[index].naukariNiVigato[0][i][3][1]}
+          />
+        </div>
+        <span class="no-screen bolder">
+          {tmp[3][1] || ".".repeat(1)}
+        </span>
+      </td>
+      <td class="initial">
+        <div class="no-print">
+          <input
+            type="number"
+            bind:value={$data[index].naukariNiVigato[0][i][3][2]}
+          />
+        </div>
+        <span class="no-screen bolder">
+          {tmp[3][2] || ".".repeat(1)}
+        </span>
+      </td>
     </tr>
   {/each}
   <tr class="no-print">
     <td colspan="9">
       <button
         on:click={() => {
-          $data[index].naukariNiVigato = [
-            ...$data[index].naukariNiVigato,
-            ["", "", ["", "", ""], ["", "", ""]],
+          $data[index].naukariNiVigato[0] = [
+            ...$data[index].naukariNiVigato[0],
+            ["", [["", "", ""], ["", "", ""], ""], ["", "", ""], ["", "", ""]],
           ];
         }}
         class="positive"
@@ -152,8 +243,34 @@
       </button>
     </td>
   </tr>
-
-  કુલ
+  <tr>
+    <td />
+    <td />
+    <td> કુલ નોકરી </td>
+    <td>
+      <div class="no-print">
+        <input
+          type="number"
+          bind:value={$data[index].naukariNiVigato[1][0][0]}
+        />
+      </div>
+      <span class=" bolder">
+        {$data[index].naukariNiVigato[1][0][0] || ".".repeat(1)}
+      </span>
+    </td>
+    <td>
+      <div class="no-print">
+        <input
+          type="number"
+          bind:value={$data[index].naukariNiVigato[1][0][1]}
+        />
+      </div>
+      <span class=" bolder">
+        {$data[index].naukariNiVigato[1][0][1] || ".".repeat(1)}
+      </span>
+    </td>
+    <td> // to be continued </td>
+  </tr>
 </table>
 
 <style>

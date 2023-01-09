@@ -176,13 +176,11 @@ export function initialRecord() {
 
     // bhaag - 5
     naukariNiVigato: [
-      // sanstha nu naam, tarikh thi tarikh, kul naukari, pension patr naukari
       [
-        "",
-        [
-          ["", "", ""],
-          ["", "", ""],
-        ],
+        // sanstha nu naam, tarikh thi tarikh, kul naukari, pension patr naukari
+        ["", [["", "", ""], ["", "", ""], ""], ["", "", ""], ["", "", ""]],
+      ],
+      [
         ["", "", ""],
         ["", "", ""],
       ],
