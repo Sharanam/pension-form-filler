@@ -9,8 +9,12 @@
   <tr>
     <td>
       <KacheriSeal />
-      <p>સ્થળ: વલ્લભ વિદ્યાનગર</p>
-      <p>તારીખ : {toString(new Date().toLocaleDateString("en-GB").split("/"), "/")}</p>
+      <p>સ્થળ: <b>વલ્લભ વિદ્યાનગર</b></p>
+      <p>
+        તારીખ : <b>
+          {toString(new Date().toLocaleDateString("en-GB").split("/"), "/")}
+        </b>
+      </p>
     </td>
     <td class="center">
       <p>કુલસચિવ</p>
@@ -20,12 +24,16 @@
     <td>
       <p>કર્મચારીની સહી</p>
       <p>
-        નામ: {toString($data[index]?.karmchariNaam[0], " ") ||
-          toString($data[index]?.karmchariNaam[1], " ") ||
-          ".".repeat(30)}
+        નામ: <b>
+          {toString($data[index]?.karmchariNaam[0], " ") ||
+            toString($data[index]?.karmchariNaam[1], " ") ||
+            ".".repeat(30)}
+        </b>
       </p>
       <p>
-        હોદ્દો: {$data[index].karmchariHoddo[1] || ".".repeat(30)}
+        હોદ્દો: <b>
+          {$data[index].karmchariHoddo[1] || ".".repeat(30)}
+        </b>
       </p>
     </td>
   </tr>

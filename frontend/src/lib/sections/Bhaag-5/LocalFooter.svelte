@@ -1,6 +1,5 @@
 <script>
   import KacheriSeal from "../../commonElements/kacheriSeal.svelte";
-  import { data } from "../../globalState/data";
   import { toString } from "../../tools/toString";
 </script>
 
@@ -8,8 +7,16 @@
   <tr>
     <td>
       <KacheriSeal />
-      <p>સ્થળ: વલ્લભ વિદ્યાનગર</p>
-      <p>તારીખ :  {toString(new Date().toLocaleDateString("en-GB").split("/"), "/")}</p>
+      <p>
+        સ્થળ:
+        <b> વલ્લભ વિદ્યાનગર </b>
+      </p>
+      <p>
+        તારીખ :
+        <b>
+          {toString(new Date().toLocaleDateString("en-GB").split("/"), "/")}
+        </b>
+      </p>
     </td>
     <td class="center">
       <p>કુલસચિવ</p>
