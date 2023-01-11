@@ -15,6 +15,7 @@ export function countYMD(...args) {
   }
 
   // method 1 starts
+  /*
   let years = y2 - y1;
   let months = m2 - m1;
   let days = d2 - d1;
@@ -27,17 +28,48 @@ export function countYMD(...args) {
     years--;
     months += 12;
   }
+  return make([years, months, days]);
+  */
   // method 1 ends
 
   // method 2 starts
-  /* let diff = new Date(y2, m2 - 1, d2).getTime() - new Date(y1, m1 - 1, d1).getTime();
+  /* 
+  let diff = new Date(y2, m2 - 1, d2).getTime() - new Date(y1, m1 - 1, d1).getTime();
   days = Math.floor(diff / (1000 * 60 * 60 * 24));
   months = Math.floor(days / 30);
   years = Math.floor(months / 12);
   days = days % 30;
-  months = months % 12;*/
-  // method 2 ends
+  months = months % 12;
   return make([years, months, days]);
+  */
+  // method 2 ends
+
+  // method 3 starts
+  let startDate = new Date(y1, m1 - 1, d1);
+  let endDate = new Date(y2, m2 - 1, d2);
+
+  const startYear = startDate.getFullYear();
+  const february = (startYear % 4 === 0 && startYear % 100 !== 0) || startYear % 400 === 0 ? 29 : 28;
+  const daysInMonth = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  let yearDiff = endDate.getFullYear() - startYear;
+  let monthDiff = endDate.getMonth() - startDate.getMonth();
+  if (monthDiff < 0) {
+    yearDiff--;
+    monthDiff += 12;
+  }
+  let dayDiff = endDate.getDate() - startDate.getDate();
+  if (dayDiff < 0) {
+    if (monthDiff > 0) {
+      monthDiff--;
+    } else {
+      yearDiff--;
+      monthDiff = 11;
+    }
+    dayDiff += daysInMonth[startDate.getMonth()];
+  }
+  return make([yearDiff, monthDiff, dayDiff])
+  // method 3 endsP
 }
 
 export function sumYMD(...args) {
