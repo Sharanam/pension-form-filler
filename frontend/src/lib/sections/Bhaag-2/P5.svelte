@@ -100,7 +100,7 @@
                   {toGujarati(i + 1)}
                 </td>
                 <td>
-                  {item[0]} થી {item[1]}
+                  {toGujarati(`${item[0]} થી ${item[1]}`)}
                 </td>
                 <td class="bolder">
                   {$data[index].bandData?.pensionPatrPagarNiVigato?.payBand[

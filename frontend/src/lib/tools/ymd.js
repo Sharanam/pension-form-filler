@@ -1,12 +1,10 @@
-import { toGujarati } from "./toGujarati";
-
 function make(arr) {
   return arr?.map((x) => x?.toString().padStart(2, "0")) || ["", "", ""];
 }
+
 export function countYMD(...args) {
   let [d1, m1, y1, d2, m2, y2] = args.flat();
-  if (
-    !/^\d{1,2}$/.test(d1) ||
+  if (!/^\d{1,2}$/.test(d1) ||
     !/^\d{1,2}$/.test(m1) ||
     !/^\d{4}$/.test(y1) ||
     !/^\d{1,2}$/.test(d2) ||
@@ -16,20 +14,29 @@ export function countYMD(...args) {
     return ["", "", ""];
   }
 
+  // method 1 starts
   let years = y2 - y1;
   let months = m2 - m1;
   let days = d2 - d1;
-
   if (days < 0) {
     months--;
     let daysInPrevMonth = new Date(y2, m2, 0).getDate();
     days += daysInPrevMonth + 1;
   }
-
   if (months < 0) {
     years--;
     months += 12;
   }
+  // method 1 ends
+
+  // method 2 starts
+  /* let diff = new Date(y2, m2 - 1, d2).getTime() - new Date(y1, m1 - 1, d1).getTime();
+  days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  months = Math.floor(days / 30);
+  years = Math.floor(months / 12);
+  days = days % 30;
+  months = months % 12;*/
+  // method 2 ends
   return make([years, months, days]);
 }
 
@@ -127,7 +134,7 @@ export function dasMaas([date, month, year]) {
       lastDay = new Date(y, m, date);
     }
     result.push(
-      [firstDay, lastDay].map((x) => toGujarati(x.toLocaleDateString("en-GB")))
+      [firstDay, lastDay].map((x) => (x.toLocaleDateString("en-GB")))
     );
     if (m === 11) {
       m = 0;

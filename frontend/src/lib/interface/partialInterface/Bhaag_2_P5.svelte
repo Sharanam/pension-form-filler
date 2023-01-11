@@ -195,12 +195,9 @@
               {toGujarati(i + 1)}
             </td>
             <td>
-              {item[0]} થી {item[1]}
+              {toGujarati(`${item[0]} થી ${item[1]}`)}
             </td>
             <td>
-              <!-- {$data[index].bandData?.pensionPatrPagarNiVigato?.payBand[
-                i
-              ] || "-"} -->
               <input
                 type="number"
                 min="0"
@@ -216,9 +213,6 @@
               />
             </td>
             <td>
-              <!-- {$data[index].bandData?.pensionPatrPagarNiVigato?.gradePay[
-                i
-              ] || "-"} -->
               <input
                 type="number"
                 min="0"
