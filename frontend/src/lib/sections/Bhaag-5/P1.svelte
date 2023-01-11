@@ -69,5 +69,9 @@
     </td>
   </table>
   <NaukariNiVigato {index} />
+  <p class="indent">
+    ઉપર જણાવેલ હકીકત કર્મચારીની સેવાપોથીમાંથી પૂરતી ચકાસણી કરીને લખેલ છે અને તે
+    સાચી છે
+  </p>
   <LocalFooter />
 </div>

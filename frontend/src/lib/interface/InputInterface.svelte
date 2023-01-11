@@ -623,10 +623,8 @@
     લાભોમાથી કપાત કરવાની વિગત
     <Bhaag_2_P9 />
   </div>
-  <div>
-    ભાગ - 5:
-    <NaukariNiVigato index={$index} />
-  </div>
+  <div>ભાગ - 5:</div>
+  <NaukariNiVigato index={$index} />
 </div>
 
 <style>

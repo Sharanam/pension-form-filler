@@ -3,7 +3,7 @@
   import { toGujarati } from "../tools/toGujarati";
   import { toString } from "../tools/toString";
   import { data } from "../globalState/data";
-  import { countYMD } from "../tools/ymd";
+  import { countYMD, sumYMD } from "../tools/ymd";
 
   export let index;
 
@@ -13,8 +13,25 @@
       data[index].naukariNiVigato[0][i][1][1]
     );
 
-    data[index].naukariNiVigato[0][i][2] = ymd;
-    data[index].naukariNiVigato[0][i][3] = ymd;
+    data[index].naukariNiVigato[0][i][2] = [...ymd];
+    data[index].naukariNiVigato[0][i][3] = [...ymd];
+
+    return data;
+  }
+  function kulNaukari(data, i) {
+    let ymd = [0, 0, 0];
+    data[index].naukariNiVigato[1][0] = data[index].naukariNiVigato[0].reduce(
+      (acc, curr) => {
+        return sumYMD(acc, curr[2]);
+      },
+      ymd
+    );
+    data[index].naukariNiVigato[1][1] = data[index].naukariNiVigato[0].reduce(
+      (acc, curr) => {
+        return sumYMD(acc, curr[3]);
+      },
+      ymd
+    );
 
     return data;
   }
@@ -73,6 +90,7 @@
                 data.update((data) => {
                   data[index].naukariNiVigato[0][i][1][0][0] = e.target.value;
                   data = calculator(data, i);
+                  data = kulNaukari(data, i);
                   return data;
                 });
               }}
@@ -85,6 +103,7 @@
                 data.update((data) => {
                   data[index].naukariNiVigato[0][i][1][0][1] = e.target.value;
                   data = calculator(data, i);
+                  data = kulNaukari(data, i);
                   return data;
                 });
               }}
@@ -97,6 +116,7 @@
                 data.update((data) => {
                   data[index].naukariNiVigato[0][i][1][0][2] = e.target.value;
                   data = calculator(data, i);
+                  data = kulNaukari(data, i);
                   return data;
                 });
               }}
@@ -111,6 +131,7 @@
                 data.update((data) => {
                   data[index].naukariNiVigato[0][i][1][1][0] = e.target.value;
                   data = calculator(data, i);
+                  data = kulNaukari(data, i);
                   return data;
                 });
               }}
@@ -123,6 +144,7 @@
                 data.update((data) => {
                   data[index].naukariNiVigato[0][i][1][1][1] = e.target.value;
                   data = calculator(data, i);
+                  data = kulNaukari(data, i);
                   return data;
                 });
               }}
@@ -135,6 +157,7 @@
                 data.update((data) => {
                   data[index].naukariNiVigato[0][i][1][1][2] = e.target.value;
                   data = calculator(data, i);
+                  data = kulNaukari(data, i);
                   return data;
                 });
               }}
@@ -163,7 +186,15 @@
         <div class="no-print">
           <input
             type="number"
-            bind:value={$data[index].naukariNiVigato[0][i][2][0]}
+            value={$data[index].naukariNiVigato[0][i][2][0]}
+            on:change={(e) => {
+              data.update((data) => {
+                data[index].naukariNiVigato[0][i][2][0] = e.target.value;
+                data = kulNaukari(data, i);
+                return data;
+              });
+            }}
+            placeholder="વર્ષ"
           />
         </div>
         <span class="no-screen bolder">
@@ -174,7 +205,15 @@
         <div class="no-print">
           <input
             type="number"
-            bind:value={$data[index].naukariNiVigato[0][i][2][1]}
+            value={$data[index].naukariNiVigato[0][i][2][1]}
+            on:change={(e) => {
+              data.update((data) => {
+                data[index].naukariNiVigato[0][i][2][1] = e.target.value;
+                data = kulNaukari(data, i);
+                return data;
+              });
+            }}
+            placeholder="મહિનો"
           />
         </div>
         <span class="no-screen bolder">
@@ -185,7 +224,15 @@
         <div class="no-print">
           <input
             type="number"
-            bind:value={$data[index].naukariNiVigato[0][i][2][2]}
+            value={$data[index].naukariNiVigato[0][i][2][2]}
+            on:change={(e) => {
+              data.update((data) => {
+                data[index].naukariNiVigato[0][i][2][2] = e.target.value;
+                data = kulNaukari(data, i);
+                return data;
+              });
+            }}
+            placeholder="દિવસ"
           />
         </div>
         <span class="no-screen bolder">
@@ -197,7 +244,15 @@
         <div class="no-print">
           <input
             type="number"
-            bind:value={$data[index].naukariNiVigato[0][i][3][0]}
+            value={$data[index].naukariNiVigato[0][i][3][0]}
+            on:change={(e) => {
+              data.update((data) => {
+                data[index].naukariNiVigato[0][i][3][0] = e.target.value;
+                data = kulNaukari(data, i);
+                return data;
+              });
+            }}
+            placeholder="વર્ષ"
           />
         </div>
         <span class="no-screen bolder">
@@ -208,7 +263,15 @@
         <div class="no-print">
           <input
             type="number"
-            bind:value={$data[index].naukariNiVigato[0][i][3][1]}
+            value={$data[index].naukariNiVigato[0][i][3][1]}
+            on:change={(e) => {
+              data.update((data) => {
+                data[index].naukariNiVigato[0][i][3][1] = e.target.value;
+                data = kulNaukari(data, i);
+                return data;
+              });
+            }}
+            placeholder="મહિનો"
           />
         </div>
         <span class="no-screen bolder">
@@ -219,7 +282,15 @@
         <div class="no-print">
           <input
             type="number"
-            bind:value={$data[index].naukariNiVigato[0][i][3][2]}
+            value={$data[index].naukariNiVigato[0][i][3][2]}
+            on:change={(e) => {
+              data.update((data) => {
+                data[index].naukariNiVigato[0][i][3][2] = e.target.value;
+                data = kulNaukari(data, i);
+                return data;
+              });
+            }}
+            placeholder="દિવસ"
           />
         </div>
         <span class="no-screen bolder">
@@ -269,7 +340,50 @@
         {$data[index].naukariNiVigato[1][0][1] || ".".repeat(1)}
       </span>
     </td>
-    <td> // to be continued </td>
+    <td>
+      <div class="no-print">
+        <input
+          type="number"
+          bind:value={$data[index].naukariNiVigato[1][0][2]}
+        />
+      </div>
+      <span class=" bolder">
+        {$data[index].naukariNiVigato[1][0][2] || ".".repeat(1)}
+      </span>
+    </td>
+    <td>
+      <div class="no-print">
+        <input
+          type="number"
+          bind:value={$data[index].naukariNiVigato[1][1][0]}
+        />
+      </div>
+      <span class=" bolder">
+        {$data[index].naukariNiVigato[1][1][0] || ".".repeat(1)}
+      </span>
+    </td>
+    <td>
+      <div class="no-print">
+        <input
+          type="number"
+          bind:value={$data[index].naukariNiVigato[1][1][1]}
+        />
+      </div>
+      <span class=" bolder">
+        {$data[index].naukariNiVigato[1][1][1] || ".".repeat(1)}
+      </span>
+    </td>
+    <td>
+      <div class="no-print">
+        <input
+          type="number"
+          bind:value={$data[index].naukariNiVigato[1][1][2]}
+        />
+      </div>
+      <span class=" bolder">
+        {$data[index].naukariNiVigato[1][1][2] || ".".repeat(1)}
+      </span>
+    </td>
   </tr>
 </table>
 
@@ -293,7 +407,7 @@
     background: darkmagenta;
   }
 
-  .initial input {
+  input {
     width: min(80%, 200px);
     display: initial;
     border: 0;
